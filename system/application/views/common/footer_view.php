@@ -1,0 +1,1 @@
+page loaded in {elapsed_time} seconds | myCMS - Copyright 2010

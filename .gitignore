@@ -1,0 +1,9 @@
+# CodeIgniter
+#*/config/database.php
+*/system/logs/log-*.php
+*/system/cache/*
+*/system/cache/!index.html
+
+# Netbeans Projects folder
+nbproject/
+

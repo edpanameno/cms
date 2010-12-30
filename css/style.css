@@ -1,0 +1,234 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	background: url("../images/background.gif") repeat scroll 0 0 #4b4d4d;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	font-size: 14px;
+}
+
+#container {
+	background: url("../images/top-background.gif") repeat-x scroll;
+	background-color: #FFF;
+	border: 1px solid black;
+	/*margin: 0 auto;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	position: relative;
+	/*min-height: 100%;*/
+	min-height: 825px;
+}
+
+#top-header {
+	margin-left: 5px;
+	position: relative;
+}
+
+/** Info on the uppr right hand corner of every page **/
+#meta-info {
+	font-size: 9pt;
+	color: #555555;
+	background: none repeat scroll 0 0 transparent;
+	margin: 0;
+	position: absolute;
+	right: 5px;
+	top: 14px;
+}
+
+/* This is for the search box in the upper right hand corner */
+/*#global-search {
+	margin: 0;
+	position: absolute;
+	right: 0px;
+	top: 59px;
+}*/
+
+#common-nav {
+	background: url("../images/nav-bar-background.png") repeat-x scroll 0 0 #FFFFFF;
+	border-bottom: 5px solid #000000;
+	clear: both;
+	float: left;
+	margin-top: -12px;
+	padding: -10px;
+	position: relative;
+	width: 100%;
+}
+
+#common-nav ul {
+	list-style: none outside none;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#common-nav li {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+#common-nav a {
+	/*font-family: Arial;*/
+	border-bottom: medium none;
+	border-right: 1px solid #dddddd;
+	color: #555555;
+	float: left;
+	font-size: 14px;
+	letter-spacing: -1px;
+	padding: 4px 15px;
+	text-decoration: none;
+}
+
+#common-nav a:hover {
+	color: white;
+	background-color: black;
+}
+
+#common-nav #current_tab {
+	color: white;
+	background-color: black;
+}
+
+/* The navigation bar for each page */
+#page_breadcrum {
+	font-size: 8pt;
+	font-style: italic;
+	/*font-weight: bold;*/
+	margin-left: 5px;
+	margin-top: 1px;
+	float: left;
+}
+
+/*#page_breadcrum li a {
+	display: block;
+	padding: 0 15px 0 0;
+	background: url("../images/crumbs.gif") no repeat right center;
+}*/
+
+#page-nav-bar {
+	background: url("../images/page-nav-bar-background.png") repeat-x scroll 0 0 #FFFFFF;
+	border: 1px solid #DDDDDD;
+	/*font: 8.5pt Verdana, "Bitstream Vera Sans", helvatica,arial, sans-serif;*/
+	font: 9pt Georgia, Times, sans-serif;
+	margin-top: 33px;
+	height: 18px;
+}
+
+#page-nav-bar ul {
+	list-style: none outside none;
+	margin: 0;
+	text-align: right;
+}
+
+#page-nav-bar li {
+	display: inline;
+	white-space: nowrap;
+	border-right: medium none;
+	padding: 0.25em 0;
+}
+
+#page-nav-bar a {
+	border-bottom: medium none;
+	border-left: 1px solid #dddddd;
+	float: right;
+	letter-spacing: -1px;
+	padding: 1px 15px;
+	text-decoration: none;
+}
+
+#main-content {
+	margin-top: -10px;
+	margin-left: 15px;
+	margin-right: 35px;
+}
+
+/** sticky footer **/
+#footer {
+	margin-top: -150px;
+	height: 10px;
+
+	background: none repeat scroll 0 0 #eeeeee;
+	border-bottom: 4px solid #222222;
+	border-left: 1px solid #222222;
+	border-right: 1px solid #222222;
+	border-top: 1px solid #DDDDDD;
+	color: #555555;
+
+	font-size: 9pt;
+	margin: 0 10px auto;
+	padding: 4px 0;
+	vertical-align: baseline;
+	text-align: center;
+}
+
+/* Content Input */
+#content_input {
+}
+
+#content_input input[type="text"] {
+	background: url("../images/input_bg.gif") repeat-x scroll 0 0 #FFFFFF;
+	border: 1px solid #D3D3D3;
+	font-family: inherit;
+	font-size: 11pt;
+	text-indent: 2px;
+	height: 10px;
+	width: 43%;
+}
+
+select[name="language_id"] {
+	width: 25%;
+}
+
+span.validation_error_msg {
+	float: right;
+	margin-right: 120px;
+	font-style: italic;
+	color: red;
+}
+
+div#content_input input[type="text"] {
+	background: url("../images/input_bg.gif") repeat-x scroll 0 0 #FFFFFF;
+	height: 55%;
+}
+
+span#button_grid {
+	padding-top: 3px;
+	margin-left: 100px;
+	width: 25%;
+}
+
+div#content_input p {
+	margin: 3px;
+}
+
+div#content_input label {
+	float: left;
+	font-weight: bold;
+	width: 100px;
+}
+
+input, select option {
+	font-family: inherit;
+	font-size: 13px;
+}
+
+/** Fonts **/
+h2 {
+	color: #4F5155;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+h3 {
+	/*color: #4F5155;*/
+	font-weight: bold;
+	font-size: 15pt;
+	margin-bottom: -5px;
+}
+
+h4 {
+	/*border: 1px dashed red;*/
+	/*font-weight: bold;*/
+	font-size: 12pt;
+	margin-bottom: 5px;
+}
