@@ -1,1 +1,1 @@
-page loaded in {elapsed_time} seconds | myCMS - Copyright 2010
+page loaded in {elapsed_time} seconds | <?php echo $this->config->item("app_name") ?> - Copyright 2011
