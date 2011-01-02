@@ -21,7 +21,7 @@
 			</div>
 			<div id="main-content">
 				<h3>About myCMS</h3>
-				<p><b>myCMS</b> is a simple project tracking system that allow you to keep track of the progress in
+				<p><b><?php echo $this->config->item("app_name") ?></b> is a simple project tracking system that allow you to keep track of the progress in
 				what ever programming project you are currently working on.  To accomplish this, myCMS allows users to
 				create an unlimited number of projects.  Each project will get it's own tracking system (trac) to
 				keep track of issues/enhancements that must be made to each project. In addition, a simple wiki will
