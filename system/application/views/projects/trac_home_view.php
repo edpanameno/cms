@@ -86,7 +86,7 @@
 			</div>
 			<div id="main-content">
 				<h3><?php echo $project_name ?> - Trac Page</h3>
-				<p><?php echo $description ?></p>
+				<br />
 				<div>
 					<table>
 						<colgroup>
@@ -103,7 +103,15 @@
 							<th>Date Created</th>
 							<th>Status</th>
 						</thead>
-						<!-- ticket table content will go here -->
+						<?php foreach($tickets as $ticket): ?>
+						<tr>
+							<td><?php echo $ticket->ticket_id; ?></td>
+							<td><?php echo $ticket->title; ?></td>
+							<td><?php echo $ticket->created_by; ?></td>
+							<td><?php echo $ticket->date_created; ?></td>
+							<td><?php echo $ticket->status; ?></td>
+						</tr>
+					<?php endforeach; ?>
 					</table>
 				</div>
 			</div>

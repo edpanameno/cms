@@ -27,7 +27,17 @@ class Ticket_model extends Model {
 		return $this->db->insert_id();
 	}
 
-	function getAllTickets($project_id = '') {
-		
+	function getAllTicketsByProjectId($project_id) {
+
+		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', U.username as 'created_by' " .
+				    "FROM tickets T, users U, ticket_status TS " .
+					"WHERE T.project_id = '$project_id' " .
+					"AND T.ticket_status = TS.status_id " .
+					"AND T.created_by = U.id " .
+					"ORDER BY date_created DESC";
+
+		$query = $this->db->query($sqlQuery);
+
+		return $query->result();
 	}
 }
