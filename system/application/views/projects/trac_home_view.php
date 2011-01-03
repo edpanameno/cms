@@ -50,7 +50,7 @@
 			}
 
 			#ticket_title {
-				width: 50%;
+				width: 43%;
 			}
 
 			#ticket_created_by {
@@ -58,11 +58,15 @@
 			}
 
 			#ticket_date_created {
-				width: 18%;
+				width: 17%;
+			}
+
+			#ticket_type {
+				width: 11%;
 			}
 
 			#ticket_status {
-				width: 14%;
+				width: 15%;
 			}
 
 		</style>
@@ -94,6 +98,7 @@
 							<col id="ticket_title" />
 							<col id="ticket_created_by" />
 							<col id="ticket_date_created" />
+							<col id="ticket_type" />
 							<col id="ticket_stauts" />
 						</colgroup>
 						<thead>
@@ -101,6 +106,7 @@
 							<th>Title</th>
 							<th>Created By</th>
 							<th>Date Created</th>
+							<th>Type</th>
 							<th>Status</th>
 						</thead>
 						<?php foreach($tickets as $ticket): ?>
@@ -109,6 +115,7 @@
 							<td><?php echo $ticket->title; ?></td>
 							<td><?php echo $ticket->created_by; ?></td>
 							<td><?php echo $ticket->date_created; ?></td>
+							<td><?php echo $ticket->ticket_type; ?></td>
 							<td><?php echo $ticket->status; ?></td>
 						</tr>
 					<?php endforeach; ?>
