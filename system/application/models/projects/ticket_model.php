@@ -27,11 +27,12 @@ class Ticket_model extends Model {
 		return $this->db->insert_id();
 	}
 
-	function getAllTicketsByProjectId($project_id) {
+	function getTicketsByProjectId($project_id) {
 
 		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', U.username as 'created_by', TT.name as 'ticket_type' " .
 				    "FROM tickets T, users U, ticket_status TS, ticket_types TT " .
 					"WHERE T.project_id = '$project_id' " .
+					"AND T.ticket_status !=  '2'" . // don't show closed issues
 					"AND T.ticket_status = TS.status_id " .
 					"AND T.created_by = U.id " .
 					"AND T.ticket_type = TT.type_id " .

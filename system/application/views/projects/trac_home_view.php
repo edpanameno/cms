@@ -62,11 +62,11 @@
 			}
 
 			#ticket_type {
-				width: 11%;
+				width: 8%;
 			}
 
 			#ticket_status {
-				width: 15%;
+				width: 19%;
 			}
 
 		</style>
