@@ -7,9 +7,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
-
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
-		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
+		<script language="javascript" type="text/javascript" src="js/basic_editor.js"></script>
     </head>
     <body>
 		<div id="container">
@@ -54,7 +53,7 @@
 					<p>
 						<label for="text_description">Description*</label>
 						<?php echo form_error('text_description'); ?>
-						<textarea cols="60" rows="15" name="text_description" id="text_description"><?php echo set_value('text_description'); ?></textarea>
+						<textarea cols="60" rows="15" name="text_description" id="text_description"> <?php echo set_value('text_description'); ?></textarea>
 					</p>
 					<span id="button_grid">
 						<input type="submit" value="Create Ticket" />
