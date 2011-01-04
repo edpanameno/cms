@@ -1,4 +1,5 @@
 body, td, pre {
+
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 }
@@ -14,6 +15,10 @@ body {
 /* MSIE specific */
 
 * html body {
+	background-color: #FFFFFF;
+	font-family: Georgia, Times, serif;
+	font-size: 13px;
+
 	scrollbar-3dlight-color: #F0F0EE;
 	scrollbar-arrow-color: #676662;
 	scrollbar-base-color: #F0F0EE;

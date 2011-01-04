@@ -1,5 +1,21 @@
-body, td, pre {color:#000; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; margin:8px;}
-body {background:#FFF;}
+body, td, pre {
+
+	font-family: Georgia, Times, serif;
+	font-size: 13px;
+	background:#FFF;
+
+	color:#000;
+	/*font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;*/
+	margin:8px;
+}
+
+body { 
+	background-color: #FFFFFF;
+	font-family: Georgia, Times, serif;
+	font-size: 13px;background:#FFF;
+}
+
 body.mceForceColors {background:#FFF; color:#000;}
 h1 {font-size: 2em}
 h2 {font-size: 1.5em}
@@ -22,6 +38,7 @@ abbr {border-bottom:1px dashed #CCC; cursor:help}
 
 /* IE */
 * html body {
+	
 scrollbar-3dlight-color:#F0F0EE;
 scrollbar-arrow-color:#676662;
 scrollbar-base-color:#F0F0EE;

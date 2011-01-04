@@ -4,7 +4,7 @@
     <head>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>myCMS - projects - Create Project</title>
+        <title><?php echo $this->config->item("app_name"); ?> - projects - Create Project</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<base href="<?php echo site_url(); ?>" />
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
