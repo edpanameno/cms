@@ -58,7 +58,7 @@
 			}
 
 			.activate_user {
-				width: 15%;
+				width: 10%;
 				text-align: center;
 			}
 
