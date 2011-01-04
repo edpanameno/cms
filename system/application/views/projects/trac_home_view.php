@@ -11,7 +11,7 @@
 			table {
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
-				width: 95%;
+				width: 100%;
 				margin-left: auto;
 				margin-right: auto;
 				border-collapse: collapse;
@@ -50,7 +50,7 @@
 			}
 
 			#ticket_title {
-				width: 43%;
+				width: 40%;
 			}
 
 			#ticket_created_by {
@@ -62,11 +62,11 @@
 			}
 
 			#ticket_type {
-				width: 8%;
+				width: 11%;
 			}
 
 			#ticket_status {
-				width: 19%;
+				width: 25%;
 			}
 
 		</style>
