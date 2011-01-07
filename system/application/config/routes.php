@@ -57,14 +57,14 @@ $route['user/change_info'] = 'user/home/change_info';
 
 // Project
 $route['projects/create'] = 'projects/home/create';
-$route['projects/(:num)/([a-z_A-Z0-9_!-~]+)'] = 'projects/home/index/$1/$2';
+$route['projects/(:num)/([a-z_A-Z0-9.]+)'] = 'projects/home/index/$1/$2';
 
 // Wiki
-$route['projects/(:num)/([0-9a-z_A-Z0-9_!-~]+)/wiki'] = 'projects/wiki/index/$1/$2';
+$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/wiki'] = 'projects/wiki/index/$1/$2';
 
 // Trac
-$route['projects/(:num)/([0-9a-z_A-Z0-9_!-~]+)/trac'] = 'projects/trac/index/$1/$2';
-$route['projects/(:num)/([0-9a-z_A-Z0-9_!-~]+)/trac/new_ticket'] = 'projects/trac/new_ticket/$1/$2';
+$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac'] = 'projects/trac/index/$1/$2';
+$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac/new_ticket'] = 'projects/trac/new_ticket/$1/$2';
 
 /* End of file routes.php */
 /* Location: ./system/application/config/routes.php */
