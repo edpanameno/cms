@@ -34,7 +34,7 @@
 			<div id="main-content">
 				<h3>Login to myCMS</h3>
 				<span style="color: red;"><?php echo $this->session->flashdata('message'); ?></span>
-				<p>Enter your username and password in the fields provided below to log in into myCMS.</p>
+				<p>Enter your username and password in the fields provided below to log in into <?php echo $this->config->item("app_name"); ?>.</p>
 				<?php echo form_open('login')?>
 
 				<fieldset>

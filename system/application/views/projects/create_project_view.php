@@ -12,7 +12,7 @@
 		<style type="text/css">
 			select {
 				font: inherit;
-				width: 15%;
+				width: 120px;
 			}
 		</style>
     </head>

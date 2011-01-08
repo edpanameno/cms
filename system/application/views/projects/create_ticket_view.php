@@ -12,10 +12,7 @@
 		<style type="text/css">
 			select {
 				font: inherit;
-				width: 15%;
-			}
-
-			#ticket_title {
+				width: 150px;
 			}
 		</style>
     </head>
