@@ -38,6 +38,7 @@ class Trac extends Controller {
 
 		$this->load->model('projects/ticket_model');
 		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id);
+		$data['project_name'] = $humanized_project_name;
 		$this->load->view('projects/trac_ticket_view', $data);
 	}
 

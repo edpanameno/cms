@@ -43,7 +43,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Common > Page > Breadcrumb
+					Projects > <?php echo $project_name; ?> > Trac > <?php echo $ticket->ticket_id; ?>
 				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
