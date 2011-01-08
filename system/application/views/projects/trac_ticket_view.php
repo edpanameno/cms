@@ -10,7 +10,7 @@
 
 		<style type="text/css">
 			#ticket_title {
-				margin-left: 50px;
+				margin-left: 48px;
 			}
 
 			table.ticket_info {
@@ -51,7 +51,7 @@
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3 id="ticket_title"><?php echo "(#" . $ticket->ticket_id . ") " . $ticket->title; ?></h3> <br />
+				<h3 id="ticket_title"><?php echo $ticket->title .  " (" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table border="1" class="ticket_info">
 					<colgroup>
 						<col id="ticket_item" />

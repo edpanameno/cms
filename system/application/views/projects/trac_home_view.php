@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-    <head>
+	<head>
 		<base href="<?php echo site_url(); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -117,12 +117,12 @@
 						</thead>
 						<?php foreach($tickets as $ticket): ?>
 						<tr>
-							<td class="ticket_id_column"><?php echo $ticket->ticket_id; ?></td>
-							<td><?php echo $ticket->title; ?></td>
-							<td class="created_by_column"><?php echo $ticket->created_by; ?></td>
-							<td class="date_created_column"><?php echo date("M d Y - h:i a",strtotime($ticket->date_created)); ?></td>
-							<td class="ticket_type_column"><?php echo $ticket->ticket_type; ?></td>
-							<td class="ticket_status_column"><?php echo $ticket->status; ?></td>
+							<td class="ticket_id_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
+							<td class="created_by_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->created_by); ?></td>
+							<td class="date_created_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, date("M d Y - h:i a",strtotime($ticket->date_created))); ?></td>
+							<td class="ticket_type_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_type); ?></td>
+							<td class="ticket_status_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 						</tr>
 					<?php endforeach; ?>
 					</table>
