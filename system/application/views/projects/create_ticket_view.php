@@ -9,6 +9,15 @@
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
 		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
+		<style type="text/css">
+			select {
+				font: inherit;
+				width: 15%;
+			}
+
+			#ticket_title {
+			}
+		</style>
     </head>
     <body>
 		<div id="container">
@@ -45,7 +54,7 @@
 						<p>
 							<label for="ticket_title">Title*</label>
 							<?php echo form_error('ticket_title'); ?>
-							<input type="text" size="30" id="ticket_title" name="ticket_title" value="<?php echo set_value('ticket_title') ?>" />
+							<input type="text" id="ticket_title" name="ticket_title" value="<?php echo set_value('ticket_title') ?>" />
 						</p>
 						<p>
 							<label for="text_description">Description*</label>
