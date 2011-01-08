@@ -105,7 +105,7 @@
 					</thead>
 					<?php foreach($projects as $project): ?>
 						<tr>
-							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name); ?></td> 
+							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name); ?></td>
 							<td class="language_name_column"><?php echo $project->language_name; ?></td>
 							<td class="wiki_column"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/wiki", "wiki"); ?></td>
 							<td class="trac_column"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>

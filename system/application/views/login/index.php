@@ -48,26 +48,7 @@
 					</div>
 					<div><input type="submit" value="Login" /></div>
 				</fieldset>
-
-				<!-- <table border="1">
-					<tr>
-						<td>Username:</td>
-						<td><input type="text" id="username" name="username" size="20" /></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><input type="password" id="password" name="password" size="20" /></td>
-					</tr>
-					<tr>
-						<td>Remember me:</td>
-						<td><input type="checkbox" name="remember" id="remember" value="1" /></td>
-					</tr>
-					<tr>
-						<td colspan="2"><input type="submit" value="Login" /></td>
-					</tr>
-				</table> -->
 				<?php echo form_close(); ?>
-
 			</div>
 		</div>
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>

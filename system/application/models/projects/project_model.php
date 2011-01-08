@@ -42,7 +42,7 @@ class Project_model extends Model {
 
 	function retrieveAllActive() {
 
-		$sqlQuery = 'SELECT P.project_id, P.date_created, P.last_updated, P.name, P.description, ' .
+		$sqlQuery = 'SELECT P.project_id, P.date_created, P.last_updated, P.name, ' .
 					'U.username AS created_by, L.name AS language_name ' .
 					'FROM projects P, users U, languages L ' .
 					'WHERE P.created_by = U.id '.
