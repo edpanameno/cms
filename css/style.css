@@ -179,7 +179,7 @@ body {
 }
 
 select[name="language_id"] {
-	width: 25%;
+	width: 20%;
 }
 
 span.validation_error_msg {
