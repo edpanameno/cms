@@ -47,7 +47,7 @@
 			}
 
 			#ticket_number {
-				width: 10%
+				width: 9%
 			}
 
 			#ticket_title {
@@ -59,7 +59,7 @@
 			}
 
 			#ticket_date_created {
-				width: 20%;
+				width: 18%;
 			}
 
 			#ticket_type {
@@ -67,7 +67,7 @@
 			}
 
 			#ticket_status {
-				width: 25%;
+				width: 27%;
 			}
 
 			td.ticket_id_column, td.created_by_column, td.ticket_status_column, td.ticket_type_column,td.date_created_column {

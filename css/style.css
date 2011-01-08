@@ -178,10 +178,6 @@ body {
 	width: 43%;
 }
 
-select[name="language_id"] {
-	width: 20%;
-}
-
 span.validation_error_msg {
 	float: right;
 	margin-right: 120px;
