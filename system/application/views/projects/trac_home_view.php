@@ -116,7 +116,7 @@
 							<td><?php echo $ticket->ticket_id; ?></td>
 							<td><?php echo $ticket->title; ?></td>
 							<td><?php echo $ticket->created_by; ?></td>
-							<td><?php echo $ticket->date_created; ?></td>
+							<td><?php echo date("M d Y - h:i a",strtotime($ticket->date_created)); ?></td>
 							<td><?php echo $ticket->ticket_type; ?></td>
 							<td><?php echo $ticket->status; ?></td>
 						</tr>
