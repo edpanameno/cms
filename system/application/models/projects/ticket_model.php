@@ -42,4 +42,19 @@ class Ticket_model extends Model {
 
 		return $query->result();
 	}
+
+	function getTicketInfo($ticket_id) {
+
+		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.last_updated, T.title, T.description, " .
+					"U.username as 'created_by', TS.name as 'status', TT.name as 'type', TP.name as 'priority'  " .
+					"FROM tickets T, users U, ticket_status TS, ticket_types TT, ticket_priority TP " .
+					"WHERE T.ticket_id = '$ticket_id' " .
+					"AND T.created_by = U.id " .
+					"AND T.ticket_status = TS.status_id " .
+					"AND T.ticket_priority = TP.priority_id " .
+					"AND T.ticket_type = TT.type_id ";
+
+		$query = $this->db->query($sqlQuery);
+		return $query->row();
+	}
 }

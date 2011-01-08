@@ -31,6 +31,16 @@ class Trac extends Controller {
 		}
 	}
 
+	function view_ticket($ticket_id, $project_name) {
+
+		$humanized_project_name = humanize($project_name);
+		$data['title'] = $this->config->item("app_name") . " - " . $humanized_project_name . ' - Ticket #' . $ticket_id;
+
+		$this->load->model('projects/ticket_model');
+		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id);
+		$this->load->view('projects/trac_ticket_view', $data);
+	}
+
 	function new_ticket($project_id = '', $project_name = '') {
 
 		$this->load->library("Form_validation");
