@@ -40,7 +40,7 @@
 				<fieldset>
 					<div>
 						<label for="'username">Username</label>
-						<input type="type" id="username" name="username" size="20" />
+						<input type="text" id="username" name="username" size="20" />
 					</div>
 					<div>
 						<label for="password">Password</label>
