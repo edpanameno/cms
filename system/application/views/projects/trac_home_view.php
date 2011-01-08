@@ -55,11 +55,11 @@
 			}
 
 			#ticket_created_by {
-				width: 12%;
+				width: 11%;
 			}
 
 			#ticket_date_created {
-				width: 17%;
+				width: 20%;
 			}
 
 			#ticket_type {
@@ -68,6 +68,10 @@
 
 			#ticket_status {
 				width: 25%;
+			}
+
+			td.ticket_id_column, td.created_by_column, td.ticket_status_column, td.ticket_type_column,td.date_created_column {
+				text-align: center;
 			}
 
 		</style>
@@ -113,12 +117,12 @@
 						</thead>
 						<?php foreach($tickets as $ticket): ?>
 						<tr>
-							<td><?php echo $ticket->ticket_id; ?></td>
+							<td class="ticket_id_column"><?php echo $ticket->ticket_id; ?></td>
 							<td><?php echo $ticket->title; ?></td>
-							<td><?php echo $ticket->created_by; ?></td>
-							<td><?php echo date("M d Y - h:i a",strtotime($ticket->date_created)); ?></td>
-							<td><?php echo $ticket->ticket_type; ?></td>
-							<td><?php echo $ticket->status; ?></td>
+							<td class="created_by_column"><?php echo $ticket->created_by; ?></td>
+							<td class="date_created_column"><?php echo date("M d Y - h:i a",strtotime($ticket->date_created)); ?></td>
+							<td class="ticket_type_column"><?php echo $ticket->ticket_type; ?></td>
+							<td class="ticket_status_column"><?php echo $ticket->status; ?></td>
 						</tr>
 					<?php endforeach; ?>
 					</table>
