@@ -38,6 +38,17 @@ class Trac extends Controller {
 
 		$this->load->model('projects/ticket_model');
 		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id);
+		//$data['notes'] = ;
+		//$data['attachements'] = ;
+
+		// Will be used to fill out the drop down lists for changing
+		// the ticket
+		$this->load->model("projects/ticket_type_info_model");
+		$data['ticket_statuses'] = $this->ticket_type_info_model->getStatuses();
+		$data['ticket_priorities'] = $this->ticket_type_info_model->getPriorities();
+		$data['ticket_types'] = $this->ticket_type_info_model->getTypes();
+
+
 		$data['project_name'] = $humanized_project_name;
 		$this->load->view('projects/trac_ticket_view', $data);
 	}
@@ -73,5 +84,14 @@ class Trac extends Controller {
 			// able to just re-direct the user to view the newly created ticket
 			redirect("projects/$project_id/$project_name/trac/$newly_created_ticket_id", '');
 		}
+	}
+
+	function new_ticket_note() {
+
+		$this->load->model('projects/ticket_model');
+		$this->ticket_model->newNote();
+
+		// where should we re-direct the user?  Or should they
+		// remain in the view ticket window?
 	}
 }

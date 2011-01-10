@@ -1,6 +1,6 @@
 tinyMCE.init({
 	mode: "exact",
-	elements: "text_description",
+	elements: "text_description,note_description",
 	theme: "advanced",
 	plugins: "tabfocus",
 	//button_tile_map: true,
@@ -14,7 +14,7 @@ tinyMCE.init({
 		",justifyleft,justifycenter,justifyright,justifyfull,preview" +
 		",bullist,numlist,|,link,unlink,anchor,removeformat",
 	theme_advanced_buttons2: ""
-	//theme_advanced_resizing: true,
+	//theme_advanced_resizing: true
 	//content_css: "../../../../css/editor/content.css" // this works when creating tickets
 	//content_css: "../css/editor/content.css"
 

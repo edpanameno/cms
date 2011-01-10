@@ -46,6 +46,7 @@ class Ticket_model extends Model {
 	function getTicketInfo($ticket_id) {
 
 		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.last_updated, T.title, T.description, " .
+					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
 					"U.username as 'created_by', TS.name as 'status', TT.name as 'type', TP.name as 'priority'  " .
 					"FROM tickets T, users U, ticket_status TS, ticket_types TT, ticket_priority TP " .
 					"WHERE T.ticket_id = '$ticket_id' " .
@@ -56,5 +57,24 @@ class Ticket_model extends Model {
 
 		$query = $this->db->query($sqlQuery);
 		return $query->row();
+	}
+
+	function newNote() {
+
+		// We first will check to see what kind of a note the user
+		// is creating.  If a change to the ticket has been made
+		// then the type of note will be handled by the 'Change Ticket'
+		// section. If it's just a simple note then the 'Add Note'
+		// section will handle a simple note (i.e. no changes to the
+		// ticket).
+
+		$note_action = $this->input->post("submit");
+
+		if($note_action == "Change Ticket") {
+
+		}
+		else if($note_action == "Add Note") {
+
+		}
 	}
 }
