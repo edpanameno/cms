@@ -123,13 +123,13 @@
 				/*margin-top: -10px;*/
 				margin-bottom: 2%;
 				margin-left: 10px;
-				/*margin-right: 20px;*/
+				margin-right: 10px;
 				/*border-bottom: 1px solid #d7d7d7;*/
 			}
 
 			.comment_text > p {
 				/*border: 1px red dashed;*/
-				margin-top: 10px;
+				margin-top: 5px;
 			}
 
 			#add_note_text {
