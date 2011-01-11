@@ -92,11 +92,13 @@
 			}
 
 			div.comment_heading {
-				margin-top: 10px;
+				/*margin-top: 10px;*/
 				margin-left: auto;
 				margin-right: auto;
-				width: 97%;
+				/*width: 97%;*/
+				border-top: 1px solid #d7d7d7;
 				border-bottom: 1px solid #d7d7d7;
+				background-color: #f2f1f1;
 				font-size: 10pt;
 				font-weight: normal;
 				color: #9a9b9a;
@@ -117,16 +119,17 @@
 			}
 			.comment_text {
 				/*border: 1px dashed red;*/
-				margin-top: -10px;
+				/*margin-top: -10px;*/
 				margin-bottom: 1%;
-				margin-left: 25px;
-				margin-right: 20px;
+				margin-left: 5px;
+				/*margin-right: 20px;*/
+				/*border-bottom: 1px solid #d7d7d7;*/
 			}
 
-			/*.comment_text p:last_child {
-				border: 1px red dashed;
-				margin: 0;
-			}*/
+			.comment_text > p {
+				/*border: 1px red dashed;*/
+				margin: 10px;
+			}
 
 			#add_note_text {
 				/*border: 1px red dashed;*/
