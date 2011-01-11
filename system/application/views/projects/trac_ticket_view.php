@@ -82,7 +82,8 @@
 			#changelog, #attachments, textarea {
 				width: 85%;
 				margin: auto;
-				border: 1px solid #9a9b9a;
+				/*border: 1px solid #9a9b9a;*/
+				border: 1px solid #d7d7d7;
 			}
 
 			fieldset {
@@ -120,15 +121,15 @@
 			.comment_text {
 				/*border: 1px dashed red;*/
 				/*margin-top: -10px;*/
-				margin-bottom: 1%;
-				margin-left: 5px;
+				margin-bottom: 2%;
+				margin-left: 10px;
 				/*margin-right: 20px;*/
 				/*border-bottom: 1px solid #d7d7d7;*/
 			}
 
 			.comment_text > p {
 				/*border: 1px red dashed;*/
-				margin: 10px;
+				margin-top: 10px;
 			}
 
 			#add_note_text {
@@ -221,7 +222,7 @@
 						<div class="comment">
 							<div class="comment_heading">
 								<?php echo $note->note_type . ' by ' . $note->created_by; ?>
-								<div class="comment_misc"><?php echo date("M d Y - h:i a", strtotime($note->date_created)); ?></div>
+								<div class="comment_misc"><?php echo date("M d Y @ h:i a", strtotime($note->date_created)); ?></div>
 							</div>
 							<div class="comment_text"><?php echo $note->description; ?></div> 
 						</div>
