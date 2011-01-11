@@ -13,8 +13,8 @@ tinyMCE.init({
 		",copy,cut,paste,|,undo,redo,|," +
 		",justifyleft,justifycenter,justifyright,justifyfull,preview" +
 		",bullist,numlist,|,link,unlink,anchor,removeformat",
-	theme_advanced_buttons2: ""
-	//theme_advanced_resizing: true
+	theme_advanced_buttons2: "",
+	theme_advanced_resizing: true
 	//content_css: "../../../../css/editor/content.css" // this works when creating tickets
 	//content_css: "../css/editor/content.css"
 

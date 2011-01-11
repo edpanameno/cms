@@ -45,7 +45,7 @@ class Ticket_model extends Model {
 
 	function getTicketInfo($ticket_id) {
 
-		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.last_updated, T.title, T.description, " .
+		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.last_updated, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
 					"U.username as 'created_by', TS.name as 'status', TT.name as 'type', TP.name as 'priority'  " .
 					"FROM tickets T, users U, ticket_status TS, ticket_types TT, ticket_priority TP " .
@@ -59,6 +59,19 @@ class Ticket_model extends Model {
 		return $query->row();
 	}
 
+	function getTicketNotes($ticket_id) {
+
+		$sqlQuery = "SELECT TN.date_created, TN.description, " .
+					"U.username as 'created_by', TNT.name as 'note_type' " .
+					"FROM ticket_notes TN, users U, ticket_note_types TNT " .
+					"WHERE TN.ticket_id = '$ticket_id' " .
+					"AND TN.created_by = U.id " .
+					"AND TN.ticket_note_type = TNT.ticket_note_type_id ";
+
+		$query = $this->db->query($sqlQuery);
+		return $query->result();
+	}
+
 	function newNote() {
 
 		// We first will check to see what kind of a note the user
@@ -67,14 +80,23 @@ class Ticket_model extends Model {
 		// section. If it's just a simple note then the 'Add Note'
 		// section will handle a simple note (i.e. no changes to the
 		// ticket).
+		$action = $this->input->post("submit");
+		//echo "value of action: $action";
 
-		$note_action = $this->input->post("submit");
-
-		if($note_action == "Change Ticket") {
-
+		if($action == "Change Ticket") {
+			$noteMessage = "";
+			//echo 'Change Ticket has been clicked';
 		}
-		else if($note_action == "Add Note") {
+		else if($action == "Add Note") {
+			$data = array(
+				'ticket_id' => $this->input->post("ticket_id"),
+				'created_by' => $this->ion_auth->get_user()->id,
+				'date_created' => date("Y-m-d H:i:s"),
+				'ticket_note_type' => 1,
+				'description' => $this->input->post("text_description")
+			);
 
+			$this->db->insert('ticket_notes', $data);
 		}
 	}
 }

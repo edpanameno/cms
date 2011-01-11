@@ -33,23 +33,34 @@ class Trac extends Controller {
 
 	function view_ticket($ticket_id, $project_name) {
 
+		// for timespan
+		$this->load->helper("date");
+
+		// When creating a note for a ticket, or changing a ticket
+		// I will need to check to see if something has been posted
+		// to this function, if so then we will have to create a new
+		// note for the ticket
+		$action = $this->input->post("submit");
+		$project_id = $this->uri->segment(2);
+		if(!isset($action)) {
+			$this->new_ticket_note();
+		}
+
 		$humanized_project_name = humanize($project_name);
 		$data['title'] = $this->config->item("app_name") . " - " . $humanized_project_name . ' - Ticket #' . $ticket_id;
-
 		$this->load->model('projects/ticket_model');
 		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id);
-		//$data['notes'] = ;
+		$data['ticket_notes'] = $this->ticket_model->getTicketNotes($ticket_id);
 		//$data['attachements'] = ;
 
-		// Will be used to fill out the drop down lists for changing
-		// the ticket
+		// Will be used to fill out the drop down lists for changing the ticket
 		$this->load->model("projects/ticket_type_info_model");
 		$data['ticket_statuses'] = $this->ticket_type_info_model->getStatuses();
 		$data['ticket_priorities'] = $this->ticket_type_info_model->getPriorities();
 		$data['ticket_types'] = $this->ticket_type_info_model->getTypes();
 
-
-		$data['project_name'] = $humanized_project_name;
+		$data['project_name'] = $project_name;
+		$data['humanized_project_name'] = $humanized_project_name;
 		$this->load->view('projects/trac_ticket_view', $data);
 	}
 
@@ -80,17 +91,18 @@ class Trac extends Controller {
 			$newly_created_ticket_id = $this->ticket_model->create();
 
 			// Currently, I am redirecting the user to the trac home page
-			// of this project.  I may however change this so that I will be
+			// of this project.  I may however change this so that wI will be
 			// able to just re-direct the user to view the newly created ticket
 			redirect("projects/$project_id/$project_name/trac/$newly_created_ticket_id", '');
 		}
 	}
 
-	function new_ticket_note() {
+	function new_ticket_note($ticket_id, $project_name, $project_id) {
 
 		$this->load->model('projects/ticket_model');
 		$this->ticket_model->newNote();
-
+		
+		redirect("/projects/$project_id/$project_name/trac/$ticket_id", "");
 		// where should we re-direct the user?  Or should they
 		// remain in the view ticket window?
 	}

@@ -28,31 +28,6 @@
 						$change_ticket_div.slideToggle("fast");
 					}
 
-					$("#add_note_text").slideToggle("fast");
-
-					return false;
-				});
-
-				$("#add_note").click(function() {
-					var $this = $(this);
-					var $add_note_text= $("#add_note_text");
-
-					if($this.hasClass("expanded")) {
-						$this.removeClass("expanded");
-						$this.addClass("collapsed");
-						$add_note_text.slideToggle("fast");
-
-						
-					}
-					else {
-						$this.removeClass("collapsed");
-						$this.addClass("expanded");
-						$add_note_text.slideToggle("fast");
-
-					}
-
-					$("#change_ticket_div").slideToggle("fast");
-
 					return false;
 				});
 			});
@@ -81,6 +56,11 @@
 				text-align: right;
 			}
 
+			/*td.ticket_property_label {
+				text-align: right;
+				border: 1px red dashed;
+			}*/
+
 			table#change_ticket_info td.ticket_note_label, table#add_note_table td.ticket_note_label {
 				vertical-align: top;
 				text-align: right ;
@@ -94,7 +74,7 @@
 				width: 70%;
 			}
 
-			td > p {
+			td > p  {
 				/*border: 1px red dashed;*/
 				margin-top: 3.5px;
 			}
@@ -106,12 +86,13 @@
 			}
 
 			fieldset {
-				width: 65%;
+				width: 50%;
 				margin-left: 8%;
 				border: 1px solid #9a9b9a;
 			}
 
-			h5.comment_heading {
+			div.comment_heading {
+				margin-top: 10px;
 				margin-left: auto;
 				margin-right: auto;
 				width: 97%;
@@ -121,31 +102,36 @@
 				color: #9a9b9a;
 			}
 
-			/*#change_ticket {
-				background: url("images/collapsed.png") no-repeat 0px 50%;
-				padding-left: 16px;
-			}*/
+			.comment_misc {
+				float: right;
+			}
 
-			#change_ticket.heading_title.collapsed, #add_note.heading_title.collapsed {
+			#change_ticket.heading_title.collapsed {
 				background: url("images/collapsed.png") no-repeat 0px 50%;
 				padding-left: 16px;
 			}
 
-			#change_ticket.heading_title.expanded, #add_note.heading_title.expanded {
+			#change_ticket.heading_title.expanded {
 				background: url("images/expanded.png") no-repeat 0px 50%;
 				padding-left: 16px;
 			}
 			.comment_text {
 				/*border: 1px dashed red;*/
 				margin-top: -10px;
+				margin-bottom: 1%;
 				margin-left: 25px;
 				margin-right: 20px;
 			}
 
-			div#add_note_text {
+			/*.comment_text p:last_child {
+				border: 1px red dashed;
+				margin: 0;
+			}*/
+
+			#add_note_text {
+				/*border: 1px red dashed;*/
 				margin-left: 8%;
-				width: 79%;
-				height: 10%;
+				width: 65%;
 			}
 
 			select {
@@ -153,6 +139,13 @@
 				width: 150px;
 			}
 
+			#ticket_property_label_column {
+				width: 20%;
+			}
+
+			#ticket_property_label_value {
+				width: 80%;
+			}
 		</style>
     </head>
     <body>
@@ -163,7 +156,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Projects > <?php echo $project_name; ?> > Trac > <?php echo $ticket->ticket_id; ?>
+					Projects > <?php echo $humanized_project_name; ?> > Trac > <?php echo $ticket->ticket_id; ?>
 				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
@@ -205,40 +198,54 @@
 						<td colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
+
 				<h4 class="heading_title">Attachments</h4>
 				<div id="attachments">
-
+					<p>
+						<ul>
+							<li>Ticket ITem one</li>
+							<li>Ticket item 3</li>
+						</ul>
+					</p>
 				</div>
 
 				<h4 class="heading_title">Comments</h4>
 				<div id="changelog">
-					<div class="comment">
-						<h5 class="comment_heading"></h5>
-						<div class="comment_text">
+				<?php if(!$ticket_notes): ?>
+					<h5 style="color: red;">This ticket has not notes</h5>
+					<?php else: ?>
+						<?php foreach($ticket_notes as $note): ?>
+						<div class="comment">
+							<div class="comment_heading">
+								<?php echo $note->note_type . ' by ' . $note->created_by; ?>
+								<div class="comment_misc"><?php echo date("M d Y - h:i a", strtotime($note->date_created)); ?></div>
+							</div>
+							<div class="comment_text"><?php echo $note->description; ?></div> 
 						</div>
-					</div>
-					<br />
+						<?php endforeach; ?>
+					<?php endif; ?>
 				</div>
-				<br />
+
 				<h4 id="change_ticket" class="heading_title collapsed">Change Ticket</h4>
+				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 				<div id="change_ticket_div">
 					<fieldset>
 						<legend>Change Properties</legend>
 						<table id="change_ticket_info">
 							<tr>
-								<td class="ticket_property_label">Change Type:</td>
+								<td class="ticket_property_label">Type:</td>
 								<td>
 									<?php echo form_dropdown('type_id', $ticket_types, $ticket->type_id); ?>
 								</td>
 							</tr>
 							<tr>
-								<td class="ticket_property_label">Change Priority:</td>
+								<td class="ticket_property_label">Priority:</td>
 								<td>
 									<?php echo form_dropdown('priority_id', $ticket_priorities, $ticket->priority_id); ?>
 								</td>
 							</tr>
 							<tr>
-								<td class="ticket_property_label">Change Status:</td>
+								<td class="ticket_property_label">Status:</td>
 								<td>
 									<?php echo form_dropdown('status_id', $ticket_statuses, $ticket->status_id); ?>
 								</td>
@@ -254,29 +261,19 @@
 							<tr>
 								<td></td>
 								<td>
-									<input type="submit" name="Change Ticket" value="Change Ticket" />
+									<input type="submit" name="submit" value="Change Ticket" />
 								</td>
-							</tr>
+							</tr> 
 						</table>
 					</fieldset>
 				</div>
-				<h4 id="add_note" class="heading_title expanded">Add Note</h4>
+				<h4 id="add_note" class="heading_title">Add a Note</h4>
 				<div id="add_note_text">
-					<fieldset>
-						<legend>Note Text</legend>
-					<table id="add_note_table">
-						<tr>
-							<td>
-								<textarea cols="70" rows="13" name="text_description" id="text_description"> </textarea>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="submit" name="Add Note" value="Add Note" /></td>
-						</tr>
-					</table>
-					</fieldset>
+					<textarea cols="30" rows="13" name="text_description" id="text_description"> </textarea>
+					<input type="submit" name="submit" value="Add Note" />
 				</div>
-				<br />
+				<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
+				</form>
 			</div>
 		<br />
 		</div>
