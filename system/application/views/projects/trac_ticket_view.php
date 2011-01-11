@@ -213,7 +213,7 @@
 					</p>
 				</div>
 
-				<h4 class="heading_title">Comments</h4>
+				<h4 class="heading_title">Ticket Notes</h4>
 				<div id="changelog">
 				<?php if(!$ticket_notes): ?>
 					<h5 style="color: red;">This ticket has not notes</h5>
