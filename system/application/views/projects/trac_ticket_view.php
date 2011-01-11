@@ -101,7 +101,7 @@
 				background-color: #f2f1f1;
 				font-size: 10pt;
 				font-weight: normal;
-				color: #9a9b9a;
+				color: #535353;
 			}
 
 			.comment_misc {
