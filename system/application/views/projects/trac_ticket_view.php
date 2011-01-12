@@ -79,7 +79,7 @@
 				margin-top: 3.5px;
 			}
 
-			#changelog, #attachments, textarea {
+			#note_log, #attachments, textarea {
 				width: 85%;
 				margin: auto;
 				/*border: 1px solid #9a9b9a;*/
@@ -214,7 +214,7 @@
 				</div>
 
 				<h4 class="heading_title">Ticket Notes</h4>
-				<div id="changelog">
+				<div id="note_log">
 				<?php if(!$ticket_notes): ?>
 					<h5 style="color: red;">This ticket has not notes</h5>
 					<?php else: ?>
