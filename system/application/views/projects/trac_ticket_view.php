@@ -188,7 +188,7 @@
 					</tr>
 					<tr>
 						<td>Date Created</td>
-						<td><?php echo date("M d Y - h:i a", strtotime($ticket->date_created)); ?></td>
+						<td><?php echo date("M d Y - h:i a", strtotime($ticket->date_created)) . ' - (' . nice_timespan($ticket->date_created) . ')'; ?></td>
 					</tr>
 					<tr>
 						<td>Last Updated</td>
@@ -221,7 +221,7 @@
 						<?php foreach($ticket_notes as $note): ?>
 						<div class="comment">
 							<div class="comment_heading">
-								<?php echo $note->note_type . ' by ' . $note->created_by; ?>
+								<?php echo $note->note_type . ' by ' . $note->created_by . ' (' .  nice_timespan($note->date_created) . ')'; ?>
 								<div class="comment_misc"><?php echo date("M d Y @ h:i a", strtotime($note->date_created)); ?></div>
 							</div>
 							<div class="comment_text"><?php echo $note->description; ?></div> 

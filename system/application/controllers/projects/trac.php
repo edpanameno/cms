@@ -33,8 +33,8 @@ class Trac extends Controller {
 
 	function view_ticket($ticket_id, $project_name) {
 
-		// for timespan
-		$this->load->helper("date");
+		// for nice_timespan
+		$this->load->helper("nice_timespan_helper");
 
 		// When creating a note for a ticket, or changing a ticket
 		// I will need to check to see if something has been posted
