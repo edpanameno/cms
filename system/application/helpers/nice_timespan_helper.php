@@ -43,3 +43,16 @@ if (!function_exists('nice_timespan')) {
 		return "$difference $periods[$j] {$tense}";
 	}
 }
+
+if (!function_exists('display_timespan')) {
+
+	function display_timespan($date) {
+
+		$CI =& get_instance();
+
+		$CI->load->helper('date');
+		$time = explode(',', timespan($date, time()));
+
+		return strtolower($time[0] . ' ago');
+	}
+}
