@@ -216,7 +216,7 @@
 				<h4 class="heading_title">Ticket Notes</h4>
 				<div id="note_log">
 				<?php if(!$ticket_notes): ?>
-					<h5 style="color: red;">This ticket has not notes</h5>
+					<h5 style="color: red;">This ticket has no notes</h5>
 					<?php else: ?>
 						<?php foreach($ticket_notes as $note): ?>
 						<div class="comment">
