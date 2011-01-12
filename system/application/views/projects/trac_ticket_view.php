@@ -188,7 +188,7 @@
 					</tr>
 					<tr>
 						<td>Date Created</td>
-						<td><?php echo date("M d Y - h:i a", strtotime($ticket->date_created)) . ' - (' . nice_timespan($ticket->date_created) . ')'; ?></td>
+						<td><?php echo date("M d Y - h:i a", strtotime($ticket->date_created)); ?></td>
 					</tr>
 					<tr>
 						<td>Last Updated</td>
