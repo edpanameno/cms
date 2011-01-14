@@ -28,6 +28,14 @@
 						$change_ticket_div.slideToggle("fast");
 					}
 
+					var $button = $("#submit_note");
+					if ($button.attr("value") == "Add Note") {
+						$button.attr("value", "Change Ticket");
+					}
+					else {
+						$button.attr("value", "Add Note");
+					}
+
 					return false;
 				});
 			});
@@ -48,18 +56,12 @@
 			}
 
 			table#change_ticket_info, table#add_note_table {
-				height: 100px;
 				border-collapse: collapse;
 			}
 
 			table#change_ticket_info td.ticket_property_label {
 				text-align: right;
 			}
-
-			/*td.ticket_property_label {
-				text-align: right;
-				border: 1px red dashed;
-			}*/
 
 			table#change_ticket_info td.ticket_note_label, table#add_note_table td.ticket_note_label {
 				vertical-align: top;
@@ -86,17 +88,10 @@
 				border: 1px solid #d7d7d7;
 			}
 
-			fieldset {
-				width: 50%;
-				margin-left: 8%;
-				border: 1px solid #9a9b9a;
-			}
 
 			div.comment_heading {
-				/*margin-top: 10px;*/
 				margin-left: auto;
 				margin-right: auto;
-				/*width: 97%;*/
 				border-top: 1px solid #d7d7d7;
 				border-bottom: 1px solid #d7d7d7;
 				background-color: #f2f1f1;
@@ -109,33 +104,38 @@
 				float: right;
 			}
 
-			#change_ticket.heading_title.collapsed {
+			#change_ticket.note_heading_title.collapsed {
 				background: url("images/collapsed.png") no-repeat 0px 50%;
 				padding-left: 16px;
 			}
 
-			#change_ticket.heading_title.expanded {
+			#change_ticket.note_heading_title.expanded, #add_note {
 				background: url("images/expanded.png") no-repeat 0px 50%;
 				padding-left: 16px;
 			}
 			.comment_text {
-				/*border: 1px dashed red;*/
-				/*margin-top: -10px;*/
 				margin-bottom: 2%;
 				margin-left: 10px;
 				margin-right: 10px;
-				/*border-bottom: 1px solid #d7d7d7;*/
 			}
 
 			.comment_text > p {
-				/*border: 1px red dashed;*/
 				margin-top: 5px;
 			}
 
-			#add_note_text {
-				/*border: 1px red dashed;*/
-				margin-left: 8%;
-				width: 65%;
+			fieldset {
+				width: 55%;
+				/*margin-left: 10%;*/
+				border: 1px solid #9a9b9a;
+			}
+
+			#change_ticket_div, #add_note_text {
+				margin-left: 10%;
+				width: 70%;
+			}
+
+			.note_heading_title {
+				margin-bottom: 5px;
 			}
 
 			select {
@@ -164,7 +164,7 @@
 				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
-					<li><a href="#">Create Note</a></li>
+					<li><a href="#add_note">Add Note</a></li>
 				</ul>
 			</div>
 			<div id="main-content">
@@ -229,54 +229,37 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
-
-				<h4 id="change_ticket" class="heading_title collapsed">Change Ticket</h4>
+				<br />
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
-				<div id="change_ticket_div">
-					<fieldset>
-						<legend>Change Properties</legend>
-						<table id="change_ticket_info">
-							<tr>
-								<td class="ticket_property_label">Type:</td>
-								<td>
-									<?php echo form_dropdown('type_id', $ticket_types, $ticket->type_id); ?>
-								</td>
-							</tr>
-							<tr>
-								<td class="ticket_property_label">Priority:</td>
-								<td>
-									<?php echo form_dropdown('priority_id', $ticket_priorities, $ticket->priority_id); ?>
-								</td>
-							</tr>
-							<tr>
-								<td class="ticket_property_label">Status:</td>
-								<td>
-									<?php echo form_dropdown('status_id', $ticket_statuses, $ticket->status_id); ?>
-								</td>
-							</tr>
-							<tr>
-								<td class="ticket_property_label">Tile:</td>
-								<td><input type="text" size="60" value="<?php echo $ticket->title; ?>" /></td>
-							</tr>
-							<tr>
-								<td class="ticket_note_label">Note:</td>
-								<td><textarea cols="80" rows="30" name="note_description" id="note_description"> </textarea></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>
-									<input type="submit" name="submit" value="Change Ticket" />
-								</td>
-							</tr> 
-						</table>
-					</fieldset>
-				</div>
-				<h4 id="add_note" class="heading_title">Add a Note</h4>
-				<div id="add_note_text">
-					<textarea cols="30" rows="13" name="text_description" id="text_description"> </textarea>
-					<input type="submit" name="submit" value="Add Note" />
-				</div>
-				<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
+					<h5 id="change_ticket" class="heading_title note_heading_title collapsed">Change Ticket</h5>
+					<div id="change_ticket_div">
+						<fieldset>
+							<table id="change_ticket_info">
+								<tr>
+									<td class="ticket_property_label">Type:</td>
+									<td><?php echo form_dropdown('new_type_id', $ticket_types, $ticket->type_id); ?></td>
+								</tr>
+								<tr>
+									<td class="ticket_property_label">Priority:</td>
+									<td><?php echo form_dropdown('new_priority_id', $ticket_priorities, $ticket->priority_id); ?></td>
+								</tr>
+								<tr>
+									<td class="ticket_property_label">Status:</td>
+									<td><?php echo form_dropdown('new_status_id', $ticket_statuses, $ticket->status_id); ?></td>
+								</tr>
+								<tr>
+									<td class="ticket_property_label">Tile:</td>
+									<td><input id="new_ticket_title" type="text" size="80" value="<?php echo $ticket->title; ?>" /></td>
+								</tr>
+							</table>
+						</fieldset>
+					</div>
+					<h5 id="add_note" class="heading_title note_heading_title" name="add_note">Add a Note</h5>
+					<div id="add_note_text">
+						<textarea cols="30" rows="10" name="text_description" id="text_description"> </textarea>
+						<input id="submit_note" type="submit" name="submit" value="Add Note" />
+						<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
+					</div>
 				</form>
 			</div>
 		<br />

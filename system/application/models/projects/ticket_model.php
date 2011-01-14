@@ -84,8 +84,28 @@ class Ticket_model extends Model {
 		//echo "value of action: $action";
 
 		if($action == "Change Ticket") {
-			$noteMessage = "";
-			//echo 'Change Ticket has been clicked';
+
+			// Update the tickets table fields first
+			$data = array(
+				'ticket_status' => $this->input->post("new_status_id"),
+				'ticket_priority' => $this->input->post("new_priority_id"),
+				'ticket_type' => $this->input->post("new_type_id"),
+				'title' => $this->input->post("new_ticket_title")
+			);
+
+			$this->db->where('ticket_id', $this->input->post("ticket_id"));
+			$this->db->update("tickets", $data);
+
+			// Adding a new note to the ticket
+			$data2 = array(
+				'ticket_id' => $this->input->post("ticket_id"),
+				'created_by' => $this->ion_auth->get_user()->id,
+				'date_created' => date("Y-m-d H:i:s"),
+				'ticket_note_type' => 2,
+				'description' => $this->input->post("text_description")
+			);
+
+			$this->db->insert("ticket_notes", $data2);
 		}
 		else if($action == "Add Note") {
 			$data = array(
