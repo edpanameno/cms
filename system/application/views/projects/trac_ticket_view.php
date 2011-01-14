@@ -249,7 +249,7 @@
 								</tr>
 								<tr>
 									<td class="ticket_property_label">Tile:</td>
-									<td><input id="new_ticket_title" type="text" size="80" value="<?php echo $ticket->title; ?>" /></td>
+									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="80" value="<?php echo $ticket->title ?>" /></td>
 								</tr>
 							</table>
 						</fieldset>
