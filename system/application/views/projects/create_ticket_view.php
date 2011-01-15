@@ -49,6 +49,10 @@
 							<?php echo form_dropdown('status_id', $ticket_statuses); ?>
 						</p>
 						<p>
+							<label for="assigned_to_id">Assigned To*</label>
+							<?php echo form_dropdown('assigned_to_id', $users, $this->ion_auth->get_user()->id); ?>
+						</p>
+						<p>
 							<label for="ticket_title">Title*</label>
 							<?php echo form_error('ticket_title'); ?>
 							<input type="text" id="ticket_title" name="ticket_title" value="<?php echo set_value('ticket_title') ?>" />

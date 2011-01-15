@@ -11,6 +11,7 @@ class Ticket_model extends Model {
 		$data = array(
 			'date_created' => date("Y-m-d H:i:s"),
 			'created_by' => $this->ion_auth->get_user()->id,
+			'assigned_to' => $this->input->post('assigned_to_id'),
 			'project_id' => $this->input->post('project_id'),
 			'title' => $this->input->post('ticket_title'),
 			'ticket_status' => $this->input->post('status_id'),
@@ -47,10 +48,12 @@ class Ticket_model extends Model {
 
 		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.last_updated, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
-					"U.username as 'created_by', TS.name as 'status', TT.name as 'type', TP.name as 'priority'  " .
-					"FROM tickets T, users U, ticket_status TS, ticket_types TT, ticket_priority TP " .
+					"U.username as 'created_by', U2.username as 'assigned_to', U2.id as 'assigned_to_id', " .
+					"TS.name as 'status', TT.name as 'type', TP.name as 'priority'  " .
+					"FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_priority TP " .
 					"WHERE T.ticket_id = '$ticket_id' " .
 					"AND T.created_by = U.id " .
+					"AND T.assigned_to = U2.id " .
 					"AND T.ticket_status = TS.status_id " .
 					"AND T.ticket_priority = TP.priority_id " .
 					"AND T.ticket_type = TT.type_id ";
@@ -81,12 +84,12 @@ class Ticket_model extends Model {
 		// section will handle a simple note (i.e. no changes to the
 		// ticket).
 		$action = $this->input->post("submit");
-		//echo "value of action: $action";
 
 		if($action == "Change Ticket") {
 
 			// Update the tickets table fields first
 			$data = array(
+				'assigned_to' => $this->input->post("new_assigned_to_id"),
 				'ticket_status' => $this->input->post("new_status_id"),
 				'ticket_priority' => $this->input->post("new_priority_id"),
 				'ticket_type' => $this->input->post("new_type_id"),

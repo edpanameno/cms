@@ -38,6 +38,14 @@
 
 					return false;
 				});
+
+				/*$("#submit_note").click(function() {
+					//alert("Note TExt Cannot be empty");
+					if(($("#tinymce").val() == "")) {
+						alert("Note Text Cannot Be empty.");
+						return false;
+					}
+				});*/
 			});
 		</script>
 
@@ -124,9 +132,9 @@
 			}
 
 			fieldset {
-				width: 55%;
+				width: 75%;
 				/*margin-left: 10%;*/
-				border: 1px solid #9a9b9a;
+				border: 1px solid #d7d7d7;
 			}
 
 			#change_ticket_div, #add_note_text {
@@ -168,7 +176,7 @@
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3 class="heading_title"><?php echo $ticket->title .  " (" . $ticket->ticket_id . ")"; ?></h3> <br />
+				<h3 class="heading_title"><?php echo $ticket->title .  " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table border="1" class="ticket_info">
 					<colgroup>
 						<col id="ticket_item" />
@@ -197,6 +205,10 @@
 					<tr>
 						<td>Created By</td>
 						<td><?php echo $ticket->created_by; ?></td>
+					</tr>
+					<tr>
+						<td>Assigned To</td>
+						<td><?php echo $ticket->assigned_to; ?></td>
 					</tr>
 					<tr>
 						<td colspan="2"><?php echo $ticket->description; ?></td>
@@ -248,8 +260,12 @@
 									<td><?php echo form_dropdown('new_status_id', $ticket_statuses, $ticket->status_id); ?></td>
 								</tr>
 								<tr>
+									<td class="ticket_property_label">Assigned To:</td>
+									<td><?php echo form_dropdown('new_assigned_to_id', $users, $ticket->assigned_to_id); ?></td>
+								</tr>
+								<tr>
 									<td class="ticket_property_label">Tile:</td>
-									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="80" value="<?php echo $ticket->title ?>" /></td>
+									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="60" value="<?php echo $ticket->title ?>" /></td>
 								</tr>
 							</table>
 						</fieldset>

@@ -41,10 +41,10 @@ class Trac extends Controller {
 		// to this function, if so then we will have to create a new
 		// note for the ticket
 		$action = $this->input->post("submit");
-		$project_id = $this->uri->segment(2);
-		if(!isset($action)) {
-			$this->new_ticket_note();
-		}
+		
+
+		$this->load->library("form_validation");
+		$this->form_validation->set_rules('text_description', 'Description', 'required');
 
 		$humanized_project_name = humanize($project_name);
 		$data['title'] = $this->config->item("app_name") . " - " . $humanized_project_name . ' - Ticket #' . $ticket_id;
@@ -58,15 +58,26 @@ class Trac extends Controller {
 		$data['ticket_statuses'] = $this->ticket_type_info_model->getStatuses();
 		$data['ticket_priorities'] = $this->ticket_type_info_model->getPriorities();
 		$data['ticket_types'] = $this->ticket_type_info_model->getTypes();
+		$data['users'] = $this->ticket_type_info_model->getActiveUsers();
+		//$data['users'] = $this->ticket_type_info_model->getAllUsers();
 
 		$data['project_name'] = $project_name;
 		$data['humanized_project_name'] = $humanized_project_name;
-		$this->load->view('projects/trac_ticket_view', $data);
+
+		if($this->form_validation->run() == FALSE) {
+			$this->load->view('projects/trac_ticket_view', $data);
+		}
+		else {
+		  	$project_id = $this->uri->segment(2);
+			if(!isset($action)) {
+				$this->new_ticket_note();
+			}
+		}
 	}
 
 	function new_ticket($project_id = '', $project_name = '') {
 
-		$this->load->library("Form_validation");
+		$this->load->library("form_validation");
 		$this->form_validation->set_error_delimiters('<span class="validation_error_msg">','</span>');
 		$this->form_validation->set_rules('ticket_title', 'Title', 'required');
 		$this->form_validation->set_rules('text_description', 'Description', 'required');
@@ -80,6 +91,7 @@ class Trac extends Controller {
 		$data['ticket_statuses'] = $this->ticket_type_info_model->getStatuses();
 		$data['ticket_priorities'] = $this->ticket_type_info_model->getPriorities();
 		$data['ticket_types'] = $this->ticket_type_info_model->getTypes();
+		$data['users'] = $this->ticket_type_info_model->getActiveUsers();
 
 		$data['title'] = $this->config->item("app_name") . " - $humanized_project_name - New Ticket";
 

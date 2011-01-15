@@ -55,4 +55,19 @@ class Ticket_type_info_model extends Model {
 
 		return $query_results;
 	}
+
+	function getActiveUsers() {
+
+		$query_results = array();
+		$this->db->select('id, username');
+		$this->db->where('active = ', 1);
+		$this->db->from('users');
+		$query = $this->db->get();
+
+		foreach($query->result_array() as $row) {
+			$query_results[$row['id']] = $row['username'];
+		}
+
+		return $query_results;
+	}
 }
