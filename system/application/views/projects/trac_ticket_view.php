@@ -89,13 +89,36 @@
 				margin-top: 3.5px;
 			}
 
-			#note_log, #attachments, textarea {
+			table#note_log th {
+				background-color: #4b4d4d;
+				color: white;
+			}
+
+			table#note_log, #attachments, textarea {
 				width: 85%;
 				margin: auto;
 				/*border: 1px solid #9a9b9a;*/
-				border: 1px solid #d7d7d7;
+				border: 1px solid #ccc ;
 			}
 
+			tr.odd {
+				background-color: #f0efef;
+			}
+
+			tr.even {
+				background-color: white;
+			}
+
+			table#note_log {
+				border-collapse: collapse;
+			}
+
+			table#note_log td.author_column {
+				font-size: 9pt;
+				vertical-align: top;
+				border-right: thin solid #ccc;
+				border-bottom: thin solid #ccc;
+			}
 
 			div.comment_heading {
 				margin-left: auto;
@@ -157,6 +180,19 @@
 
 			#ticket_property_label_value {
 				width: 80%;
+			}
+
+			table {
+				border-spacing: 2px 2px;
+				border-collapse: separate;
+			}
+
+			thead {
+				vertical-align: middle;
+			}
+
+			th {
+				font-weight: bold;
 			}
 		</style>
     </head>
@@ -226,21 +262,47 @@
 				</div>
 
 				<h4 class="heading_title">Ticket Notes</h4>
-				<div id="note_log">
 				<?php if(!$ticket_notes): ?>
 					<h5 style="color: red;">This ticket has no notes</h5>
 					<?php else: ?>
+					<table id ="note_log" >
+					<colgroup>
+						<col width="15%" />
+						<col width="85%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Author</th>
+							<th>Note</th>
+						</tr>
+					</thead>
 						<?php foreach($ticket_notes as $note): ?>
-						<div class="comment">
-							<div class="comment_heading">
-								<?php echo $note->note_type . ' Created by ' . $note->created_by . ' (' .  nice_timespan($note->date_created) . ')'; ?>
-								<div class="comment_misc"><?php echo date("M d Y @ h:i a", strtotime($note->date_created)); ?></div>
-							</div>
-							<div class="comment_text"><?php echo $note->description; ?></div> 
-						</div>
-						<?php endforeach; ?>
+						<?php static $count = 1; ?>
+					<tr class="<?php if(($count++ % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+						<td class="author_column" >
+							<span class="comment_author"><?php echo $note->created_by; ?></span><br />
+							<span class="comment_details"><?php echo $note->note_type; ?></span>
+						</td>
+						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
+							<table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
+								<tr>
+									<td style="text-align: right; border-bottom: thin solid #ccc;">
+										Posted on: <?php echo $note->date_created; ?>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="comment_description">
+											<?php echo $note->description; ?>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</table>
 					<?php endif; ?>
-				</div>
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 					<h5 id="change_ticket" class="heading_title note_heading_title collapsed">Change Ticket</h5>
 					<div id="change_ticket_div">
