@@ -241,7 +241,6 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
-				<br />
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 					<h5 id="change_ticket" class="heading_title note_heading_title collapsed">Change Ticket</h5>
 					<div id="change_ticket_div">
