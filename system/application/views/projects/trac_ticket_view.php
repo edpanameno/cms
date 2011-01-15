@@ -203,6 +203,10 @@
 				font-weight: bold;
 			}
 
+			div.comment_description {
+				margin-top: -10px;
+			}
+
 			div.comment_description div.change_message ul {
 				padding-top: 0;
 				padding-left: 2%;
