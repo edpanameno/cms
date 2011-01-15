@@ -204,10 +204,12 @@
 			}
 
 			div.comment_description div.change_message ul {
+				padding-top: 0;
 				padding-left: 2%;
 				font-weight: bold;
 				font-size: 9pt;
 				list-style-type: square;
+				border-bottom: 1px dotted #ccc;
 			}
 		</style>
     </head>
