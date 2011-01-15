@@ -51,15 +51,15 @@
 			}
 
 			#ticket_title {
-				width: 38%;
+				width: 45%;
 			}
 
 			#ticket_created_by {
-				width: 10%;
+				width: 7%;
 			}
 
 			#ticket_assigned_to{
-				width: 10%;
+				width: 7%;
 			}
 
 			#ticket_date_created {
@@ -67,7 +67,7 @@
 			}
 
 			#ticket_type {
-				width: 11%;
+				width: 10%;
 			}
 
 			#ticket_status {
