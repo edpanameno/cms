@@ -217,7 +217,7 @@
 			}
 
 			div.comment_description > p {
-				margin-top: 5px;
+				margin-top: 10px;
 			}
 		</style>
     </head>
@@ -312,7 +312,7 @@
 						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
 							<table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
 								<tr><td class="comment_date">
-										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created)) . ' #['. $count++ . ']'); ?>
+										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created)) . '  [#'. $count++ . ']' ); ?>
 									</td>
 								</tr>
 								<tr>
