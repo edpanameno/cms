@@ -211,6 +211,10 @@
 				list-style-type: square;
 				border-bottom: 1px dotted #ccc;
 			}
+
+			div.comment_description > p {
+				margin-top: 5px;
+			}
 		</style>
     </head>
     <body>
