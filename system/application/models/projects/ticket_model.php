@@ -89,25 +89,119 @@ class Ticket_model extends Model {
 
 		if($action == "Change Ticket") {
 
+			$ticket_id = $this->input->post("ticket_id");
+			$change_message = "<div class=\"change_message\"><ul>";
+
+			// We need to get the current ticket information that
+			// 'could be' changed first
+			$query = $this->db->query("SELECT assigned_to, ticket_status, ticket_priority, ticket_type, title FROM tickets WHERE ticket_id = $ticket_id");
+			$current_ticket_info = $query->row_array();
+
+			// type
+			$new_type_to_id = $this->input->post("new_type_id");
+			if($current_ticket_info['ticket_type'] != $new_type_to_id) {
+				$change_message .= "<li>Type Change from '";
+
+				// Get the current ticket type name of this ticket
+				$current_ticket_type_id = $current_ticket_info['ticket_type'];
+				$query = $this->db->query("SELECT name FROM ticket_types WHERE type_id = $current_ticket_type_id");
+				$current_ticket_type_name = $query->row_array();
+				$change_message .= $current_ticket_type_name['name'] . "' to '";
+
+				// Get the new ticket type for this ticket
+				$query = $this->db->query("SELECT name FROM ticket_types WHERE type_id = $new_type_to_id");
+				$new_ticket_type_name = $query->row_array();
+				$change_message .= $new_ticket_type_name['name'] . "'</li>";
+			}
+
+			// priority
+			$new_priority_to_id = $this->input->post("new_priority_id");
+			if($current_ticket_info['ticket_priority'] != $new_priority_to_id) {
+				$change_message .= "<li>Priority Change from '";
+
+				// Get the current ticket priority name of this ticket
+				$current_ticket_priority_id = $current_ticket_info['ticket_priority'];
+				$query = $this->db->query("SELECT name FROM ticket_priority WHERE priority_id = $current_ticket_priority_id");
+				$current_ticket_priority_name = $query->row_array();
+				$change_message .= $current_ticket_priority_name['name'] . "' to '";
+
+				// get the new ticket priority name of this ticket
+				$query = $this->db->query("SELECT name FROM ticket_priority WHERE priority_id = $new_priority_to_id");
+				$new_ticket_priority_name = $query->row_array();
+				$change_message .= $new_ticket_priority_name['name'] . "'</li>";
+			}
+
+			// status
+			$new_status_to_id = $this->input->post("new_status_id");
+			if($current_ticket_info['ticket_status'] != $new_status_to_id) {
+				$change_message .= "<li>Status Change from '";
+
+				// Get the current ticket status id of this ticket
+				$current_ticket_status_id = $current_ticket_info['ticket_status'];
+				$query = $this->db->query("SELECT name FROM ticket_status WHERE status_id = $current_ticket_status_id");
+				$current_ticket_status_name = $query->row_array();
+				$change_message .= $current_ticket_status_name['name'] . "' to '";
+
+				$query = $this->db->query("SELECT name FROM ticket_status WHERE status_id = $new_status_to_id");
+				$new_ticket_status_name = $query->row_array();
+				$change_message .= $new_ticket_status_name['name'] . "'</li>";
+			}
+
+			// assigned to
+			$new_assigned_to_id = $this->input->post("new_assigned_to_id");
+			if($current_ticket_info['assigned_to'] != $new_assigned_to_id) {
+				$change_message .= "<li>Assigned to Changed from '";
+
+				// Get the username of the current user that is assigned to this ticket
+				$current_assigned_to_id = $current_ticket_info["assigned_to"];
+				$query = $this->db->query("SELECT username FROM users WHERE id = $current_assigned_to_id");
+				$current_assigned_to = $query->row_array();
+				$change_message .= $current_assigned_to['username'] . "' to '";
+
+
+				// Get the username of the new user that will be assigned to this ticket
+				$query = $this->db->query("SELECT username FROM users WHERE id = $new_assigned_to_id");
+				$new_assigned_to = $query->row_array();
+				$change_message .= $new_assigned_to['username'] . "'</li>";
+			}
+
+			// title
+			$new_title_name = trim($this->input->post("new_ticket_title"));
+			if($current_ticket_info['title'] != $new_title_name) {
+				$change_message .= "<li>Title Changed from '";
+
+				// We already have the current ticket title, so no need to
+				// query the database once mroe
+				$change_message .= $current_ticket_info['title'] . "' to '";
+
+				// We also already have the new ticket title name so no need
+				// to query the database
+				$change_message .= $new_title_name . "'</li>";
+			}
+
+			// At this point we have generated the whol change message
+			// therefore we must close down the html code
+			$change_message .= "</ul></div>";
+
 			// Update the tickets table fields first
 			$data = array(
-				'assigned_to' => $this->input->post("new_assigned_to_id"),
-				'ticket_status' => $this->input->post("new_status_id"),
-				'ticket_priority' => $this->input->post("new_priority_id"),
-				'ticket_type' => $this->input->post("new_type_id"),
-				'title' => $this->input->post("new_ticket_title")
+				'assigned_to' => $new_assigned_to_id,
+				'ticket_status' => $new_status_to_id,
+				'ticket_priority' => $new_priority_to_id,
+				'ticket_type' => $new_type_to_id,
+				'title' => $new_title_name
 			);
 
-			$this->db->where('ticket_id', $this->input->post("ticket_id"));
+			$this->db->where('ticket_id', $ticket_id);
 			$this->db->update("tickets", $data);
 
 			// Adding a new note to the ticket
 			$data2 = array(
-				'ticket_id' => $this->input->post("ticket_id"),
+				'ticket_id' => $ticket_id,
 				'created_by' => $this->ion_auth->get_user()->id,
 				'date_created' => date("Y-m-d H:i:s"),
 				'ticket_note_type' => 2,
-				'description' => $this->input->post("text_description")
+				'description' => $change_message . $this->input->post("text_description")
 			);
 
 			$this->db->insert("ticket_notes", $data2);

@@ -102,11 +102,20 @@
 			}
 
 			tr.odd {
-				background-color: #f0efef;
+				background-color: #F7F6F6;
+				/*background-color: #f0efef;*/
+				/*background-color: #f0f4f5;*/
 			}
 
 			tr.even {
 				background-color: white;
+			}
+
+			td.comment_date {
+				font-size: 9pt;
+				text-align: right;
+				border-bottom: thin solid #ccc;
+				height: 6px;
 			}
 
 			table#note_log {
@@ -183,7 +192,6 @@
 			}
 
 			table {
-				border-spacing: 2px 2px;
 				border-collapse: separate;
 			}
 
@@ -193,6 +201,13 @@
 
 			th {
 				font-weight: bold;
+			}
+
+			div.comment_description div.change_message ul {
+				padding-left: 2%;
+				font-weight: bold;
+				font-size: 9pt;
+				list-style-type: square;
 			}
 		</style>
     </head>
@@ -263,8 +278,8 @@
 
 				<h4 class="heading_title">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
-					<h5 style="color: red;">This ticket has no notes</h5>
-					<?php else: ?>
+					<h5 style="margin-left: 80px; color: red;">This ticket has no notes</h5>
+				<?php else: ?>
 					<table id ="note_log" >
 					<colgroup>
 						<col width="15%" />
@@ -276,18 +291,18 @@
 							<th>Note</th>
 						</tr>
 					</thead>
-						<?php foreach($ticket_notes as $note): ?>
-						<?php static $count = 1; ?>
-					<tr class="<?php if(($count++ % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+				<?php foreach($ticket_notes as $note): ?>
+				<?php static $count = 1; ?>
+					<tr class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column" >
-							<span class="comment_author"><?php echo $note->created_by; ?></span><br />
-							<span class="comment_details"><?php echo $note->note_type; ?></span>
+							<span class="comment_author"><b><?php echo $note->created_by; ?></b></span><br />
+							<span class="comment_details"><?php echo $note->note_type; ?></span><br />
+							<i><?php echo nice_timespan($note->date_created); ?></i>
 						</td>
 						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
 							<table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
-								<tr>
-									<td style="text-align: right; border-bottom: thin solid #ccc;">
-										Posted on: <?php echo $note->date_created; ?>
+								<tr><td class="comment_date">
+										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created)) . ' #['. $count++ . ']'); ?>
 									</td>
 								</tr>
 								<tr>
