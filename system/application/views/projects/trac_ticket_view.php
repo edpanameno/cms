@@ -213,7 +213,7 @@
 				font-weight: bold;
 				font-size: 9pt;
 				list-style-type: square;
-				border-bottom: 1px dotted #ccc;
+				/*border-bottom: 1px dotted #ccc;*/
 			}
 
 			div.comment_description > p {
