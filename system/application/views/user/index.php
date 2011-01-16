@@ -4,8 +4,32 @@
     <head>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>myCMS - User</title>
+        <title><?php echo $this->config->item("app_name") ?> - User</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+		<style type="text/css">
+			fieldset#account_info_fieldset, fieldset#change_password_fieldset {
+				margin-left: 10px;
+				width: 35%;
+			}
+
+			#account_info_fieldset table, #change_password_fieldset table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			#account_info_fieldset table input[type=text], #change_password_fieldset table input[type=text] {
+				width: 90%;
+			}
+
+			.text_label {
+				width: 35%;
+			}
+
+			.text_value {
+				width: 65%;
+			}
+
+		</style>
     </head>
     <body>
 		<div id="container">
@@ -23,10 +47,14 @@
 				<h3>User Information</h3>
 				<p>Below you will find <b><?php echo $this->ion_auth->get_user()->username; ?>'s</b> information.</p>
 				<span style="color: red"><?php echo $this->session->flashdata('message'); ?></span>
-				<fieldset>
+				<fieldset id="account_info_fieldset">
 					<legend>Account Information</legend>
 					<?php echo form_open('user/change_info'); ?>
-					<table border="1">
+					<table>
+						<colgroup>
+							<col class="text_label" />
+							<col class="text_value" />
+						</colgroup>
 						<tr>
 							<td>First Name</td>
 							<td><input type="text" name="first_name" id="first_name" size="20" value="<?php echo $this->ion_auth->get_user()->first_name; ?>" /></td>
@@ -51,11 +79,15 @@
 					</table>
 					<?php echo form_close(); ?>
 				</fieldset>
-
-				<fieldset>
+				<br />
+				<fieldset id="change_password_fieldset">
 					<legend>Change Password</legend>
 					<?php echo form_open('user/change_password'); ?>
-					<table border="1">
+					<table>
+						<colgroup>
+							<col class="text_label" />
+							<col class="text_value" />
+						</colgroup>
 						<tr>
 							<td>Current Password</td>
 							<td><input type="password" name="old_password" id="new_password" size="20" /></td>
