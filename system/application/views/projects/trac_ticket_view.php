@@ -9,7 +9,6 @@
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
 		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#change_ticket_div").hide();
@@ -38,17 +37,8 @@
 
 					return false;
 				});
-
-				/*$("#submit_note").click(function() {
-					//alert("Note TExt Cannot be empty");
-					if(($("#tinymce").val() == "")) {
-						alert("Note Text Cannot Be empty.");
-						return false;
-					}
-				});*/
 			});
 		</script>
-
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<style type="text/css">
 			.heading_title {
@@ -84,9 +74,10 @@
 				width: 70%;
 			}
 
+			/** top spacing for ticket description **/
 			td > p  {
 				/*border: 1px red dashed;*/
-				margin-top: 3.5px;
+				margin-top: 3.9px;
 			}
 
 			table#note_log th {
@@ -102,7 +93,7 @@
 			}
 
 			tr.odd {
-				background-color: #F7F6F6;
+				background-color: #f7f6f6;
 				/*background-color: #f0efef;*/
 				/*background-color: #f0f4f5;*/
 			}
@@ -111,11 +102,10 @@
 				background-color: white;
 			}
 
-			td.comment_date {
-				font-size: 9pt;
+			tr td.comment_date {
+				font-size: 8pt;
 				text-align: right;
 				border-bottom: thin solid #ccc;
-				height: 6px;
 			}
 
 			table#note_log {
@@ -123,25 +113,10 @@
 			}
 
 			table#note_log td.author_column {
-				font-size: 9pt;
+				font-size: 8pt;
 				vertical-align: top;
 				border-right: thin solid #ccc;
 				border-bottom: thin solid #ccc;
-			}
-
-			div.comment_heading {
-				margin-left: auto;
-				margin-right: auto;
-				border-top: 1px solid #d7d7d7;
-				border-bottom: 1px solid #d7d7d7;
-				background-color: #f2f1f1;
-				font-size: 10pt;
-				font-weight: normal;
-				color: #535353;
-			}
-
-			.comment_misc {
-				float: right;
 			}
 
 			#change_ticket.note_heading_title.collapsed {
@@ -152,15 +127,6 @@
 			#change_ticket.note_heading_title.expanded, #add_note {
 				background: url("images/expanded.png") no-repeat 0px 50%;
 				padding-left: 16px;
-			}
-			.comment_text {
-				margin-bottom: 2%;
-				margin-left: 10px;
-				margin-right: 10px;
-			}
-
-			.comment_text > p {
-				margin-top: 5px;
 			}
 
 			fieldset {
@@ -174,6 +140,7 @@
 				width: 70%;
 			}
 
+			/** spacing between change ticket and add note **/
 			.note_heading_title {
 				margin-bottom: 5px;
 			}
@@ -191,33 +158,20 @@
 				width: 80%;
 			}
 
-			table {
-				border-collapse: separate;
-			}
-
-			thead {
-				vertical-align: middle;
-			}
-
-			th {
-				font-weight: bold;
-			}
-
 			div.comment_description {
 				margin-top: -10px;
 			}
 
+			/** formatting for the ticket changes text **/
 			div.comment_description div.change_message ul {
-				padding-top: 0;
 				padding-left: 2%;
 				font-weight: bold;
 				font-size: 9pt;
 				list-style-type: square;
-				/*border-bottom: 1px dotted #ccc;*/
 			}
 
 			div.comment_description > p {
-				margin-top: 10px;
+				margin-top: 9px;
 			}
 		</style>
     </head>
@@ -305,23 +259,18 @@
 				<?php static $count = 1; ?>
 					<tr class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column" >
-							<span class="comment_author"><b><?php echo $note->created_by; ?></b></span><br />
-							<span class="comment_details"><?php echo $note->note_type; ?></span><br />
+							<span><b><?php echo $note->created_by; ?></b></span><br />
+							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
 							<i><?php echo nice_timespan($note->date_created); ?></i>
 						</td>
 						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
-							<table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
-								<tr><td class="comment_date">
+							<table width="100%" cellpadding="5" cellspacing="0">
+								<tr>
+									<td class="comment_date">
 										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created)) . '  [#'. $count++ . ']' ); ?>
 									</td>
 								</tr>
-								<tr>
-									<td>
-										<div class="comment_description">
-											<?php echo $note->description; ?>
-										</div>
-									</td>
-								</tr>
+								<tr><td><div class="comment_description"><?php echo $note->description; ?></div></td></tr>
 							</table>
 						</td>
 					</tr>
