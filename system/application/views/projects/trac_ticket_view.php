@@ -80,6 +80,10 @@
 				margin-top: 3.9px;
 			}
 
+			table#note_log {
+				table-layout: fixed;
+			}
+
 			table#note_log th {
 				background-color: #4b4d4d;
 				color: white;
@@ -244,7 +248,7 @@
 				<?php if(!$ticket_notes): ?>
 					<h5 style="margin-left: 80px; color: red;">This ticket has no notes</h5>
 				<?php else: ?>
-					<table id ="note_log" >
+					<table id ="note_log">
 					<colgroup>
 						<col width="15%" />
 						<col width="85%" />
