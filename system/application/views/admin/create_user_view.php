@@ -4,16 +4,25 @@
     <head>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>myCMS - Creating New User</title>
+        <title>myCMS - Create New User</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<style type="text/css">
+			fieldset {
+				border: 1px ridge #ccc ;
+				width: 30%;
+			}
 			td.text_label {
 				text-align: right;
 			}
 
 			input[type=text], input[type=password] {
-				width: 150px;
-}
+				width: 200px;
+			}
+
+			select  {
+				width: 60%;
+				font: inherit;
+			}
 		</style>
     </head>
     <body>
@@ -39,10 +48,12 @@
 				</span>
 				<?php echo form_open('admin/user/create'); ?>
 				<br />
-				<table>
+				<fieldset>
+					<legend>New User Information</legend>
+					<table>
 					<colgroup>
-						<col width="25%" />
-						<col width="75%" />
+						<col width="30%" />
+						<col width="70%" />
 					</colgroup>
 					<tr>
 						<td class="text_label">User Type:</td>
@@ -80,6 +91,7 @@
 						</td>
 					</tr>
 				</table>
+				</fieldset>
 				<?php echo form_close(); ?>
 			</div>
 		</div>

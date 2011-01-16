@@ -6,6 +6,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+		<style type="text/css">
+			fieldset {
+				width: 30%;
+				border: 1px ridge #ccc ;
+			}
+		</style>
     </head>
     <body>
 		<div id="container">
@@ -28,7 +34,7 @@
 				<fieldset>
 					<legend>Change Password</legend>
 					<?php echo form_open('admin/user/reset_password'); ?>
-					<table border="1">
+					<table>
 						<tr>
 							<td>New Password:</td>
 							<td><input type="password" name="new_password" id="new_password" size="20" /></td>
