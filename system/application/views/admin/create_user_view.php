@@ -6,6 +6,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>myCMS - Creating New User</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+		<style type="text/css">
+			td.text_label {
+				text-align: right;
+			}
+
+			input[type=text], input[type=password] {
+				width: 150px;
+}
+		</style>
     </head>
     <body>
 		<div id="container">
@@ -29,9 +38,14 @@
 					<?php echo $this->session->flashdata('message'); ?>
 				</span>
 				<?php echo form_open('admin/user/create'); ?>
+				<br />
 				<table>
+					<colgroup>
+						<col width="25%" />
+						<col width="75%" />
+					</colgroup>
 					<tr>
-						<td>User Type:</td>
+						<td class="text_label">User Type:</td>
 						<td>
 							<select name="group_id">
 								<?php foreach($groups as $group): ?>
@@ -41,23 +55,23 @@
 						</td>
 					</tr>
 					<tr>
-						<td>First Name:</td>
+						<td class="text_label">First Name:</td>
 						<td><input type="text" name="firstname" id="firstname" size="20" /></td>
 					</tr>
 					<tr>
-						<td>Last Name:</td>
+						<td class="text_label">Last Name:</td>
 						<td><input type="text" name="lastname" id="lastname" size="20" /></td>
 					</tr>
 					<tr>
-						<td>Email:</td>
+						<td class="text_label">Email:</td>
 						<td><input type="text" name="email" id="email" size="20" value="<?php echo set_value('email'); ?>" /></td>
 					</tr>
 					<tr>
-						<td>Username:</td>
+						<td class="text_label">Username:</td>
 						<td><input type="text" name="username" id="username" size="20" value="<?php echo set_value('username'); ?>" /></td>
 					</tr>
 					<tr>
-						<td>Password:</td>
+						<td class="text_label">Password:</td>
 						<td><input type="password" name="password" id="password" size="20" value="<?php echo set_value('password'); ?>" /></td>
 					</tr>
 					<tr>
