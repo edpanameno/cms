@@ -32,7 +32,7 @@ class Ticket_model extends Model {
 
 		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', U.username as 'created_by', " .
 					"U2.username as 'assigned_to', TT.name as 'ticket_type' " .
-				    "FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT " .
+				    "FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_resolution TR " .
 					"WHERE T.project_id = '$project_id' " .
 					"AND T.ticket_status !=  '2'" . // don't show closed issues
 					"AND T.ticket_status = TS.status_id " .
@@ -50,15 +50,16 @@ class Ticket_model extends Model {
 
 		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.last_updated, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
-					"U.username as 'created_by', U2.username as 'assigned_to', U2.id as 'assigned_to_id', " .
-					"TS.name as 'status', TT.name as 'type', TP.name as 'priority'  " .
-					"FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_priority TP " .
+					"T.resolution_id, U.username as 'created_by', U2.username as 'assigned_to', U2.id as 'assigned_to_id', " .
+					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
+					"FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
 					"WHERE T.ticket_id = '$ticket_id' " .
 					"AND T.created_by = U.id " .
 					"AND T.assigned_to = U2.id " .
 					"AND T.ticket_status = TS.status_id " .
 					"AND T.ticket_priority = TP.priority_id " .
-					"AND T.ticket_type = TT.type_id ";
+					"AND T.ticket_type = TT.type_id " .
+					"AND T.resolution_id = TR.resolution_id ";
 
 		$query = $this->db->query($sqlQuery);
 		return $query->row();
@@ -94,7 +95,7 @@ class Ticket_model extends Model {
 
 			// We need to get the current ticket information that
 			// 'could be' changed first
-			$query = $this->db->query("SELECT assigned_to, ticket_status, ticket_priority, ticket_type, title FROM tickets WHERE ticket_id = $ticket_id");
+			$query = $this->db->query("SELECT assigned_to, ticket_status, resolution_id, ticket_priority, ticket_type, title FROM tickets WHERE ticket_id = $ticket_id");
 			$current_ticket_info = $query->row_array();
 
 			// type
@@ -147,6 +148,22 @@ class Ticket_model extends Model {
 				$change_message .= $new_ticket_status_name['name'] . "'</li>";
 			}
 
+			// resolution
+			$new_resolution_to_id = $this->input->post("new_resolution_id");
+			if($current_ticket_info['resolution_id']) {
+				$change_message .= "<li>Resolution Change from '";
+
+				$current_ticket_resolution_id = $current_ticket_info['resolution_id'];
+				$query = $this->db->query("SELECT name FROM ticket_resolution WHERE resolution_id = $current_ticket_resolution_id");
+				$current_ticket_resolution_name = $query->row_array();
+				$change_message .= $current_ticket_resolution_name['name'] . "' to '";
+
+				// get new resolution name for this ticket
+				$query = $this->db->query("SELECT name FROM ticket_resolution where resolution_id = $new_resolution_to_id");
+				$new_ticket_resolution_name = $query->row_array();
+				$change_message .= $new_ticket_resolution_name['name'] . "'</li>";
+			}
+
 			// assigned to
 			$new_assigned_to_id = $this->input->post("new_assigned_to_id");
 			if($current_ticket_info['assigned_to'] != $new_assigned_to_id) {
@@ -187,6 +204,7 @@ class Ticket_model extends Model {
 			$data = array(
 				'assigned_to' => $new_assigned_to_id,
 				'ticket_status' => $new_status_to_id,
+				'resolution_id' => $new_resolution_to_id,
 				'ticket_priority' => $new_priority_to_id,
 				'ticket_type' => $new_type_to_id,
 				'title' => $new_title_name

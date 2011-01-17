@@ -214,6 +214,10 @@
 						<td><?php echo $ticket->status; ?></td>
 					</tr>
 					<tr>
+						<td>Resolution </td>
+						<td><?php echo $ticket->resolution_name; ?></td>
+					</tr>
+					<tr>
 						<td>Date Created</td>
 						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' - (' . nice_timespan($ticket->date_created) . ')' //date("M d Y - h:i a", strtotime($ticket->date_created)); ?></td>
 					</tr>
@@ -297,6 +301,10 @@
 								<tr>
 									<td class="ticket_property_label">Status:</td>
 									<td><?php echo form_dropdown('new_status_id', $ticket_statuses, $ticket->status_id); ?></td>
+								</tr>
+								<tr>
+									<td class="ticket_property_label">Resolution:</td>
+									<td><?php echo form_dropdown('new_resolution_id', $ticket_resolutions, $ticket->resolution_id); ?></td>
 								</tr>
 								<tr>
 									<td class="ticket_property_label">Assigned To:</td>

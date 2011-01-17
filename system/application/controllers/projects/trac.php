@@ -58,6 +58,7 @@ class Trac extends Controller {
 		$data['ticket_statuses'] = $this->ticket_type_info_model->getStatuses();
 		$data['ticket_priorities'] = $this->ticket_type_info_model->getPriorities();
 		$data['ticket_types'] = $this->ticket_type_info_model->getTypes();
+		$data['ticket_resolutions'] = $this->ticket_type_info_model->getTicketResoltuions();
 		$data['users'] = $this->ticket_type_info_model->getActiveUsers();
 		//$data['users'] = $this->ticket_type_info_model->getAllUsers();
 

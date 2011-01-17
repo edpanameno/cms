@@ -70,4 +70,19 @@ class Ticket_type_info_model extends Model {
 
 		return $query_results;
 	}
+
+	function getTicketResoltuions() {
+
+		$query_results = array();
+		$this->db->select('resolution_id, name');
+		$this->db->where('is_active = ', 1);
+		$this->db->from('ticket_resolution');
+		$query = $this->db->get();
+
+		foreach($query->result_array() as $row) {
+			$query_results[$row['resolution_id']] = $row['name'];
+		}
+
+		return $query_results;
+	}
 }
