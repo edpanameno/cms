@@ -33,9 +33,8 @@
 				color: white;
 				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
-
+				font-weight: normal;
 				text-align: center;
-				font-weight: bold;
 			}
 
 			table td {

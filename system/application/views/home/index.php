@@ -29,6 +29,10 @@
 				border-bottom: 1px solid #9a9b9a;
 			}
 
+			table th {
+				font-weight: normal;
+			}
+
 			tr:hover td {
 				background-color: #f2f1f1;
 			}
@@ -72,7 +76,7 @@
 				<h4><?php echo  $this->ion_auth->get_user()->first_name;  ?>'s Assigned Tickets</h4>
 					<table>
 						<colgroup>
-							<col width="12%" />
+							<col width="13%" />
 							<col width="80%" />
 							<col width="17%" />
 						</colgroup>
