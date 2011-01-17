@@ -77,7 +77,12 @@
 			/** top spacing for ticket description **/
 			td > p  {
 				/*border: 1px red dashed;*/
-				margin-top: 3.9px;
+				margin-top: 10px;
+			}
+
+			td#ticket_description {
+				padding-left: 8px;
+				padding-right: 10px;
 			}
 
 			table#note_log {
@@ -229,7 +234,7 @@
 										echo date("M d Y - h:i a", strtotime($ticket->date_resolved)) . ' - (' . nice_timespan($ticket->date_resolved) . ')'; 
 									}
 									else {
-										echo "No Resolution Date";
+										echo "n/a";
 									}
 								?>
 						</td>
@@ -247,7 +252,7 @@
 						<td><?php echo $ticket->assigned_to; ?></td>
 					</tr>
 					<tr>
-						<td colspan="2"><?php echo $ticket->description; ?></td>
+						<td id="ticket_description" colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
 
