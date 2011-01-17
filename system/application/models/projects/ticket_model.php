@@ -150,7 +150,7 @@ class Ticket_model extends Model {
 
 			// resolution
 			$new_resolution_to_id = $this->input->post("new_resolution_id");
-			if($current_ticket_info['resolution_id']) {
+			if($current_ticket_info['resolution_id'] != $new_resolution_to_id) {
 				$change_message .= "<li>Resolution Change from '";
 
 				$current_ticket_resolution_id = $current_ticket_info['resolution_id'];
