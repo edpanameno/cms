@@ -48,7 +48,7 @@ class Ticket_model extends Model {
 
 	function getTicketInfo($ticket_id) {
 
-		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.last_updated, T.title, T.description, " .
+		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
 					"T.resolution_id, U.username as 'created_by', U2.username as 'assigned_to', U2.id as 'assigned_to_id', " .
 					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
@@ -162,6 +162,8 @@ class Ticket_model extends Model {
 				$query = $this->db->query("SELECT name FROM ticket_resolution where resolution_id = $new_resolution_to_id");
 				$new_ticket_resolution_name = $query->row_array();
 				$change_message .= $new_ticket_resolution_name['name'] . "'</li>";
+
+				$date_resolved = date("Y-m-d H:i:s");
 			}
 
 			// assigned to
@@ -200,15 +202,30 @@ class Ticket_model extends Model {
 			// therefore we must close down the html code
 			$change_message .= "</ul></div>";
 
-			// Update the tickets table fields first
-			$data = array(
-				'assigned_to' => $new_assigned_to_id,
-				'ticket_status' => $new_status_to_id,
-				'resolution_id' => $new_resolution_to_id,
-				'ticket_priority' => $new_priority_to_id,
-				'ticket_type' => $new_type_to_id,
-				'title' => $new_title_name
-			);
+			// Update the tickets table fields first, but we have to check to see
+			// if
+			if(isset($date_resolved)) {
+				$data = array(
+					'assigned_to' => $new_assigned_to_id,
+					'ticket_status' => $new_status_to_id,
+					'resolution_id' => $new_resolution_to_id,
+					'date_resolved' => $date_resolved,
+					'ticket_priority' => $new_priority_to_id,
+					'ticket_type' => $new_type_to_id,
+					'title' => $new_title_name
+				);
+			}
+			else {
+				$data = array(
+					'assigned_to' => $new_assigned_to_id,
+					'ticket_status' => $new_status_to_id,
+					'resolution_id' => $new_resolution_to_id,
+					'ticket_priority' => $new_priority_to_id,
+					'ticket_type' => $new_type_to_id,
+					'title' => $new_title_name
+				);
+			}
+			
 
 			$this->db->where('ticket_id', $ticket_id);
 			$this->db->update("tickets", $data);
