@@ -198,7 +198,7 @@ class Ticket_model extends Model {
 				$change_message .= $new_title_name . "'</li>";
 			}
 
-			// At this point we have generated the whol change message
+			// At this point we have generated the whole change message
 			// therefore we must close down the html code
 			$change_message .= "</ul></div>";
 
