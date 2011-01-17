@@ -287,13 +287,14 @@
 						<td class="author_column" >
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
-							<i><?php echo nice_timespan($note->date_created); ?></i>
+							<i><?php echo nice_timespan($note->date_created); ?></i><br />
+							<i>#<?php echo $count++; ?></i>
 						</td>
 						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
 							<table width="100%" cellpadding="5" cellspacing="0">
 								<tr>
 									<td class="comment_date">
-										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created)) . '  [#'. $count++ . ']' ); ?>
+										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))); ?>
 									</td>
 								</tr>
 								<tr><td><div class="comment_description"><?php echo $note->description; ?></div></td></tr>
