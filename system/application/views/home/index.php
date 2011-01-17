@@ -7,13 +7,8 @@
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<style type="text/css">
-			fieldset {
-				border: 1px dotted #ccc;
-				margin-left: 20px;
-				width: 65%;
-			}
-
 			table {
+				margin-left: 20px;
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
 				width: 65%;
@@ -23,9 +18,9 @@
 			table thead th {
 				background-color: #4b4d4d;
 				color: white;
+				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
 				text-align: center;
-				font-weight: bold;
 			}
 
 			table td {

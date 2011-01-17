@@ -31,6 +31,7 @@
 			table thead th {
 				background-color: #4b4d4d;
 				color: white;
+				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
 
 				text-align: center;
