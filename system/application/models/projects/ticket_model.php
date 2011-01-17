@@ -65,6 +65,21 @@ class Ticket_model extends Model {
 		return $query->row();
 	}
 
+	function getAssignedTickets($user_id) {
+
+		$sqlQuery = "SELECT T.ticket_id as 'ticket_id', T.title, T.project_id, TS.name as 'status', " .
+					"P.name as 'project_name' " .
+					"FROM tickets T, ticket_status TS, projects P " .
+					"WHERE T.assigned_to = '$user_id' " .
+					"AND T.ticket_status != '2' " . // only get non-closed tickets
+					"AND T.project_id = P.project_id " .
+					"AND T.ticket_status = TS.status_id " .
+					"ORDER BY T.last_updated DESC ";
+
+		$query = $this->db->query($sqlQuery);
+		return $query->result();
+	}
+
 	function getTicketNotes($ticket_id) {
 
 		$sqlQuery = "SELECT TN.date_created, TN.description, " .
