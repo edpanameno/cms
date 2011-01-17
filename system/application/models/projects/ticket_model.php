@@ -32,7 +32,7 @@ class Ticket_model extends Model {
 
 		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', U.username as 'created_by', " .
 					"U2.username as 'assigned_to', TT.name as 'ticket_type' " .
-				    "FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_resolution TR " .
+				    "FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT " .
 					"WHERE T.project_id = '$project_id' " .
 					"AND T.ticket_status !=  '2'" . // don't show closed issues
 					"AND T.ticket_status = TS.status_id " .
