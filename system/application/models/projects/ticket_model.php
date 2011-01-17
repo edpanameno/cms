@@ -203,7 +203,12 @@ class Ticket_model extends Model {
 			$change_message .= "</ul></div>";
 
 			// Update the tickets table fields first, but we have to check to see
-			// if
+			// if the resolution status has changed.  IF so, then the variable
+			// $date_resolved (which is set to the current date) is set
+			// We therefore have to include this date in the update of the
+			// tickets table.  If the $date_resolved variable is not set, then
+			// this means we have not changed the resoltuion of this ticket and
+			// therefore the resolution_date on the tickets table will remain null
 			if(isset($date_resolved)) {
 				$data = array(
 					'assigned_to' => $new_assigned_to_id,
