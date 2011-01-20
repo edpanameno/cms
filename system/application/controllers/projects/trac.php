@@ -103,9 +103,6 @@ class Trac extends Controller {
 			$this->load->model("projects/ticket_model");
 			$newly_created_ticket_id = $this->ticket_model->create();
 
-			// Currently, I am redirecting the user to the trac home page
-			// of this project.  I may however change this so that wI will be
-			// able to just re-direct the user to view the newly created ticket
 			redirect("projects/$project_id/$project_name/trac/$newly_created_ticket_id", '');
 		}
 	}
