@@ -11,8 +11,6 @@
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
 				width: 70%;
-				margin-left: auto;
-				margin-right: auto;
 				border-collapse: collapse;
 			}
 
