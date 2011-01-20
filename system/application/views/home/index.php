@@ -68,13 +68,17 @@
 				</p>
 
 				<?php else: ?>
-				<h3><?php echo $this->ion_auth->get_user()->first_name . ', Welcome to ' . $this->config->item("app_name"); ?>!</h3>
+				<h3>Welcome to <?php echo $this->config->item("app_name"); ?>!</h3>
 				<p>This web site will allow you to keep track of your programming projects.  The features
 				included to accomplish this are having a tracking system to track issues and feature requests
 				of the programming projects you are working on.  In addition, each project will also have
 				its own wiki page to help you to record any information about your project.</p>
 				<h4><?php echo  $this->ion_auth->get_user()->first_name;  ?>'s Assigned Tickets</h4>
-					<table>
+					
+						<?php if(!$my_tickets): ?>
+						<h5>No tickets currently assigned to you.</h5>
+						<?php else: ?>
+						<table>
 						<colgroup>
 							<col width="13%" />
 							<col width="80%" />
@@ -92,6 +96,7 @@
 								<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 							</tr>
 						<?php endforeach; ?>
+						<?php endif; ?>
 					</table>
 				<?php endif; ?>
 			</div>

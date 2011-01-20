@@ -10,7 +10,7 @@
 			table {
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
-				width: 90%;
+				width: 70%;
 				margin-left: auto;
 				margin-right: auto;
 				border-collapse: collapse;
@@ -38,33 +38,8 @@
 			}
 
 			table td {
-				width: 50px;
 				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
-			}
-
-			#project-name {
-				width: 25%;
-			}
-
-			#project-language {
-				width: 5%;
-			}
-
-			#wiki-link {
-				width: 5%;
-			}
-
-			#trac-link {
-				width: 5%;
-			}
-
-			#date-created {
-				width: 10%;
-			}
-
-			td.language_name_column, td.wiki_column, td.trac_column, td.date_created_column {
-				text-align: center;
 			}
 		</style>
     </head>
@@ -90,26 +65,26 @@
 				</p>
 				<table>
 					<colgroup>
-						<col id="project-name" />
-						<col id="project-language" />
-						<col id="wiki-link" />
-						<col id="trac-link" />
-						<col id="date-created" />
+						<col width="50%" />
+						<col width="10%"/>
+						<col width="8%" />
+						<col width="8%" />
+						<col width="24%" />
 					</colgroup>
 					<thead>
 						<th>Name</th>
 						<th>Language</th>
 						<th>Wiki</th>
 						<th>Trac</th>
-						<th>Date Created</th>
+						<th>Created</th>
 					</thead>
 					<?php foreach($projects as $project): ?>
 						<tr>
 							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name, "title=\"" . strip_tags($project->description) . "\""); ?></td>
-							<td class="language_name_column"><?php echo $project->language_name; ?></td>
-							<td class="wiki_column"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/wiki", "wiki"); ?></td>
-							<td class="trac_column"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
-							<td class="date_created_column"><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>
+							<td><?php echo $project->language_name; ?></td>
+							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/wiki", "wiki"); ?></td>
+							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
+							<td><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</table>
