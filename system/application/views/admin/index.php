@@ -25,7 +25,7 @@
 				color: white;
 				border-bottom: 1px solid #9a9b9a;
 				text-align: center;
-				/*font-weight: bold;*/
+				font-weight: normal;
 			}
 
 			.first_name {
