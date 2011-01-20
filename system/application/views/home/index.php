@@ -33,6 +33,10 @@
 				font-weight: normal;
 			}
 
+			.ticket_number {
+				text-align: center;
+			}
+
 			tr:hover td {
 				background-color: #f2f1f1;
 			}
@@ -91,7 +95,7 @@
 						</thead>
 						<?php foreach($my_tickets as $ticket): ?>
 							<tr>
-								<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
+								<td class="ticket_number"><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
 								<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
 								<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 							</tr>

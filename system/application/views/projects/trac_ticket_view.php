@@ -140,7 +140,6 @@
 
 			fieldset {
 				width: 75%;
-				/*margin-left: 10%;*/
 				border: 1px solid #d7d7d7;
 			}
 
@@ -157,14 +156,6 @@
 			select {
 				font: inherit;
 				width: 150px;
-			}
-
-			#ticket_property_label_column {
-				width: 20%;
-			}
-
-			#ticket_property_label_value {
-				width: 80%;
 			}
 
 			div.comment_description {
@@ -203,8 +194,8 @@
 				<h3 class="heading_title"><?php echo $ticket->title .  " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table border="1" class="ticket_info">
 					<colgroup>
-						<col id="ticket_item" />
-						<col id="ticket_item_value" />
+						<col width="25%" />
+						<col width="75%" />
 					</colgroup>
 					<tr>
 						<td>Type</td>
