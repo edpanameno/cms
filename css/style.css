@@ -229,5 +229,6 @@ h4 {
 	/*border: 1px dashed red;*/
 	/*font-weight: bold;*/
 	font-size: 12pt;
+	font-variant: small-caps;
 	margin-bottom: 5px;
 }
