@@ -13,8 +13,8 @@
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
 				width: 100%;
-				margin-left: auto;
-				margin-right: auto;
+				/*margin-left: auto;
+				margin-right: auto;*/
 				border-collapse: collapse;
 			}
 
@@ -37,51 +37,14 @@
 				border-right: 1px solid white;
 
 				text-align: center;
-				font-weight: bold;
+				font-weight: normal;
 			}
 
 			table td {
-				width: 50px;
 				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
 			}
-
-			#ticket_number {
-				width: 7%
-			}
-
-			#ticket_title {
-				width: 45%;
-			}
-
-			#ticket_created_by {
-				width: 7%;
-			}
-
-			#ticket_assigned_to{
-				width: 7%;
-			}
-
-			#ticket_date_created {
-				width: 15%;
-			}
-
-			#ticket_type {
-				width: 10%;
-			}
-
-			#ticket_status {
-				width: 20%;
-			}
-
-			td.ticket_id_column, td.created_by_column,
-			td.assigned_to_column, td.ticket_status_column,
-			td.ticket_type_column,td.date_created_column {
-				text-align: center;
-			}
-
 		</style>
-
     </head>
     <body>
 		<div id="container">
@@ -102,17 +65,17 @@
 			</div>
 			<div id="main-content">
 				<h3><?php echo $project_name ?> - Trac Page</h3>
-				<br />
+				<p>Below you will find the non-closed tickets for <?php echo $project_name; ?>.</p>
 				<div>
 					<table>
 						<colgroup>
-							<col id="ticket_number" />
-							<col id="ticket_title" />
-							<col id="ticket_created_by" />
-							<col id="ticket_assigned_to" />
-							<col id="ticket_date_created" />
-							<col id="ticket_type" />
-							<col id="ticket_stauts" />
+							<col width="6%" />
+							<col width="30%" />
+							<col width="8%" />
+							<col width="8%" />
+							<col width="15%" />
+							<col width="8%" />
+							<col width="8%" />
 						</colgroup>
 						<thead>
 							<th>Ticket #</th>
@@ -125,13 +88,13 @@
 						</thead>
 						<?php foreach($tickets as $ticket): ?>
 						<tr>
-							<td class="ticket_id_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
 							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
-							<td class="created_by_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->created_by); ?></td>
-							<td class="assigned_to_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->assigned_to); ?></td>
-							<td class="date_created_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, date("M d Y - h:i a",strtotime($ticket->date_created))); ?></td>
-							<td class="ticket_type_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_type); ?></td>
-							<td class="ticket_status_column"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->created_by); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->assigned_to); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, date("M d Y - h:i a",strtotime($ticket->date_created))); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_type); ?></td>
+							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 						</tr>
 					<?php endforeach; ?>
 					</table>
