@@ -75,7 +75,6 @@
 							<col width="8%" />
 							<col width="15%" />
 							<col width="8%" />
-							<col width="8%" />
 						</colgroup>
 						<thead>
 							<th>Ticket #</th>
@@ -83,7 +82,6 @@
 							<th>Creator</th>
 							<th>Assigned</th>
 							<th>Date Created</th>
-							<th>Type</th>
 							<th>Status</th>
 						</thead>
 						<?php foreach($tickets as $ticket): ?>
@@ -93,7 +91,6 @@
 							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->created_by); ?></td>
 							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->assigned_to); ?></td>
 							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, date("M d Y - h:i a",strtotime($ticket->date_created))); ?></td>
-							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_type); ?></td>
 							<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 						</tr>
 					<?php endforeach; ?>
