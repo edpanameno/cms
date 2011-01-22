@@ -72,8 +72,8 @@
 				margin-top: 10px;
 			}
 
-			td#ticket_description {
-				padding-left: 8px;
+			tr td, td#ticket_description {
+				padding-left: 10px;
 				padding-right: 10px;
 			}
 
@@ -152,10 +152,6 @@
 
 			div.note_description {
 				margin-top: -10px;
-			}
-
-			tr td {
-				padding-left: 5px;
 			}
 
 			/** formatting for the ticket changes text **/
