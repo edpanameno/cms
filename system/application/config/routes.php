@@ -65,7 +65,7 @@ $route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/wiki'] = 'projects/wiki/index/$1/$2'
 // Trac
 $route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac'] = 'projects/trac/index/$1/$2';
 $route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac/new_ticket'] = 'projects/trac/new_ticket/$1/$2';
-$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac/(:num)'] = 'projects/trac/view_ticket/$3/$2';
+$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac/(:num)'] = 'projects/trac/view_ticket/$3/$2/$1';
 $route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac/(:num)/new_note'] = 'projects/trac/new_ticket_note/$3/$2/$1';
 
 /* End of file routes.php */

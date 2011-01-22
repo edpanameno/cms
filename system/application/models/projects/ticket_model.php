@@ -46,14 +46,17 @@ class Ticket_model extends Model {
 		return $query->result();
 	}
 
-	function getTicketInfo($ticket_id) {
+	// The project_id field is used to make sure we only
+	// retrive ticket information for the project_id associated
+	// with the ticket_id
+	function getTicketInfo($ticket_id, $project_id) {
 
 		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
 					"T.resolution_id, U.username as 'created_by', U2.username as 'assigned_to', U2.id as 'assigned_to_id', " .
 					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
 					"FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
-					"WHERE T.ticket_id = '$ticket_id' " .
+					"WHERE T.ticket_id = '$ticket_id' AND T.project_id = '$project_id' " .
 					"AND T.created_by = U.id " .
 					"AND T.assigned_to = U2.id " .
 					"AND T.ticket_status = TS.status_id " .

@@ -180,7 +180,9 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Projects > <?php echo $humanized_project_name; ?> > Trac > Ticket # <?php echo $ticket->ticket_id; ?>
+					<?php if($ticket): ?>
+						Projects > <?php echo $humanized_project_name; ?> > Trac > Ticket # <?php echo $ticket->ticket_id; ?>
+					<?php endif; ?>
 				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
@@ -188,6 +190,7 @@
 				</ul>
 			</div>
 			<div id="main-content">
+				<?php if($ticket): ?>
 				<h3 class="heading_title"><?php echo $ticket->title .  " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table border="1" class="ticket_info">
 					<colgroup>
@@ -331,6 +334,9 @@
 						<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
 					</div>
 				</form>
+			<?php else: ?>
+				<h3 style="color: red; text-align: center;">Invalid Ticket Number</h3>
+			<?php endif; ?>
 			</div>
 		<br />
 		</div>

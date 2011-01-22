@@ -31,7 +31,7 @@ class Trac extends Controller {
 		}
 	}
 
-	function view_ticket($ticket_id, $project_name) {
+	function view_ticket($ticket_id, $project_name, $project_id) {
 
 		$this->load->helper("nice_timespan_helper");
 
@@ -41,7 +41,7 @@ class Trac extends Controller {
 		$humanized_project_name = humanize($project_name);
 		$data['title'] = $this->config->item("app_name") . " - " . $humanized_project_name . ' - Ticket #' . $ticket_id;
 		$this->load->model('projects/ticket_model');
-		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id);
+		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id, $project_id);
 		$data['ticket_notes'] = $this->ticket_model->getTicketNotes($ticket_id);
 		//$data['attachements'] = ;
 
