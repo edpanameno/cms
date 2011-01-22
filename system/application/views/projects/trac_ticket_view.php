@@ -122,7 +122,7 @@
 			}
 
 			table#note_log td.author_column {
-				font-size: 98pt;
+				font-size: 9pt;
 				vertical-align: top;
 				border-right: thin solid #ccc;
 				border-bottom: thin solid #ccc;
