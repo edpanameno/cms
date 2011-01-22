@@ -93,13 +93,13 @@
 				border: 1px solid #ccc ;
 			}
 
-			tr.odd {
+			.odd {
 				background-color: #f7f6f6;
 				/*background-color: #f0efef;*/
 				/*background-color: #f0f4f5;*/
 			}
 
-			tr.even {
+			.even {
 				background-color: white;
 			}
 
