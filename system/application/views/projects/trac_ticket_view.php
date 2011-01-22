@@ -180,7 +180,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Projects > <?php echo $humanized_project_name; ?> > Trac > <?php echo $ticket->ticket_id; ?>
+					Projects > <?php echo $humanized_project_name; ?> > Trac > Ticket # <?php echo $ticket->ticket_id; ?>
 				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
