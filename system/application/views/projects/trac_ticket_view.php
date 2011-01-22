@@ -290,6 +290,7 @@
 				<div id="attachments">
 					<p>
 						<ul>
+							<!-- this is where we'll display attachments for tickets -->
 						</ul>
 					</p>
 				</div>
