@@ -42,7 +42,13 @@ class Trac extends Controller {
 		$data['title'] = $this->config->item("app_name") . " - " . $humanized_project_name . ' - Ticket #' . $ticket_id;
 		$this->load->model('projects/ticket_model');
 		$data['ticket'] = $this->ticket_model->getTicketInfo($ticket_id, $project_id);
-		$data['ticket_notes'] = $this->ticket_model->getTicketNotes($ticket_id);
+
+		// If no ticket information was retrived from the getTicketInfo function
+		// then there is no need to get any notes for this ticket.
+		if($data['ticket']) {
+			$data['ticket_notes'] = $this->ticket_model->getTicketNotes($ticket_id);
+		}
+
 		//$data['attachements'] = ;
 
 		// This model contains the data that can be changed for a ticket
