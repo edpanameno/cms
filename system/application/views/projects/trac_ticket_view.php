@@ -158,19 +158,19 @@
 				width: 150px;
 			}
 
-			div.comment_description {
+			div.note_description {
 				margin-top: -10px;
 			}
 
 			/** formatting for the ticket changes text **/
-			div.comment_description div.change_message ul {
+			div.note_description div.change_message ul {
 				padding-left: 2%;
 				font-weight: bold;
 				font-size: 9pt;
 				list-style-type: square;
 			}
 
-			div.comment_description > p {
+			div.note_description > p {
 				margin-top: 9px;
 			}
 		</style>
@@ -286,7 +286,7 @@
 										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))); ?>
 									</td>
 								</tr>
-								<tr><td><div class="comment_description"><?php echo $note->description; ?></div></td></tr>
+								<tr><td><div class="note_description"><?php echo $note->description; ?></div></td></tr>
 							</table>
 						</td>
 					</tr>
