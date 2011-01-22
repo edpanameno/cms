@@ -66,14 +66,6 @@
 				text-align: right ;
 			}
 
-			#ticket_item {
-				width: 30%;
-			}
-
-			#ticket_item_value {
-				width: 70%;
-			}
-
 			/** top spacing for ticket description **/
 			td > p  {
 				/*border: 1px red dashed;*/
