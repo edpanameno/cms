@@ -82,7 +82,7 @@ class Ticket_model extends Model {
 
 	function getTicketNotes($ticket_id) {
 
-		$sqlQuery = "SELECT TN.date_created, TN.description, " .
+		$sqlQuery = "SELECT TN.ticket_note_id as note_id, TN.date_created, TN.description, " .
 					"U.username as 'created_by', TNT.name as 'note_type' " .
 					"FROM ticket_notes TN, users U, ticket_note_types TNT " .
 					"WHERE TN.ticket_id = '$ticket_id' " .
