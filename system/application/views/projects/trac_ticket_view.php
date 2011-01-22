@@ -335,7 +335,7 @@
 					</div>
 				</form>
 			<?php else: ?>
-				<h3 style="color: red; text-align: center;">Invalid Ticket Number</h3>
+				<h4 style="color: red; text-align: center;">Invalid Ticket</h4>
 			<?php endif; ?>
 			</div>
 		<br />
