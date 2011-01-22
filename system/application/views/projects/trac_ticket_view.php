@@ -185,7 +185,6 @@
 					<?php endif; ?>
 				</span>
 				<ul>
-					<li><a href="#">Search</a></li>
 					<li><a href="#add_note">Add Note</a></li>
 				</ul>
 			</div>
@@ -249,7 +248,7 @@
 
 				<h4 class="heading_title">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
-					<h5 style="margin-left: 80px; color: red;">This ticket has no notes</h5>
+					<h4 style="margin-left: 80px; color: red;">This ticket has no notes</h4>
 				<?php else: ?>
 					<table id ="note_log">
 					<colgroup>

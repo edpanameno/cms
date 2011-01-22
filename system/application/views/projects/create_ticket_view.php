@@ -27,7 +27,6 @@
 					Project > <?php echo $project_name; ?> > Trac > New Ticket
 				</span>
 				<ul>
-					<li><a href="#">Create Project</a></li>
 					<li><a href="#">Home</a></li>
 				</ul>
 			</div>

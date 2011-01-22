@@ -16,7 +16,6 @@
 			</div>
 			<div id="page-nav-bar">
 				<ul>
-					<li><a href="#">Search</a></li>
 					<li><a href="">Home</a></li>
 				</ul>
 			</div>

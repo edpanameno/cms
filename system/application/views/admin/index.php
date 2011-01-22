@@ -35,7 +35,6 @@
 			</div>
 			<div id="page-nav-bar">
 				<ul>
-					<li><a href="#">Search</a></li>
 					<li><?php echo anchor("admin/user/create", "Create User"); ?></li>
 				</ul>
 			</div>

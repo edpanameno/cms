@@ -36,7 +36,6 @@
 					Admin > Create User
 				</span>
 				<ul>
-					<li><a href="#">Search</a></li>
 					<li><a href="#">Home</a></li>
 				</ul>
 			</div>

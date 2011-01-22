@@ -18,7 +18,6 @@
 					Project > <?php echo $humanized_project_name; ?>
 				</span>
 				<ul>
-					<li><a href="#">Search</a></li>
 					<li><a href="<?php echo site_url() . "projects/" .  $project->project_id . "/" . $project_name . "/wiki" ?>">Wiki</a></li>
 					<li><a href="<?php echo site_url() . "projects/" . $project->project_id . "/" .  $project_name . "/trac" ?>">Trac</a></li>
 				</ul>
