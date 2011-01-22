@@ -93,20 +93,11 @@ body {
 /* The navigation bar for each page */
 #page_breadcrum {
 
-	font-size: 8pt;
-	font-style: italic;
-	/*font-weight: bold;*/
+	font-size: 9pt;
 	margin-left: 5px;
 	margin-top: 1px;
 	float: left;
 }
-
-/*#page_breadcrum a {
-	!important;
-	display: block;
-	padding: 0 15px 0 0;
-	background: url("../images/crumbs.gif") no repeat right center;
-}*/
 
 #page-nav-bar {
 	background: url("../images/page-nav-bar-background.png") repeat-x scroll 0 0 #FFFFFF;
