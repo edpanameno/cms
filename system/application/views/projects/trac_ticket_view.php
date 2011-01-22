@@ -165,6 +165,11 @@
 			div.note_description > p {
 				margin-top: 9px;
 			}
+
+			thead th {
+				font-weight: normal;
+				border-right: 1px solid #9a9b9a;
+			}
 		</style>
     </head>
     <body>
