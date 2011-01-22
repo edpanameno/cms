@@ -34,15 +34,18 @@
 				<?php $this->load->view("common/topnav_view"); ?>
 			</div>
 			<div id="page-nav-bar">
+				<span id="page_breadcrum">
+					Admin
+				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
 					<li><?php echo anchor("admin/user/create", "Create User"); ?></li>
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3>Admin Page</h3> 
-				<p>This page will allow you to create/edit users that will have access to the application.</p>
 				<span style="color: red"><?php echo $this->session->flashdata("message"); ?></span>
+				<h3>Admin Page</h3>
+				<p>This page will allow you to create/edit users that will have access to the application.</p>
 				<h4>Active Users</h4>
 				<table border="1">
 					<colgroup>
