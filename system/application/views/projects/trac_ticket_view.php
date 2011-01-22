@@ -111,8 +111,8 @@
 				background-color: white;
 			}
 
-			tr td.comment_date {
-				font-size: 8pt;
+			tr td.note_date {
+				font-size: 9pt;
 				text-align: right;
 				border-bottom: thin solid #ccc;
 			}
@@ -282,7 +282,7 @@
 						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
 							<table width="100%" cellpadding="5" cellspacing="0">
 								<tr>
-									<td class="comment_date">
+									<td class="note_date">
 										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))); ?>
 									</td>
 								</tr>
