@@ -247,14 +247,6 @@
 					</tr>
 				</table>
 
-				<h4 class="heading_title">Attachments</h4>
-				<div id="attachments">
-					<p>
-						<ul>
-						</ul>
-					</p>
-				</div>
-
 				<h4 class="heading_title">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
 					<h5 style="margin-left: 80px; color: red;">This ticket has no notes</h5>
@@ -292,7 +284,16 @@
 					</tr>
 					<?php endforeach; ?>
 				</table>
-					<?php endif; ?>
+				<?php endif; ?>
+
+				<h4 class="heading_title">Attachments</h4>
+				<div id="attachments">
+					<p>
+						<ul>
+						</ul>
+					</p>
+				</div>
+
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 					<h5 id="change_ticket" class="heading_title note_heading_title collapsed">Change Ticket</h5>
 					<div id="change_ticket_div">
