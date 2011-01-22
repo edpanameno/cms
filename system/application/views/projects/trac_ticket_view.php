@@ -122,7 +122,7 @@
 			}
 
 			table#note_log td.author_column {
-				font-size: 9pt;
+				font-size: 98pt;
 				vertical-align: top;
 				border-right: thin solid #ccc;
 				border-bottom: thin solid #ccc;
@@ -251,8 +251,6 @@
 				<div id="attachments">
 					<p>
 						<ul>
-							<li>Ticket ITem one</li>
-							<li>Ticket item 3</li>
 						</ul>
 					</p>
 				</div>
