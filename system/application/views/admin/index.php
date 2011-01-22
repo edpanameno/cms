@@ -11,8 +11,6 @@
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
 				width: 90%;
-				/*margin-left: auto;
-				margin-right: auto;*/
 				border-collapse: collapse;
 			}
 
@@ -27,41 +25,6 @@
 				text-align: center;
 				font-weight: normal;
 			}
-
-			.first_name {
-				width: 16%;
-			}
-
-			.last_name {
-				width: 15%;
-			}
-
-			.username {
-				width: 13%;
-			}
-
-			.email {
-				width: 25%;
-			}
-
-			.group {
-				width: 10%;
-			}
-
-			.last_login {
-				width: 20%;
-			}
-
-			.deactivate_user {
-				width: 15%;
-				text-align: center;
-			}
-
-			.activate_user {
-				width: 10%;
-				text-align: center;
-			}
-
 		</style>
     </head>
     <body>
@@ -86,13 +49,13 @@
 				<h4>Active Users</h4>
 				<table border="1">
 					<colgroup>
-						<col class="first_name" />
-						<col class="last_name" />
-						<col class="username" />
-						<col class="email" />
-						<col class="group" />
-						<col class="last_login" />
-						<col class="deactivate_user" />
+						<col width="10%" />
+						<col width="12%" />
+						<col width="12%" />
+						<col width="20%" />
+						<col width="10%"/>
+						<col width="17%" />
+						<col width="8%" />
 					</colgroup>
 					<thead>
 						<th>First Name</th>
@@ -119,13 +82,13 @@
 				<h4>Deactivated Users</h4>
 				<table border="1">
 					<colgroup>
-						<col class="first_name" />
-						<col class="last_name" />
-						<col class="username" />
-						<col class="email" />
-						<col class="group" />
-						<col class="last_login" />
-						<col class="activate_user" />
+						<col width="10%" />
+						<col width="12%" />
+						<col width="12%" />
+						<col width="20%" />
+						<col width="10%" />
+						<col width="18%" />
+						<col width="7%" />
 					</colgroup>
 					<thead>
 						<th>First Name</th>

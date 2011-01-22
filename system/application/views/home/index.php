@@ -84,9 +84,9 @@
 						<?php else: ?>
 						<table>
 						<colgroup>
-							<col width="13%" />
-							<col width="80%" />
-							<col width="17%" />
+							<col width="15%" />
+							<col width="70%" />
+							<col width="15%" />
 						</colgroup>
 						<thead>
 							<th>Ticket #</th>
