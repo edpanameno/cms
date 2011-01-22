@@ -113,7 +113,7 @@
 				border-collapse: collapse;
 			}
 
-			table#note_log td.author_column {
+			.author_column {
 				font-size: 9pt;
 				vertical-align: top;
 				border-right: thin solid #ccc;
