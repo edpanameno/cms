@@ -49,7 +49,7 @@
 				width: 85%;
 				margin-left: auto;
 				margin-right: auto;
-				border: 1px #ccc solid;
+				border: 1px #d6d6d6 solid;
 				border-collapse: collapse;
 			}
 
