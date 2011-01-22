@@ -34,9 +34,6 @@
 				<?php $this->load->view("common/topnav_view"); ?>
 			</div>
 			<div id="page-nav-bar">
-				<span id="page_breadcrum">
-					Admin
-				</span>
 				<ul>
 					<li><a href="#">Search</a></li>
 					<li><?php echo anchor("admin/user/create", "Create User"); ?></li>
