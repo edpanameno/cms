@@ -185,6 +185,7 @@
 					<?php endif; ?>
 				</span>
 				<ul>
+					<li><a href="#add_note">Add Attachment</a></li>
 					<li><a href="#add_note">Add Note</a></li>
 				</ul>
 			</div>
