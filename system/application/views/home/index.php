@@ -79,28 +79,28 @@
 				its own wiki page to help you to record any information about your project.</p>
 				<h4><?php echo  $this->ion_auth->get_user()->first_name;  ?>'s Assigned Tickets</h4>
 					
-						<?php if(!$my_tickets): ?>
-						<h5>No tickets currently assigned to you.</h5>
-						<?php else: ?>
-						<table>
-						<colgroup>
-							<col width="15%" />
-							<col width="70%" />
-							<col width="15%" />
-						</colgroup>
-						<thead>
-							<th>Ticket #</th>
-							<th>Title</th>
-							<th>Status</th>
-						</thead>
-						<?php foreach($my_tickets as $ticket): ?>
-							<tr>
-								<td class="ticket_number"><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
-								<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
-								<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
-							</tr>
-						<?php endforeach; ?>
-						<?php endif; ?>
+				<?php if(!$my_tickets): ?>
+					<h5>No tickets currently assigned to you.</h5>
+				<?php else: ?>
+					<table>
+					<colgroup>
+						<col width="15%" />
+						<col width="70%" />
+						<col width="15%" />
+					</colgroup>
+					<thead>
+						<th>Ticket #</th>
+						<th>Title</th>
+						<th>Status</th>
+					</thead>
+					<?php foreach($my_tickets as $ticket): ?>
+						<tr>
+							<td class="ticket_number"><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
+							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
+							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
+						</tr>
+					<?php endforeach; ?>
+					<?php endif; ?>
 					</table>
 				<?php endif; ?>
 			</div>
