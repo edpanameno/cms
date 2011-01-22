@@ -41,7 +41,7 @@
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3>Enter New User Information below</h3>
+				<h3>Create New User</h3>
 				<span id="error-msg" style="color: red">
 					<?php echo validation_errors(); ?>
 					<?php echo $this->session->flashdata('message'); ?>
