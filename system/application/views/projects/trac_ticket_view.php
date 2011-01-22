@@ -154,6 +154,10 @@
 				margin-top: -10px;
 			}
 
+			tr td {
+				padding-left: 5px;
+			}
+
 			/** formatting for the ticket changes text **/
 			div.note_description div.change_message ul {
 				padding-left: 2%;
