@@ -87,8 +87,8 @@
 						<col width="12%" />
 						<col width="20%" />
 						<col width="10%" />
-						<col width="18%" />
-						<col width="7%" />
+						<col width="17%" />
+						<col width="8%" />
 					</colgroup>
 					<thead>
 						<th>First Name</th>
