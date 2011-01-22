@@ -73,7 +73,7 @@
 			}
 
 			tr td, td#ticket_description {
-				padding-left: 10px;
+				padding-left: 7px;
 				padding-right: 10px;
 			}
 
