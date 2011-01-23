@@ -45,6 +45,8 @@
 			</div>
 			<div id="page-nav-bar">
 				<ul>
+					<li><?php echo anchor("admin/groups", "Manage Groups") ?></li>
+					<li><?php echo anchor("admin/create_group", "Create Group") ?></li>
 					<li><?php echo anchor("admin/user/create", "Create User"); ?></li>
 				</ul>
 			</div>
