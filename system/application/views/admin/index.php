@@ -77,9 +77,9 @@
 						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->first_name); ?></td>
 						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->last_name); ?></td>
 						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->username); ?></td>
-						<td><?php echo $user->email; ?></td>
-						<td><?php echo $user->group; ?></td>
-						<td><?php echo unix_to_human($user->last_login); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->email); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->group); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, unix_to_human($user->last_login)); ?></td>
 						<td><?php echo anchor("admin/user/deactivate/" . $user->id, "deactivate"); ?></td>
 					</tr>
 				<?php endforeach; ?>
@@ -110,9 +110,9 @@
 						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->first_name); ?></td>
 						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->last_name); ?></td>
 						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->username); ?></td>
-						<td><?php echo $user->email; ?></td>
-						<td><?php echo $user->group; ?></td>
-						<td><?php echo unix_to_human($user->last_login); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->email); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->group); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, unix_to_human($user->last_login)); ?></td>
 						<td><?php echo anchor("admin/user/activate/" . $user->id, "activate"); ?></td>
 					</tr>
 				<?php endforeach; ?>
