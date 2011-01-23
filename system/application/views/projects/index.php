@@ -65,9 +65,9 @@
 					<colgroup>
 						<col width="50%" />
 						<col width="10%"/>
-						<col width="8%" />
-						<col width="8%" />
-						<col width="24%" />
+						<col width="7%" />
+						<col width="7%" />
+						<col width="26%" />
 					</colgroup>
 					<thead>
 						<th>Name</th>
