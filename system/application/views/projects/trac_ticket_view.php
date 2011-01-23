@@ -274,7 +274,7 @@
 							<table width="100%" cellpadding="5" cellspacing="0">
 								<tr>
 									<td class="note_date">
-										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\"> - (#" . $count++ . ")</a>"; ?>
+										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\">  (#" . $count++ . ")</a>"; ?>
 									</td>
 								</tr>
 								<tr><td><div class="note_description"><?php echo $note->description; ?></div></td></tr>
