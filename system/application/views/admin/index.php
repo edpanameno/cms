@@ -18,6 +18,10 @@
 				background-color: #f2f1f1;
 			}
 
+			table tr td {
+				padding-left: 4px;
+			}
+
 			table thead th {
 				background-color: #4b4d4d;
 				color: white;
@@ -64,13 +68,13 @@
 					</thead>
 				<?php foreach($active_users as $user): ?>
 					<tr>
-						<td class="first_name"><?php echo anchor("admin/user/edit/" . $user->id, $user->first_name); ?></td>
-						<td class="last_name"><?php echo anchor("admin/user/edit/" . $user->id, $user->last_name); ?></td>
-						<td class="username"><?php echo anchor("admin/user/edit/" . $user->id, $user->username); ?></td>
-						<td class="email"><?php echo $user->email; ?></td>
-						<td class="group"><?php echo $user->group; ?></td>
-						<td class="last_login"><?php echo unix_to_human($user->last_login); ?></td>
-						<td class="de-activate"><?php echo anchor("admin/user/deactivate/" . $user->id, "deactivate"); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->first_name); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->last_name); ?></td>
+						<td><?php echo anchor("admin/user/edit/" . $user->id, $user->username); ?></td>
+						<td><?php echo $user->email; ?></td>
+						<td><?php echo $user->group; ?></td>
+						<td><?php echo unix_to_human($user->last_login); ?></td>
+						<td><?php echo anchor("admin/user/deactivate/" . $user->id, "deactivate"); ?></td>
 					</tr>
 				<?php endforeach; ?>
 				</table>
