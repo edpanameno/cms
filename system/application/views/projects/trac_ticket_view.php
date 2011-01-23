@@ -263,7 +263,7 @@
 						</tr>
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>
-				<?php static $count = 1; ?>
+					<?php static $count = 1; ?>
 					<tr class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column" >
 							<span><b><?php echo $note->created_by; ?></b></span><br />
@@ -274,14 +274,14 @@
 							<table width="100%" cellpadding="5" cellspacing="0">
 								<tr>
 									<td class="note_date">
-										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\" title=\"note_$note->note_id\"> - [#" . $count++ . "]</a>"; ?>
+										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\"> - (#" . $count++ . ")</a>"; ?>
 									</td>
 								</tr>
 								<tr><td><div class="note_description"><?php echo $note->description; ?></div></td></tr>
 							</table>
 						</td>
 					</tr>
-					<?php endforeach; ?>
+				<?php endforeach; ?>
 				</table>
 				<?php endif; ?>
 
