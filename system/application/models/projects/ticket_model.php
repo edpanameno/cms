@@ -90,7 +90,8 @@ class Ticket_model extends Model {
 					"FROM ticket_notes TN, users U, ticket_note_types TNT " .
 					"WHERE TN.ticket_id = '$ticket_id' " .
 					"AND TN.created_by = U.id " .
-					"AND TN.ticket_note_type = TNT.ticket_note_type_id ";
+					"AND TN.ticket_note_type = TNT.ticket_note_type_id " .
+					"ORDER BY TN.date_created ";
 
 		$query = $this->db->query($sqlQuery);
 		return $query->result();
