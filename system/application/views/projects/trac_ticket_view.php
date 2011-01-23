@@ -269,13 +269,12 @@
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
 							<i><?php echo nice_timespan($note->date_created); ?></i><br />
-							<i>#<?php echo "<a name=\"note_$note->note_id\" title=\"note_$note->note_id\">" .  $count++ . "</a>"; ?></i>
 						</td>
 						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
 							<table width="100%" cellpadding="5" cellspacing="0">
 								<tr>
 									<td class="note_date">
-										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))); ?>
+										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\" title=\"note_$note->note_id\"> - [#" . $count++ . "]</a>"; ?>
 									</td>
 								</tr>
 								<tr><td><div class="note_description"><?php echo $note->description; ?></div></td></tr>
