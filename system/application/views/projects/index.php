@@ -23,7 +23,7 @@
 			}
 
 			tr:hover td {
-				background-color: #f2f1f1;
+				background-color: #f7f6f6;
 			}
 
 			table thead th {
