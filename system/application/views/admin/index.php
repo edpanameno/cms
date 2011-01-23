@@ -14,20 +14,26 @@
 				border-collapse: collapse;
 			}
 
-			tr:hover td {
-				background-color: #f2f1f1;
+			table thead th {
+				background-color: #4b4d4d;
+				color: white;
+				border-right: 1px solid #9a9b9a;
+				border-bottom: 1px solid #9a9b9a;
+				text-align: center;
+				font-weight: normal;
+			}
+
+			table td {
+				border-right: 1px solid #9a9b9a;
+				border-bottom: 1px solid #9a9b9a;
 			}
 
 			table tr td {
 				padding-left: 4px;
 			}
 
-			table thead th {
-				background-color: #4b4d4d;
-				color: white;
-				border-bottom: 1px solid #9a9b9a;
-				text-align: center;
-				font-weight: normal;
+			tr:hover td {
+				background-color: #f2f1f1;
 			}
 		</style>
     </head>
@@ -47,7 +53,7 @@
 				<h3>Admin Page</h3>
 				<p>This page will allow you to create/edit users that will have access to the application.</p>
 				<h4>Active Users</h4>
-				<table border="1">
+				<table>
 					<colgroup>
 						<col width="10%" />
 						<col width="12%" />
@@ -80,7 +86,7 @@
 				</table>
 
 				<h4>Deactivated Users</h4>
-				<table border="1">
+				<table>
 					<colgroup>
 						<col width="10%" />
 						<col width="12%" />
