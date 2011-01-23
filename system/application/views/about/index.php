@@ -15,7 +15,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><a href="<?php echo site_url(); ?>">Home</a></li>
 				</ul>
 			</div>
 			<div id="main-content">
