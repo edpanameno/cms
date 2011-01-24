@@ -9,6 +9,12 @@
 		<base href="<?php echo site_url(); ?>" />
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
 		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
+		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("select").focus();
+			});
+		</script>
 		<style type="text/css">
 			select {
 				font: inherit;

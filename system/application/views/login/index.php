@@ -2,10 +2,19 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
+		<base href="<?php echo site_url(); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $this->config->item("app_name") . " - Login"; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+
+		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("input:first").focus();
+			});
+		</script>
+
 		<style type="text/css">
 
 			fieldset {

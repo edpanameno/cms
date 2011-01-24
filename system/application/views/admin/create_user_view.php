@@ -6,6 +6,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>myCMS - Create New User</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+
+		<script language="javascript" type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("select").focus();
+			});
+		</script>
+
 		<style type="text/css">
 			fieldset {
 				border: 1px ridge #ccc ;
@@ -36,7 +44,6 @@
 					Admin > Create User
 				</span>
 				<ul>
-					<li><a href="#">Home</a></li>
 				</ul>
 			</div>
 			<div id="main-content">
