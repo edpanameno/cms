@@ -37,6 +37,14 @@
 
 					return false;
 				});
+
+				$("#note_focus").click(function(event) {
+					tinymce.execCommand('mceFocus', false, 'text_description')
+				});
+
+				//$("#attachment_focus").click(function() {
+				//});
+
 			});
 		</script>
 		<?php $this->load->view("common/style_sheets_view"); ?>
@@ -185,8 +193,8 @@
 					<?php endif; ?>
 				</span>
 				<ul>
-					<li><a href="#add_note">Add Attachment</a></li>
-					<li><a href="#add_note">Add Note</a></li>
+					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_attachment", "Add Attachment"); ?></li>
+					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_note", "Add Note", array("id" => "note_focus")); ?></li>
 				</ul>
 			</div>
 			<div id="main-content">
@@ -285,7 +293,7 @@
 				</table>
 				<?php endif; ?>
 
-				<h4 class="heading_title">Attachments</h4>
+				<h4 class="heading_title"><a name="add_attachement">Attachments</a></h4>
 				<div id="attachments">
 					<p>
 						<ul>
@@ -326,7 +334,7 @@
 							</table>
 						</fieldset>
 					</div>
-					<h5 id="add_note" class="heading_title note_heading_title" name="add_note">Add a Note</h5>
+					<h5 id="add_note" class="heading_title note_heading_title" ><a name="add_note">Add a Note</a></h5>
 					<div id="add_note_text">
 						<textarea cols="30" rows="10" name="text_description" id="text_description"> </textarea>
 						<input id="submit_note" type="submit" name="submit" value="Add Note" />
