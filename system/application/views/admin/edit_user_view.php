@@ -24,7 +24,6 @@
 					Admin > Edit User > <?php echo $user->username; ?>
 				</span>
 				<ul>
-					<li><a href="#">Home</a></li>
 				</ul>
 			</div>
 			<div id="main-content">
