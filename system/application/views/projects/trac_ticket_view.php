@@ -72,7 +72,7 @@
 				margin-top: 10px;
 			}
 
-			tr td, td#ticket_description {
+			.ticket_info tr td, td#ticket_description {
 				padding-left: 7px;
 				padding-right: 10px;
 			}
@@ -150,19 +150,19 @@
 				width: 150px;
 			}
 
-			div.note_description {
+			div.note_text {
 				margin-top: -10px;
 			}
 
 			/** formatting for the ticket changes text **/
-			div.note_description div.change_message ul {
+			div.note_text div.change_message ul {
 				padding-left: 2%;
 				font-weight: bold;
 				font-size: 9pt;
 				list-style-type: square;
 			}
 
-			div.note_description > p {
+			div.note_text > p {
 				margin-top: 9px;
 			}
 
@@ -277,7 +277,7 @@
 										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\">  (#" . $count++ . ")</a>"; ?>
 									</td>
 								</tr>
-								<tr><td><div class="note_description"><?php echo $note->description; ?></div></td></tr>
+								<tr><td><div class="note_text"><?php echo $note->description; ?></div></td></tr>
 							</table>
 						</td>
 					</tr>
