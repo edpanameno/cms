@@ -21,7 +21,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Admin > Edit User
+					Admin > Edit User > <?php echo $user->username; ?>
 				</span>
 				<ul>
 					<li><a href="#">Home</a></li>
