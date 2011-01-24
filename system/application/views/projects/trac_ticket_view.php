@@ -193,7 +193,7 @@
 					<?php endif; ?>
 				</span>
 				<ul>
-					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_attachment", "Add Attachment"); ?></li>
+					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_attachement", "Add Attachment"); ?></li>
 					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_note", "Add Note", array("id" => "note_focus")); ?></li>
 				</ul>
 			</div>
