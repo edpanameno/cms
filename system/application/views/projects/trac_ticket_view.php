@@ -215,14 +215,14 @@
 					</tr>
 					<tr>
 						<td>Date Created</td>
-						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' - (' . nice_timespan($ticket->date_created) . ')'; ?></td>
+						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
 					</tr>
 					<tr>
 						<td>Date Resolved</td>
 						<td>
 								<?php
 									if(isset($ticket->date_resolved)) {
-										echo date("M d Y - h:i a", strtotime($ticket->date_resolved)) . ' - (' . nice_timespan($ticket->date_resolved) . ')'; 
+										echo date("M d Y - h:i a", strtotime($ticket->date_resolved)) . ' (' . nice_timespan($ticket->date_resolved) . ')'; 
 									}
 									else {
 										echo "n/a";
@@ -232,7 +232,7 @@
 					</tr>
 					<tr>
 						<td>Last Updated</td>
-						<td><?php echo date("M d Y - h:i a", strtotime($ticket->last_updated)) . ' - (' . nice_timespan($ticket->last_updated) . ')'; ?></td>
+						<td><?php echo date("M d Y - h:i a", strtotime($ticket->last_updated)) . ' (' . nice_timespan($ticket->last_updated) . ')'; ?></td>
 					</tr>
 					<tr>
 						<td>Created By</td>
