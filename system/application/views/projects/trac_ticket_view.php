@@ -38,7 +38,7 @@
 					return false;
 				});
 
-				$("#note_focus").click(function(event) {
+				$("#note_focus").click(function() {
 					tinymce.execCommand('mceFocus', false, 'text_description')
 				});
 
@@ -257,7 +257,7 @@
 
 				<h4 class="heading_title">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
-					<h4 style="margin-left: 80px; color: red;">This ticket has no notes</h4>
+					<h4 style="margin-top: 10px; margin-left: 80px; color: grey;">This ticket has no notes</h4>
 				<?php else: ?>
 					<table id ="note_log">
 					<colgroup>
