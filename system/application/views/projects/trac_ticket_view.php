@@ -163,7 +163,7 @@
 			}
 
 			div.note_text > p {
-				margin-top: 9px;
+				margin-top: 11px;
 			}
 
 			thead th {
