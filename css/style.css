@@ -17,8 +17,8 @@ body {
 	margin-left: 10px;
 	margin-right: 10px;
 	position: relative;
-	/*min-height: 100%;*/
-	min-height: 825px;
+	min-height: 100%;
+	/*min-height: 825px;*/
 }
 
 #top-header {

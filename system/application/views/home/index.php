@@ -72,6 +72,7 @@
 				included to accomplish this are having a tracking system to track issues and feature requests
 				of the programming projects you are working on.  In addition, each project will also have
 				its own wiki page to help you to record any information about your project.</p>
+
 				<h4><?php echo  $this->ion_auth->get_user()->first_name;  ?>'s Assigned Tickets</h4>
 					
 				<?php if(!$my_tickets): ?>
