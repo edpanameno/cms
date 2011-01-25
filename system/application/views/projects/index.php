@@ -49,7 +49,6 @@
 			</div>
 			<div id="page-nav-bar">
 					<ul>
-						<li><a href="<?php echo site_url(); ?>">Home</a></li>
 						<?php if($this->ion_auth->is_admin()): ?>
 							<li><a href="projects/create">Create Project</a></li>
 						<?php endif; ?>
