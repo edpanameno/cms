@@ -200,7 +200,7 @@
 			<div id="main-content">
 				<?php if($ticket): ?>
 				<h3 class="heading_title"><?php echo $ticket->title .  " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
-				<table border="1" cellpadding="1" class="ticket_info">
+				<table border="1" cellpadding="2" class="ticket_info">
 					<colgroup>
 						<col width="25%" />
 						<col width="75%" />
