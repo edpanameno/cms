@@ -102,13 +102,14 @@
 			}
 
 			.odd {
-				background-color: #f7f6f6;
+				background-color: #fafafa;
+				/*background-color: #f7f6f6;*/
 				/*background-color: #f0efef;*/
 				/*background-color: #f0f4f5;*/
 			}
 
 			.even {
-				background-color: white;
+				/*background-color: white;*/
 			}
 
 			tr td.note_date {
@@ -273,7 +274,7 @@
 				<?php foreach($ticket_notes as $note): ?>
 					<?php static $count = 1; ?>
 					<tr class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
-						<td class="author_column" >
+						<td class="author_column">
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
 							<i><?php echo nice_timespan($note->date_created); ?></i><br />

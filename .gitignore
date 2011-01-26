@@ -7,3 +7,5 @@
 # Netbeans Projects folder
 nbproject/
 
+# Other files
+*.swp
