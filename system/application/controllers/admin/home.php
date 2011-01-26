@@ -136,12 +136,13 @@ class Home extends Controller {
 
 		$user_id = $this->input->post('user_id');
 		$new_group_id = $this->input->post('group_id');
+		$user_name = $this->ion_auth->get_user($user_id)->username;
 		$data = array('group_id' => $new_group_id);
 
 		$this->db->where('id', $user_id);
 		$this->db->update('users', $data);
 
-		$this->session->set_flashdata('message', "Group Changed Successfully!");
+		$this->session->set_flashdata('message', "Group Changed Successfully for '$user_name'");
 		redirect('admin', 'refresh');
 	}
 }
