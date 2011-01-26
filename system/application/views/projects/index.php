@@ -6,6 +6,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>myCMS - Projects</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+
+		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#projects_table").tablesorter();
+			});
+		</script>
+
 		<style type="text/css">
 			table {
 				table-layout: fixed;
@@ -60,7 +69,7 @@
 				wiki page as well as a trac page (where you will be able to keep track of any issues and enhancements for the
 				project at hand).
 				</p>
-				<table>
+				<table id="projects_table">
 					<colgroup>
 						<col width="50%" />
 						<col width="10%"/>

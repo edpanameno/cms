@@ -8,6 +8,14 @@
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 
+		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#tickets_table").tablesorter();
+			});
+		</script>
+
 		<style type="text/css">
 			table {
 				table-layout: fixed;
@@ -60,7 +68,7 @@
 				<h3><?php echo $project_name ?> - Trac Page</h3>
 				<p>Below you will find the non-closed tickets for <?php echo $project_name; ?>.</p>
 				<div>
-					<table>
+					<table id="tickets_table">
 						<colgroup>
 							<col width="6%" />
 							<col width="40%" />
