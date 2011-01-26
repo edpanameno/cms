@@ -144,7 +144,7 @@ class Home extends Controller {
 		$this->db->where('id', $user_id);
 		$this->db->update('users', $data);
 
-		$this->session->set_flashdata('message', "Group Changed Successfully for '$user_name'");
+		$this->session->set_flashdata('message', "<br />Group Changed Successfully for '$user_name'");
 		redirect('admin', 'refresh');
 	}
 }

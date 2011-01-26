@@ -50,7 +50,6 @@
 				</ul>
 			</div>
 			<div id="main-content">
-				<br />
 				<span style="color: red"><?php echo $this->session->flashdata("message"); ?></span>
 				<h3>Admin Page</h3>
 				<p>This page will allow you to create/edit users that will have access to the application.</p>
