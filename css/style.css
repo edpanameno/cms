@@ -12,13 +12,11 @@ body {
 	background: url("../images/top-background.gif") repeat-x scroll;
 	background-color: #FFF;
 	border: 1px solid black;
-	/*margin: 0 auto;*/
 	margin-top: -8px;
 	margin-left: 10px;
 	margin-right: 10px;
 	position: relative;
 	min-height: 100%;
-	/*min-height: 825px;*/
 }
 
 #top-header {
@@ -37,14 +35,6 @@ body {
 	right: 5px;
 	top: 14px;
 }
-
-/* This is for the search box in the upper right hand corner */
-/*#global-search {
-	margin: 0;
-	position: absolute;
-	right: 0px;
-	top: 59px;
-}*/
 
 #common-nav {
 	background: url("../images/nav-bar-background.png") repeat-x scroll 0 0 #FFFFFF;
@@ -103,7 +93,6 @@ body {
 #page-nav-bar {
 	background: url("../images/page-nav-bar-background.png") repeat-x scroll 0 0 #FFFFFF;
 	border: 1px solid #DDDDDD;
-	/*font: 8.5pt Verdana, "Bitstream Vera Sans", helvatica,arial, sans-serif;*/
 	font: 9pt Georgia, Times, sans-serif;
 	margin-top: 33px;
 	height: 18px;
@@ -218,8 +207,6 @@ h3 {
 }
 
 h4 {
-	/*border: 1px dashed red;*/
-	/*font-weight: bold;*/
 	font-size: 12pt;
 	font-variant: small-caps;
 	margin-bottom: 5px;
