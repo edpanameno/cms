@@ -55,7 +55,7 @@
 					</ul>
 			</div>
 			<div id="main-content">
-				<h3>My Projects</h3>
+				<h3><?php echo $this->config->item("app_name"); ?> Projects</h3>
 				<p>Below you will find the list of projects that I am currently working on.  Each project has an associated
 				wiki page as well as a trac page (where you will be able to keep track of any issues and enhancements for the
 				project at hand).
