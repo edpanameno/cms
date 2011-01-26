@@ -6,6 +6,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+
+		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#active_users_table").tablesorter();
+				$("#deactivated_users_table").tablesorter();
+			});
+		</script>
+
 		<style type="text/css">
 			table {
 				table-layout: fixed;
@@ -54,7 +64,7 @@
 				<h3>Admin Page</h3>
 				<p>This page will allow you to create/edit users that will have access to the application.</p>
 				<h4>Active Users</h4>
-				<table>
+				<table id="active_users_table">
 					<colgroup>
 						<col width="10%" />
 						<col width="12%" />
@@ -87,7 +97,7 @@
 				</table>
 
 				<h4>Deactivated Users</h4>
-				<table>
+				<table id="deactivated_users_table">
 					<colgroup>
 						<col width="10%" />
 						<col width="12%" />
