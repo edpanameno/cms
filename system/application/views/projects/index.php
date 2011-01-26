@@ -48,6 +48,22 @@
 				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
 			}
+
+			th.header {
+				/*background-image: url("images/modifier_subtract.gif");*/
+				background-repeat: no-repeat;
+				background-position: right;
+				/*background-color: #4b4d4d;*/
+			}
+
+			th.headerSortUp {
+				background-image: url("images/arrow_up.gif");
+			}
+
+			th.headerSortDown {
+				background-image: url("images/arrow_down.gif");
+				vertical-align: middle;
+			}
 		</style>
     </head>
     <body>
@@ -80,16 +96,16 @@
 					<thead>
 						<th>Name</th>
 						<th>Language</th>
-						<th>Wiki</th>
-						<th>Trac</th>
+						<th style="text-align: left;">Wiki</th>
+						<th style="text-align: left;">Trac</th>
 						<th>Created</th>
 					</thead>
 					<?php foreach($projects as $project): ?>
 						<tr>
 							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name, "title=\"" . strip_tags($project->description) . "\""); ?></td>
 							<td style="text-align: center;"><?php echo $project->language_name; ?></td>
-							<td style="text-align: center;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/wiki", "wiki"); ?></td>
-							<td style="text-align: center;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
+							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/wiki", "wiki"); ?></td>
+							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
 							<td><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>
 						</tr>
 					<?php endforeach; ?>
