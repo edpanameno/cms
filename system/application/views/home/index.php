@@ -11,7 +11,7 @@
 				margin-left: 20px;
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
-				width: 65%;
+				width: 75%;
 				border-collapse: collapse;
 			}
 
@@ -80,19 +80,22 @@
 				<?php else: ?>
 					<table>
 					<colgroup>
-						<col width="15%" />
-						<col width="70%" />
+						<col width="10%" />
+						<col width="55%" />
+						<col width="20%" />
 						<col width="15%" />
 					</colgroup>
 					<thead>
 						<th>Ticket #</th>
 						<th>Title</th>
+						<th>Project</th>
 						<th>Status</th>
 					</thead>
 					<?php foreach($my_tickets as $ticket): ?>
 						<tr>
 							<td style="text-align: center;" ><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
 							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
+							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->project_name); ?></td>
 							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 						</tr>
 					<?php endforeach; ?>
