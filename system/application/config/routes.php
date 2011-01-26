@@ -50,6 +50,7 @@ $route['admin/user/activate/(:num)'] = 'admin/home/activate_user/$1';
 $route['admin/user/edit/(:num)'] = 'admin/home/edit_user/$1';
 $route['admin/user/create'] = 'admin/home/create_user';
 $route['admin/user/reset_password'] = 'admin/home/reset_password';
+$route['admin/user/reset_group'] = 'admin/home/reset_group';
 
 // User Routing
 $route['user/change_password'] = 'user/home/change_password';

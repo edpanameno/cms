@@ -111,6 +111,7 @@ class Home extends Controller {
 		$user = $this->ion_auth->get_user($user_name);
 		$data['user'] = $user;
 		$data['title'] = $this->config->item("app_name") . " - Editing '$user->username'";
+		$data['groups'] = $this->ion_auth->get_groups();
 		$this->load->view('admin/edit_user_view', $data);
 	}
 
@@ -126,6 +127,21 @@ class Home extends Controller {
 		// as opposed to the user id.
 		$this->ion_auth->change_password($user_name, $old_password, $new_password);
 		$this->session->set_flashdata('message', 'Password Successfully Reset for \'' . $user_name . '\'.');
+		redirect('admin', 'refresh');
+	}
+
+	function reset_group() {
+
+		$this->load->library('session');
+
+		$user_id = $this->input->post('user_id');
+		$new_group_id = $this->input->post('group_id');
+		$data = array('group_id' => $new_group_id);
+
+		$this->db->where('id', $user_id);
+		$this->db->update('users', $data);
+
+		$this->session->set_flashdata('message', "Group Changed Successfully!");
 		redirect('admin', 'refresh');
 	}
 }

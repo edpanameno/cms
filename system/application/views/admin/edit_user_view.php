@@ -46,6 +46,38 @@
 					<input type="hidden" id="user_id" name="user_id" value="<?php echo $user->id; ?>" />
 					<?php echo form_close(); ?>
 				</fieldset>
+				<br />
+				<fieldset>
+					<legend>Change User Group</legend>
+					<?php echo form_open('admin/user/reset_group'); ?>
+					<table>
+						<colgroup>
+							<col width="40%" />
+							<col width="60%" />
+						</colgroup>
+						<tr>
+							<td>Current:</td>
+							<td><b><?php echo $this->ion_auth->get_user($user->id)->group_description; ?></b></td>
+						</tr>
+						<tr>
+							<td class="text_label">New Group</td>
+							<td>
+								<select name="group_id">
+									<?php foreach($groups as $group): ?>
+										<option value="<?php echo $group->id; ?>"><?php echo $group->description; ?></option>
+									<?php endforeach; ?>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="submit" value="Change Group" />
+							</td>
+						</tr>
+					</table>
+					<input type="hidden" id="user_id" name="user_id" value="<?php echo $user->id; ?>" />
+					<?php echo form_close(); ?>
+				</fieldset>
 
 			</div>
 		</div>
