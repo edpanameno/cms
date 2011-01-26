@@ -139,6 +139,8 @@ class Home extends Controller {
 		$user_name = $this->ion_auth->get_user($user_id)->username;
 		$data = array('group_id' => $new_group_id);
 
+		// I am manually updating the user group, may come back
+		// to this later and use the ion_auth library instead
 		$this->db->where('id', $user_id);
 		$this->db->update('users', $data);
 
