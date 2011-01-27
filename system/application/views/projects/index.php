@@ -80,7 +80,7 @@
 					<thead>
 						<th>Name</th>
 						<th style="text-align: left;">Language</th>
-						<th style="text-align: left;">Wiki</th>
+						<th style="text-align: left;">KB</th>
 						<th style="text-align: left;">Trac</th>
 						<th>Created</th>
 					</thead>
@@ -88,7 +88,7 @@
 						<tr>
 							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name, "title=\"" . strip_tags($project->description) . "\""); ?></td>
 							<td style="text-align: left;"><?php echo $project->language_name; ?></td>
-							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/wiki", "wiki"); ?></td>
+							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/kb", "KB"); ?></td>
 							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
 							<td><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>
 						</tr>

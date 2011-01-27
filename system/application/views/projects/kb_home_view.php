@@ -15,17 +15,15 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo $project_name; ?> > Wiki
+					Project > <?php echo $project_name; ?> > KB
 				</span>
 				<ul>
-					<li><a href="<?php echo site_url() . "projects/" . $project_id . "/" . url_title($project_name, 'underscore', TRUE) . "/trac" ?>">Trac</a></li>
-					<li><a href="#">Create Wiki Article</a></li>
-					<li><a href="<?php echo site_url() . "projects/" . $project_id . "/" . url_title($project_name, 'underscore', TRUE); ?>">Project Home</a></li>
+					<li><a href="#">Create Article</a></li>
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3><?php echo $project_name; ?> - Wiki</h3>
-				<p><?php echo $wiki_description; ?></p>
+				<h3><?php echo $project_name; ?> - Knowledgebase</h3>
+				<p><?php echo $kb_description; ?></p>
 			</div>
 		</div>
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>

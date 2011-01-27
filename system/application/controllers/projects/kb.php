@@ -1,8 +1,8 @@
 <?php
 
-class Wiki extends Controller {
+class Kb extends Controller {
 
-	function Wiki() {
+	function Kb() {
 		parent::Controller();
 
 		$this->load->helper('url');
@@ -26,8 +26,8 @@ class Wiki extends Controller {
 			$data['url_project_name'] = $project_name;
 			$data['project_name'] = $humanized_project_name;
 			$data['title'] = $this->config->item("app_name") . " - $humanized_project_name";
-			$data['wiki_description'] = 'This is a sample wiki description text';
-			$this->load->view('projects/wiki_home_view', $data);
+			$data['kb_description'] = 'This is a sample kb description text';
+			$this->load->view('projects/kb_home_view', $data);
 		}
 	}
 }

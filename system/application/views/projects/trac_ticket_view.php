@@ -192,7 +192,7 @@
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
 					<?php if($ticket): ?>
-						Projects > <?php echo $humanized_project_name; ?> > Trac > Ticket # <?php echo $ticket->ticket_id; ?>
+						Projects > <?php echo $humanized_project_name; ?> > Trac > Ticket #<?php echo $ticket->ticket_id; ?>
 					<?php endif; ?>
 				</span>
 				<ul>
@@ -353,4 +353,3 @@
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>
     </body>
 </html>
-w

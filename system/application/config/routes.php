@@ -61,7 +61,7 @@ $route['projects/create'] = 'projects/home/create';
 $route['projects/(:num)/([a-z_A-Z0-9.]+)'] = 'projects/home/index/$1/$2';
 
 // Wiki
-$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/wiki'] = 'projects/wiki/index/$1/$2';
+$route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/kb'] = 'projects/kb/index/$1/$2';
 
 // Trac
 $route['projects/(:num)/([0-9a-z_A-Z0-9.]+)/trac'] = 'projects/trac/index/$1/$2';
