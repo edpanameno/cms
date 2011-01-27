@@ -127,6 +127,8 @@
 				vertical-align: top;
 				border-right: thin solid #ccc;
 				border-bottom: thin solid #ccc;
+				padding-top: 5px;
+				padding-left: 5px;
 			}
 
 			#change_ticket.note_heading_title.collapsed {
@@ -283,7 +285,7 @@
 							<table width="100%" cellpadding="5" cellspacing="0">
 								<tr>
 									<td class="note_date">
-										<?php echo (date("M d Y @ h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\">  (#" . $count++ . ")</a>"; ?>
+										<?php echo (date("M d Y - h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\"> | #" . $count++ . "</a>"; ?>
 									</td>
 								</tr>
 								<tr><td><div class="note_text"><?php echo $note->description; ?></div></td></tr>
@@ -351,3 +353,4 @@
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>
     </body>
 </html>
+w

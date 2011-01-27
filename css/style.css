@@ -5,7 +5,7 @@ html, body {
 body {
 	background: url("../images/background.gif") repeat scroll 0 0 #4b4d4d;
 	font-family: Georgia, "Times New Roman",Times,serif;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 #container {
@@ -213,15 +213,20 @@ h4 {
 }
 
 /** Table Sort Icons **/
-th.header {
+/*th.header {
 	background-repeat: no-repeat;
 	background-position: right;
+}*/
+
+th.headerSortUp, th.headerSortDown {
+	/*background-image: url("../images/arrow_up.gif");*/
+	/*color: #eeeeee;*/
+	font-weight: bolder;
+	background-color: #666666;
+	border-bottom: 1px dotted #676662;
 }
 
-th.headerSortUp {
-	background-image: url("../images/arrow_up.gif");
-}
-
-th.headerSortDown {
+/*th.headerSortDown {
 	background-image: url("../images/arrow_down.gif");
-}
+	background-color: #ccc;
+}*/

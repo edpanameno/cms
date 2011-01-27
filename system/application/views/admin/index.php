@@ -18,6 +18,7 @@
 
 		<style type="text/css">
 			table {
+				margin-left: 10px;
 				table-layout: fixed;
 				border: 1px solid #9a9b9a;
 				width: 90%;

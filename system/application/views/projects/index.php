@@ -48,22 +48,6 @@
 				border-right: 1px solid #9a9b9a;
 				border-bottom: 1px solid #9a9b9a;
 			}
-
-			th.header {
-				/*background-image: url("images/modifier_subtract.gif");*/
-				background-repeat: no-repeat;
-				background-position: right;
-				/*background-color: #4b4d4d;*/
-			}
-
-			th.headerSortUp {
-				background-image: url("images/arrow_up.gif");
-			}
-
-			th.headerSortDown {
-				background-image: url("images/arrow_down.gif");
-				vertical-align: middle;
-			}
 		</style>
     </head>
     <body>
@@ -88,7 +72,7 @@
 				<table id="projects_table">
 					<colgroup>
 						<col width="50%" />
-						<col width="10%"/>
+						<col width="12%"/>
 						<col width="7%" />
 						<col width="7%" />
 						<col width="26%" />
