@@ -215,7 +215,7 @@ h4 {
 /** Table Sort Icons **/
 th.header {
 	background-repeat: no-repeat;
-	background-position: center right;
+	background-position: right;
 }
 
 th.headerSortUp {
@@ -224,5 +224,4 @@ th.headerSortUp {
 
 th.headerSortDown {
 	background-image: url("../images/arrow_down.gif");
-	vertical-align: middle;
 }
