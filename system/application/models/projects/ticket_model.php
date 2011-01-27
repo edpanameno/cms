@@ -30,14 +30,14 @@ class Ticket_model extends Model {
 
 	function getTicketsByProjectId($project_id) {
 
-		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', U.username as 'created_by', " .
-					"U2.username as 'assigned_to', TT.name as 'ticket_type' " .
-				    "FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT " .
+		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', M.first_name as 'created_by', " .
+					"M2.first_name as 'assigned_to', TT.name as 'ticket_type' " .
+				    "FROM tickets T, meta M, meta M2, ticket_status TS, ticket_types TT " .
 					"WHERE T.project_id = '$project_id' " .
 					"AND T.ticket_status !=  '2'" . // don't show closed issues
 					"AND T.ticket_status = TS.status_id " .
-					"AND T.created_by = U.id " .
-					"AND T.assigned_to = U2.id " .
+					"AND T.created_by = M.id " .
+					"AND T.assigned_to = M2.id " .
 					"AND T.ticket_type = TT.type_id " .
 					"ORDER BY date_created DESC";
 
@@ -53,12 +53,12 @@ class Ticket_model extends Model {
 
 		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
-					"T.resolution_id, U.username as 'created_by', U2.username as 'assigned_to', U2.id as 'assigned_to_id', " .
+					"T.resolution_id, M.first_name as 'created_by', M2.first_name as 'assigned_to', M2.id as 'assigned_to_id', " .
 					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
-					"FROM tickets T, users U, users U2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
+					"FROM tickets T, meta M, meta M2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
 					"WHERE T.ticket_id = '$ticket_id' AND T.project_id = '$project_id' " .
-					"AND T.created_by = U.id " .
-					"AND T.assigned_to = U2.id " .
+					"AND T.created_by = M.id " .
+					"AND T.assigned_to = M2.id " .
 					"AND T.ticket_status = TS.status_id " .
 					"AND T.ticket_priority = TP.priority_id " .
 					"AND T.ticket_type = TT.type_id " .
@@ -86,10 +86,10 @@ class Ticket_model extends Model {
 	function getTicketNotes($ticket_id) {
 
 		$sqlQuery = "SELECT TN.ticket_note_id as note_id, TN.date_created, TN.description, " .
-					"U.username as 'created_by', TNT.name as 'note_type' " .
-					"FROM ticket_notes TN, users U, ticket_note_types TNT " .
+					"M.first_name as 'created_by', TNT.name as 'note_type' " .
+					"FROM ticket_notes TN, meta M, ticket_note_types TNT " .
 					"WHERE TN.ticket_id = '$ticket_id' " .
-					"AND TN.created_by = U.id " .
+					"AND TN.created_by = M.id " .
 					"AND TN.ticket_note_type = TNT.ticket_note_type_id " .
 					"ORDER BY TN.date_created ";
 
