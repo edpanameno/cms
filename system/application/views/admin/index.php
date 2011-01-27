@@ -75,13 +75,13 @@
 						<col width="8%" />
 					</colgroup>
 					<thead>
-						<th>First Name</th>
-						<th>Last name</th>
+						<th>first name</th>
+						<th>last name</th>
 						<th>username</th>
 						<th>email</th>
 						<th>group</th>
 						<th>last login</th>
-						<th>deactivate</th>
+						<th style="text-align: left;">deactivate</th>
 					</thead>
 				<?php foreach($active_users as $user): ?>
 					<tr>
@@ -108,13 +108,13 @@
 						<col width="8%" />
 					</colgroup>
 					<thead>
-						<th>First Name</th>
-						<th>Last name</th>
+						<th>first name</th>
+						<th>last name</th>
 						<th>username</th>
 						<th>email</th>
 						<th>group</th>
 						<th>last login</th>
-						<th>activate</th>
+						<th style="text-align: left;">activate</th>
 					</thead>
 				<?php foreach($non_active_users as $user): ?>
 					<tr>
