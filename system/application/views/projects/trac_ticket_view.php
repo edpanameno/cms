@@ -49,7 +49,7 @@
 		</script>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<style type="text/css">
-			.heading_title {
+			#change_ticket_div, .heading_title, #add_note_text {
 				margin-left: 67px;
 			}
 
@@ -58,11 +58,8 @@
 				margin: auto;
 			}
 
-			table.ticket_info tr:hover td {
-				background-color: transparent;
-			}
-
-			table#note_log tr:hover td {
+			/** don't want the hover effect on these tables **/
+			table.ticket_info tr:hover td, table#note_log tr:hover td, #change_ticket_table tr:hover td {
 				background-color: transparent;
 			}
 
@@ -75,6 +72,7 @@
 				text-align: right;
 				border-bottom: thin solid #ccc;
 				border-right: none;
+				width: 100%;
 			}
 
 			.author_column {
@@ -116,6 +114,16 @@
 
 			tr td {
 				padding-left: 6px;
+				padding-right: 6px;
+			}
+
+			table#change_ticket_table tr {
+				border-bottom: none;
+				border-right: none;
+			}
+
+			.change_ticket_alignment {
+				text-align: right;
 			}
 		</style>
     </head>
@@ -247,38 +255,40 @@
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 					<h5 id="change_ticket" class="heading_title note_heading_title collapsed">Change Ticket</h5>
 					<div id="change_ticket_div">
-						<fieldset>
-							<table id="change_ticket_info">
+							<table border="1" id="change_ticket_table">
+								<colgroup>
+									<col width="20%"/>
+									<col width="80%" />
+								</colgroup>
 								<tr>
-									<td class="ticket_property_label">Type:</td>
+									<td class="change_ticket_alignment">Type:</td>
 									<td><?php echo form_dropdown('new_type_id', $ticket_types, $ticket->type_id); ?></td>
 								</tr>
 								<tr>
-									<td class="ticket_property_label">Priority:</td>
+									<td class="change_ticket_alignment">Priority:</td>
 									<td><?php echo form_dropdown('new_priority_id', $ticket_priorities, $ticket->priority_id); ?></td>
 								</tr>
 								<tr>
-									<td class="ticket_property_label">Status:</td>
+									<td class="change_ticket_alignment">Status:</td>
 									<td><?php echo form_dropdown('new_status_id', $ticket_statuses, $ticket->status_id); ?></td>
 								</tr>
 								<tr>
-									<td class="ticket_property_label">Resolution:</td>
+									<td class="change_ticket_alignment">Resolution:</td>
 									<td><?php echo form_dropdown('new_resolution_id', $ticket_resolutions, $ticket->resolution_id); ?></td>
 								</tr>
 								<tr>
-									<td class="ticket_property_label">Assigned To:</td>
+									<td class="change_ticket_alignment">Assigned To:</td>
 									<td><?php echo form_dropdown('new_assigned_to_id', $users, $ticket->assigned_to_id); ?></td>
 								</tr>
 								<tr>
-									<td class="ticket_property_label">Tile:</td>
+									<td class="change_ticket_alignment">Tile:</td>
 									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="60" value="<?php echo $ticket->title ?>" /></td>
 								</tr>
 							</table>
-						</fieldset>
 					</div>
 					<h5 id="add_note" class="heading_title note_heading_title" ><a name="add_note">Add a Note</a></h5>
 					<div id="add_note_text">
-						<textarea cols="30" rows="10" name="text_description" id="text_description"> </textarea>
+						<textarea cols="70" rows="10" name="text_description" id="text_description"> </textarea>
 						<input id="submit_note" type="submit" name="submit" value="Add Note" />
 						<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
 					</div>
