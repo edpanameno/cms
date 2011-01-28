@@ -41,15 +41,11 @@
 				$("#note_focus").click(function() {
 					tinymce.execCommand('mceFocus', false, 'text_description')
 				});
-
-				//$("#attachment_focus").click(function() {
-				//});
-
 			});
 		</script>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<style type="text/css">
-			#change_ticket_div, .heading_title, #add_note_text {
+			#change_ticket_div, .heading_text, #add_note_text {
 				margin-left: 67px;
 			}
 
@@ -59,7 +55,10 @@
 			}
 
 			/** don't want the hover effect on these tables **/
-			table.ticket_info tr:hover td, table#note_log tr:hover td, #change_ticket_table tr:hover td {
+			table.ticket_info tr:hover td,
+			table#note_log tr:hover td,
+			#change_ticket_table tr:hover td,
+			#table_change_ticket tr:hover td {
 				background-color: transparent;
 			}
 
@@ -76,7 +75,7 @@
 			}
 
 			.author_column {
-				font-size: 9pt;
+				font-size: 8pt;
 				vertical-align: top;
 				border-right: thin solid #ccc;
 				border-bottom: thin solid #ccc;
@@ -84,18 +83,18 @@
 				padding-left: 5px;
 			}
 
-			#change_ticket.note_heading_title.collapsed {
+			#change_ticket.note.heading_text.collapsed {
 				background: url("images/collapsed.png") no-repeat 0px 50%;
 				padding-left: 16px;
 			}
 
-			#change_ticket.note_heading_title.expanded, #add_note {
+			#change_ticket.note.heading_text.expanded, #add_note {
 				background: url("images/expanded.png") no-repeat 0px 50%;
 				padding-left: 16px;
 			}
 
 			/** spacing between change ticket and add note **/
-			.note_heading_title {
+			.note.heading_text {
 				margin-bottom: 5px;
 			}
 
@@ -117,13 +116,17 @@
 				padding-right: 6px;
 			}
 
-			table#change_ticket_table tr {
-				border-bottom: none;
-				border-right: none;
-			}
-
 			.change_ticket_alignment {
 				text-align: right;
+			}
+
+			#table_change_ticket {
+				width: 70%;
+			}
+
+			#table_change_ticket td {
+				border-bottom: none;
+				border-right: none;
 			}
 		</style>
     </head>
@@ -140,13 +143,12 @@
 					<?php endif; ?>
 				</span>
 				<ul>
-					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_attachement", "Add Attachment"); ?></li>
 					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_note", "Add Note", array("id" => "note_focus")); ?></li>
 				</ul>
 			</div>
 			<div id="main-content">
 				<?php if($ticket): ?>
-				<h3 class="heading_title"><?php echo $ticket->title .  " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
+				<h3 class="heading_text"><?php echo $ticket->title . " - (#" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table border="1" cellpadding="1" class="ticket_info">
 					<colgroup>
 						<col width="25%" />
@@ -202,7 +204,7 @@
 					</tr>
 				</table>
 
-				<h4 class="heading_title">Ticket Notes</h4>
+				<h4 class="heading_text">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
 					<h4 style="margin-top: 10px; margin-left: 80px; color: grey;">This ticket has no notes</h4>
 				<?php else: ?>
@@ -243,22 +245,13 @@
 				<?php endforeach; ?>
 					</table>
 				<?php endif; ?>
-
-				<h4 class="heading_title"><a name="add_attachement">Attachments</a></h4>
-				<div id="attachments">
-					<p>
-						<ul>
-						</ul>
-					</p>
-				</div>
-
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
-					<h5 id="change_ticket" class="heading_title note_heading_title collapsed">Change Ticket</h5>
+					<h5 id="change_ticket" class="heading_text note heading_text collapsed">Change Ticket</h5>
 					<div id="change_ticket_div">
-							<table border="1" id="change_ticket_table">
+							<table id="table_change_ticket"  >
 								<colgroup>
-									<col width="20%"/>
-									<col width="80%" />
+									<col width="15%"/>
+									<col width="85%" />
 								</colgroup>
 								<tr>
 									<td class="change_ticket_alignment">Type:</td>
@@ -286,9 +279,9 @@
 								</tr>
 							</table>
 					</div>
-					<h5 id="add_note" class="heading_title note_heading_title" ><a name="add_note">Add a Note</a></h5>
+					<h5 id="add_note" class="heading_text note heading_text" ><a name="add_note">Add a Note</a></h5>
 					<div id="add_note_text">
-						<textarea cols="70" rows="10" name="text_description" id="text_description"> </textarea>
+						<textarea cols="80" rows="10" name="text_description" id="text_description"> </textarea>
 						<input id="submit_note" type="submit" name="submit" value="Add Note" />
 						<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
 					</div>
