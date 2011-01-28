@@ -212,11 +212,33 @@ h4 {
 	margin-bottom: 5px;
 }
 
-/** Table Sort Icons **/
-/*th.header {
-	background-repeat: no-repeat;
-	background-position: right;
-}*/
+/** Table **/
+table {
+	table-layout: fixed;
+	border: 1px solid #9a9b9a;
+	border-collapse: collapse;
+}
+
+table thead th {
+	background-color: #4b4d4d;
+	color: white;
+	border-right: 1px solid #9a9b9a;
+	border-bottom: 1px solid #9a9b9a;
+	text-align: center;
+}
+
+table td {
+	border-right: 1px solid #9a9b9a;
+	border-bottom: 1px solid #9a9b9a;
+}
+
+table th {
+	font-weight: normal;
+}
+
+tr:hover td {
+	background-color: #f7f6f6;
+}
 
 th.headerSortUp, th.headerSortDown {
 	/*background-image: url("../images/arrow_up.gif");*/
@@ -225,8 +247,3 @@ th.headerSortUp, th.headerSortDown {
 	background-color: #666666;
 	border-bottom: 1px dotted #676662;
 }
-
-/*th.headerSortDown {
-	background-image: url("../images/arrow_down.gif");
-	background-color: #ccc;
-}*/

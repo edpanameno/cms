@@ -4,7 +4,7 @@
     <head>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>myCMS - Projects</title>
+        <title><?php echo $this->config->item("app_name"); ?>- Projects</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
@@ -17,36 +17,8 @@
 
 		<style type="text/css">
 			table {
-				table-layout: fixed;
-				border: 1px solid #9a9b9a;
 				width: 70%;
-				border-collapse: collapse;
-			}
-
-			tbody tr td {
-				vertical-align: top;
-			}
-
-			td.project-desc p {
-				margin-top: 5px;
-			}
-
-			tr:hover td {
-				background-color: #f7f6f6;
-			}
-
-			table thead th {
-				background-color: #4b4d4d;
-				color: white;
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
-				font-weight: normal;
-				text-align: center;
-			}
-
-			table td {
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
+				margin-left: 20px;
 			}
 		</style>
     </head>
@@ -65,9 +37,10 @@
 			</div>
 			<div id="main-content">
 				<h3><?php echo $this->config->item("app_name"); ?> Projects</h3>
-				<p>Below you will find the list of projects that I am currently working on.  Each project has an associated
-				wiki page as well as a trac page (where you will be able to keep track of any issues and enhancements for the
-				project at hand).
+				<p>Below you will find the list of projects that I am currently working on.  
+				   Each project has an associated knowledgebase to help keep trac of any documentation
+				   that relates to the project.  In addition, each project has a trac page where you
+				   will be able to keep track of any issues and enhancements for the project at hand.
 				</p>
 				<table id="projects_table">
 					<colgroup>
@@ -88,7 +61,7 @@
 						<tr>
 							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name, "title=\"" . strip_tags($project->description) . "\""); ?></td>
 							<td style="text-align: left;"><?php echo $project->language_name; ?></td>
-							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/kb", "KB"); ?></td>
+							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/kb", "kb"); ?></td>
 							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
 							<td><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>
 						</tr>

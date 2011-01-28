@@ -26,7 +26,6 @@ class Kb extends Controller {
 			$data['url_project_name'] = $project_name;
 			$data['project_name'] = $humanized_project_name;
 			$data['title'] = $this->config->item("app_name") . " - $humanized_project_name";
-			$data['kb_description'] = 'This is a sample kb description text';
 			$this->load->view('projects/kb_home_view', $data);
 		}
 	}

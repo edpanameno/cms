@@ -18,33 +18,11 @@
 
 		<style type="text/css">
 			table {
-				table-layout: fixed;
-				border: 1px solid #9a9b9a;
 				width: 100%;
-				border-collapse: collapse;
 			}
 
-			tr:hover td {
-				background-color: #f2f1f1;
-			}
-
-			table thead th {
-				background-color: #4b4d4d;
-				color: white;
-				border-bottom: 1px solid #9a9b9a;
-				border-right: 1px solid #9a9b9a;
-
+			.center_value {
 				text-align: center;
-				font-weight: normal;
-			}
-
-			table tr td.center_value {
-				text-align: center;
-			}
-
-			table td {
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
 			}
 		</style>
     </head>

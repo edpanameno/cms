@@ -23,7 +23,11 @@
 			</div>
 			<div id="main-content">
 				<h3><?php echo $project_name; ?> - Knowledgebase</h3>
-				<p><?php echo $kb_description; ?></p>
+				<p>Welcome to the knowledgebase for the <u><?php echo $project_name; ?></u>!  This page will allow
+				you to create articles that will allow others to know more about this project.  The type of
+				information you can create for a kb are things like installation documentation, general
+				design principles and any other documentation that you deem important enough.
+				</p>
 			</div>
 		</div>
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>

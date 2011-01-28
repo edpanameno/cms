@@ -53,73 +53,28 @@
 				margin-left: 67px;
 			}
 
-			table.ticket_info {
-				width: 85%;
-				margin-left: auto;
-				margin-right: auto;
-				border: 1px #d6d6d6 solid;
-				border-collapse: collapse;
-			}
-
-			table#change_ticket_info, table#add_note_table {
-				border-collapse: collapse;
-			}
-
-			table#change_ticket_info td.ticket_property_label {
-				text-align: right;
-			}
-
-			table#change_ticket_info td.ticket_note_label, table#add_note_table td.ticket_note_label {
-				vertical-align: top;
-				text-align: right ;
-			}
-
-			/** top spacing for ticket description **/
-			td > p  {
-				/*border: 1px red dashed;*/
-				margin-top: 10px;
-			}
-
-			.ticket_info tr td, td#ticket_description {
-				padding-left: 7px;
-				padding-right: 10px;
-			}
-
-			table#note_log {
-				table-layout: fixed;
-			}
-
-			table#note_log th {
-				background-color: #4b4d4d;
-				color: white;
-			}
-
-			table#note_log, #attachments, textarea {
+			table.ticket_info, table#note_log {
 				width: 85%;
 				margin: auto;
-				/*border: 1px solid #9a9b9a;*/
-				border: 1px solid #ccc ;
+			}
+
+			table.ticket_info tr:hover td {
+				background-color: transparent;
+			}
+
+			table#note_log tr:hover td {
+				background-color: transparent;
 			}
 
 			.odd {
 				background-color: #fafafa;
-				/*background-color: #f7f6f6;*/
-				/*background-color: #f0efef;*/
-				/*background-color: #f0f4f5;*/
-			}
-
-			.even {
-				/*background-color: white;*/
 			}
 
 			tr td.note_date {
 				font-size: 9pt;
 				text-align: right;
 				border-bottom: thin solid #ccc;
-			}
-
-			table#note_log {
-				border-collapse: collapse;
+				border-right: none;
 			}
 
 			.author_column {
@@ -141,16 +96,6 @@
 				padding-left: 16px;
 			}
 
-			fieldset {
-				width: 75%;
-				border: 1px solid #d7d7d7;
-			}
-
-			#change_ticket_div, #add_note_text {
-				margin-left: 10%;
-				width: 70%;
-			}
-
 			/** spacing between change ticket and add note **/
 			.note_heading_title {
 				margin-bottom: 5px;
@@ -161,10 +106,6 @@
 				width: 150px;
 			}
 
-			div.note_text {
-				margin-top: -10px;
-			}
-
 			/** formatting for the ticket changes text **/
 			div.note_text div.change_message ul {
 				padding-left: 2%;
@@ -173,13 +114,8 @@
 				list-style-type: square;
 			}
 
-			div.note_text > p {
-				margin-top: 11px;
-			}
-
-			thead th {
-				font-weight: normal;
-				border-right: 1px solid #9a9b9a;
+			tr td {
+				padding-left: 6px;
 			}
 		</style>
     </head>
@@ -254,7 +190,7 @@
 						<td><?php echo $ticket->assigned_to; ?></td>
 					</tr>
 					<tr>
-						<td id="ticket_description" colspan="2"><?php echo $ticket->description; ?></td>
+						<td colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
 
@@ -275,32 +211,35 @@
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>
 					<?php static $count = 1; ?>
-					<tr style="height: 130px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+					 <tr style="height: 130px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column">
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
 							<i><?php echo nice_timespan($note->date_created); ?></i><br />
 						</td>
-						<td style="vertical-align: top; border-bottom: thin solid #ccc;">
-							<table width="100%" cellpadding="5" cellspacing="0">
-								<tr>
+						<td style="vertical-align: top;">
+							<table width="100%" style="border-style: none">
+								<tr style="border-right: none;">
 									<td class="note_date">
 										<?php echo (date("M d Y - h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\"> | #" . $count++ . "</a>"; ?>
 									</td>
 								</tr>
-								<tr><td><div class="note_text"><?php echo $note->description; ?></div></td></tr>
+								<tr>
+									<td style="border-style: none;">
+										<div style="margin-top: -5px;" class="note_text"><?php echo $note->description; ?></div>
+									</td>
+								</tr>
 							</table>
 						</td>
 					</tr>
 				<?php endforeach; ?>
-				</table>
+					</table>
 				<?php endif; ?>
 
 				<h4 class="heading_title"><a name="add_attachement">Attachments</a></h4>
 				<div id="attachments">
 					<p>
 						<ul>
-							<!-- this is where we'll display attachments for tickets -->
 						</ul>
 					</p>
 				</div>

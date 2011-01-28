@@ -18,33 +18,8 @@
 
 		<style type="text/css">
 			table {
-				margin-left: 10px;
-				table-layout: fixed;
-				border: 1px solid #9a9b9a;
+				margin-left: 20px;
 				width: 90%;
-				border-collapse: collapse;
-			}
-
-			table thead th {
-				background-color: #4b4d4d;
-				color: white;
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
-				text-align: center;
-				font-weight: normal;
-			}
-
-			table td {
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
-			}
-
-			table tr td {
-				padding-left: 4px;
-			}
-
-			tr:hover td {
-				background-color: #f2f1f1;
 			}
 		</style>
     </head>

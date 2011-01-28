@@ -15,33 +15,8 @@
 		</script>
 		<style type="text/css">
 			table {
-				margin-left: 20px;
-				table-layout: fixed;
-				border: 1px solid #9a9b9a;
 				width: 75%;
-				border-collapse: collapse;
-			}
-
-			table thead th {
-				background-color: #4b4d4d;
-				color: white;
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
-				text-align: center;
-			}
-
-			table td {
-				width: 50px;
-				border-right: 1px solid #9a9b9a;
-				border-bottom: 1px solid #9a9b9a;
-			}
-
-			table th {
-				font-weight: normal;
-			}
-
-			tr:hover td {
-				background-color: #f7f6f6;
+				margin-left: 20px;
 			}
 		</style>
     </head>
