@@ -6,6 +6,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $title; ?></title>
+		<?php $this->load->view("common/style_sheets_view"); ?>
+
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
 		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
@@ -43,7 +45,7 @@
 				});
 			});
 		</script>
-		<?php $this->load->view("common/style_sheets_view"); ?>
+
 		<style type="text/css">
 			#change_ticket_div, .heading_text, #add_note_text {
 				margin-left: 67px;
@@ -191,6 +193,19 @@
 					<tr>
 						<td>Last Updated</td>
 						<td><?php echo date("M d Y - h:i a", strtotime($ticket->last_updated)) . ' (' . nice_timespan($ticket->last_updated) . ')'; ?></td>
+					</tr>
+					<tr>
+						<td>Latest Note Date</td>
+						<td>
+								<?php
+									if(isset($ticket->latest_note_date)) {
+										echo date("M d Y - h:i a", strtotime($ticket->latest_note_date)) . ' (' . nice_timespan($ticket->latest_note_date) . ')';
+									}
+									else {
+										echo "n/a";
+									}
+								?>
+						</td>
 					</tr>
 					<tr>
 						<td>Created By</td>

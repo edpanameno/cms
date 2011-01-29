@@ -51,7 +51,7 @@ class Ticket_model extends Model {
 	// with the ticket_id
 	function getTicketInfo($ticket_id, $project_id) {
 
-		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.title, T.description, " .
+		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.latest_note_date, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
 					"T.resolution_id, M.first_name as 'created_by', M2.first_name as 'assigned_to', M2.id as 'assigned_to_id', " .
 					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
@@ -107,9 +107,12 @@ class Ticket_model extends Model {
 		// ticket).
 		$action = $this->input->post("submit");
 
+		// Getting the ticket_id here because it's needed when adding
+		// a general note below
+		$ticket_id = $this->input->post("ticket_id");
+
 		if($action == "Change Ticket") {
 
-			$ticket_id = $this->input->post("ticket_id");
 			$change_message = "<div class=\"change_message\"><ul>";
 
 			// We need to get the current ticket information that
@@ -221,6 +224,17 @@ class Ticket_model extends Model {
 			// therefore we must close down the html code
 			$change_message .= "</ul></div>";
 
+			$data = array(
+					'assigned_to' => $new_assigned_to_id,
+					'ticket_status' => $new_status_to_id,
+					'resolution_id' => $new_resolution_to_id,
+					'ticket_priority' => $new_priority_to_id,
+					'ticket_type' => $new_type_to_id,
+					'last_updated' => date("Y-m-d H:i:s"),
+					'latest_note_date' => date("Y-m-d H:i:s"),
+					'title' => $new_title_name
+				);
+
 			// Update the tickets table fields first, but we have to check to see
 			// if the resolution status has changed.  IF so, then the variable
 			// $date_resolved (which is set to the current date) is set
@@ -229,17 +243,10 @@ class Ticket_model extends Model {
 			// this means we have not changed the resoltuion of this ticket and
 			// therefore the resolution_date on the tickets table will remain null
 			if(isset($date_resolved)) {
-				$data = array(
-					'assigned_to' => $new_assigned_to_id,
-					'ticket_status' => $new_status_to_id,
-					'resolution_id' => $new_resolution_to_id,
-					'date_resolved' => $date_resolved,
-					'ticket_priority' => $new_priority_to_id,
-					'ticket_type' => $new_type_to_id,
-					'title' => $new_title_name
-				);
+				array_push($data, 'date_resolved', $date_resolved);
+				//$data['date_resolved'] = $date_resolved;
 			}
-			else {
+			/*else {
 				$data = array(
 					'assigned_to' => $new_assigned_to_id,
 					'ticket_status' => $new_status_to_id,
@@ -248,7 +255,7 @@ class Ticket_model extends Model {
 					'ticket_type' => $new_type_to_id,
 					'title' => $new_title_name
 				);
-			}
+			}*/
 			
 
 			$this->db->where('ticket_id', $ticket_id);
@@ -266,6 +273,7 @@ class Ticket_model extends Model {
 			$this->db->insert("ticket_notes", $data2);
 		}
 		else if($action == "Add Note") {
+
 			$data = array(
 				'ticket_id' => $this->input->post("ticket_id"),
 				'created_by' => $this->ion_auth->get_user()->id,
@@ -275,6 +283,12 @@ class Ticket_model extends Model {
 			);
 
 			$this->db->insert('ticket_notes', $data);
+
+			// We need to set the last_note_update on the tickets table
+			// to reflect what date the latest note was created on
+			$data = array('latest_note_date' => date("Y-m-d H:i:s"));
+			$this->db->where('ticket_id', $ticket_id);
+			$this->db->update('tickets', $data);
 		}
 	}
 }
