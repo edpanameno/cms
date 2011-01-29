@@ -108,7 +108,9 @@ class Ticket_model extends Model {
 		$action = $this->input->post("submit");
 
 		// Getting the ticket_id here because it's needed when adding
-		// a general note below
+		// a general note below.  By not having it in here, I was getting
+		// a nasty bug so make sure that you don't ever move this anywhere
+		// else or mayhem will insue!
 		$ticket_id = $this->input->post("ticket_id");
 
 		if($action == "Change Ticket") {
@@ -243,20 +245,8 @@ class Ticket_model extends Model {
 			// this means we have not changed the resoltuion of this ticket and
 			// therefore the resolution_date on the tickets table will remain null
 			if(isset($date_resolved)) {
-				array_push($data, 'date_resolved', $date_resolved);
-				//$data['date_resolved'] = $date_resolved;
+				$data['date_resolved'] = $date_resolved;
 			}
-			/*else {
-				$data = array(
-					'assigned_to' => $new_assigned_to_id,
-					'ticket_status' => $new_status_to_id,
-					'resolution_id' => $new_resolution_to_id,
-					'ticket_priority' => $new_priority_to_id,
-					'ticket_type' => $new_type_to_id,
-					'title' => $new_title_name
-				);
-			}*/
-			
 
 			$this->db->where('ticket_id', $ticket_id);
 			$this->db->update("tickets", $data);
