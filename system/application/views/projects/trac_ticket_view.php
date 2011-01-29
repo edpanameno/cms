@@ -75,7 +75,7 @@
 			}
 
 			.author_column {
-				font-size: 8pt;
+				font-size: 8.5pt;
 				vertical-align: top;
 				border-right: thin solid #ccc;
 				border-bottom: thin solid #ccc;
@@ -107,7 +107,8 @@
 			div.note_text div.change_message ul {
 				padding-left: 2%;
 				font-weight: bold;
-				font-size: 9pt;
+				font-size: 9.5pt;
+				color: #222222;
 				list-style-type: square;
 			}
 
@@ -221,7 +222,7 @@
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>
 					<?php static $count = 1; ?>
-					 <tr style="height: 115px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+					 <tr style="height: 120px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column">
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />

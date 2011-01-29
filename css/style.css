@@ -11,7 +11,7 @@ body {
 #container {
 	background: url("../images/top-background.gif") repeat-x scroll;
 	background-color: #FFF;
-	border: 2px solid black;
+	border: 3px solid black;
 	margin-top: -8px;
 	margin-left: 10px;
 	margin-right: 10px;
