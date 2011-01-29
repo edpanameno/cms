@@ -221,7 +221,7 @@
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>
 					<?php static $count = 1; ?>
-					 <tr style="height: 130px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+					 <tr style="height: 115px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column">
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />

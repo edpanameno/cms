@@ -183,8 +183,7 @@ div#content_input p {
 
 div#content_input label {
 	float: left;
-	font-weight: bold;
-	width: 100px;
+	width: 80px;
 }
 
 input, select option {

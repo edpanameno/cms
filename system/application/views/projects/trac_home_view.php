@@ -37,9 +37,8 @@
 					 Project > <?php echo $project_name; ?> > Trac 
 				</span>
 				<ul>
-					<li><a href="<?php echo site_url() . "projects/" .  $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/wiki" ?>">Wiki</a></li>
+					<li><a href="<?php echo site_url() . "projects/" .  $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/kb" ?>">KB</a></li>
 					<li><a href="<?php echo site_url() . "projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/new_ticket" ?>">Create Ticket</a></li>
-					<li><a href="<?php echo site_url() . "projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE); ?>">Project Home</a></li>
 				</ul>
 			</div>
 			<div id="main-content">

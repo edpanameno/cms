@@ -51,18 +51,18 @@
 						<col width="26%" />
 					</colgroup>
 					<thead>
-						<th>Name</th>
-						<th style="text-align: left;">Language</th>
-						<th style="text-align: left;">KB</th>
-						<th style="text-align: left;">Trac</th>
-						<th>Created</th>
+						<th>name</th>
+						<th style="text-align: center;">language</th>
+						<th style="text-align: center;">kb</th>
+						<th style="text-align: center;">trac</th>
+						<th>created</th>
 					</thead>
 					<?php foreach($projects as $project): ?>
 						<tr>
 							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name, "title=\"" . strip_tags($project->description) . "\""); ?></td>
 							<td style="text-align: left;"><?php echo $project->language_name; ?></td>
-							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/kb", "kb"); ?></td>
-							<td style="text-align: left;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
+							<td style="text-align: center;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/kb", "kb"); ?></td>
+							<td style="text-align: center;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
 							<td><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>
 						</tr>
 					<?php endforeach; ?>
