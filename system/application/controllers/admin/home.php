@@ -85,7 +85,7 @@ class Home extends Controller {
 
 		if($this->ion_auth->logged_in() && $this->ion_auth->is_admin()) {
 			$this->ion_auth->deactivate($user_id);
-			$this->session->set_flashdata('message', 'The account \'' . $this->ion_auth->get_user($user_id)->username . '\' has been deactivated.');
+			$this->session->set_flashdata('<br />message', 'The account \'' . $this->ion_auth->get_user($user_id)->username . '\' has been deactivated.');
 			redirect('/admin', 'refresh');
 		}
 	}
@@ -99,7 +99,7 @@ class Home extends Controller {
 
 		if($this->ion_auth->logged_in() && $this->ion_auth->is_admin()) {
 			$this->ion_auth->activate($user_id);
-			$this->session->set_flashdata('message', 'The account \'' . $this->ion_auth->get_user($user_id)->username . '\' has been activated.');
+			$this->session->set_flashdata('message', '<br />The account \'' . $this->ion_auth->get_user($user_id)->username . '\' has been activated.');
 			redirect('/admin', 'refresh');
 		}
 	}

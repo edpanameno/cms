@@ -158,6 +158,14 @@
 						<col width="75%" />
 					</colgroup>
 					<tr>
+						<td>Created By</td>
+						<td><?php echo $ticket->created_by; ?></td>
+					</tr>
+					<tr>
+						<td>Assigned To</td>
+						<td><?php echo $ticket->assigned_to; ?></td>
+					</tr>
+					<tr>
 						<td>Type</td>
 						<td><?php echo $ticket->type; ?></td>
 					</tr>
@@ -178,20 +186,7 @@
 						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
 					</tr>
 					<tr>
-						<td>Date Resolved</td>
-						<td>
-								<?php
-									if(isset($ticket->date_resolved)) {
-										echo date("M d Y - h:i a", strtotime($ticket->date_resolved)) . ' (' . nice_timespan($ticket->date_resolved) . ')'; 
-									}
-									else {
-										echo "n/a";
-									}
-								?>
-						</td>
-					</tr>
-					<tr>
-						<td>Last Updated</td>
+						<td>Date Last Changed</td>
 						<td><?php echo date("M d Y - h:i a", strtotime($ticket->last_updated)) . ' (' . nice_timespan($ticket->last_updated) . ')'; ?></td>
 					</tr>
 					<tr>
@@ -208,12 +203,33 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Created By</td>
-						<td><?php echo $ticket->created_by; ?></td>
+						<td>Date Resolved</td>
+						<td>
+								<?php
+									if(isset($ticket->date_resolved)) {
+										echo date("M d Y - h:i a", strtotime($ticket->date_resolved)) . ' (' . nice_timespan($ticket->date_resolved) . ')'; 
+									}
+									else {
+										echo "n/a";
+									}
+								?>
+						</td>
 					</tr>
 					<tr>
-						<td>Assigned To</td>
-						<td><?php echo $ticket->assigned_to; ?></td>
+						<td>Resolved By</td>
+						<td>
+							<?php
+								if(isset($ticket->resolved_by)) {
+									echo $ticket->resolved_by; 
+								}
+								else {
+									// This is a bit of a hack, as I am already
+									// doing this on the ticket_model, but it's not
+									// working
+									echo 'n/a';
+								}
+							?>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="2"><?php echo $ticket->description; ?></td>

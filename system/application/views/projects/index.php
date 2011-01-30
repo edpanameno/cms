@@ -60,7 +60,7 @@
 					<?php foreach($projects as $project): ?>
 						<tr>
 							<td><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE), $project->name, "title=\"" . strip_tags($project->description) . "\""); ?></td>
-							<td style="text-align: left;"><?php echo $project->language_name; ?></td>
+							<td style="text-align: center;"><?php echo $project->language_name; ?></td>
 							<td style="text-align: center;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/kb", "kb"); ?></td>
 							<td style="text-align: center;"><?php echo anchor("projects/" . $project->project_id ."/" . url_title($project->name, "underscore", TRUE) . "/trac", "trac"); ?></td>
 							<td><?php echo  date("M d Y - h:i a", strtotime($project->date_created)); ?></td>

@@ -10,6 +10,7 @@ class Ticket_model extends Model {
 		
 		$data = array(
 			'date_created' => date("Y-m-d H:i:s"),
+			'last_updated' => date("Y-m-d H:i:s"),
 			'created_by' => $this->ion_auth->get_user()->id,
 			'assigned_to' => $this->input->post('assigned_to_id'),
 			'project_id' => $this->input->post('project_id'),
@@ -53,6 +54,24 @@ class Ticket_model extends Model {
 
 		$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.latest_note_date, T.title, T.description, " .
 					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
+					"T.resolution_id, T.closed_by, M.first_name as 'created_by', M2.first_name as 'assigned_to', M2.id as 'assigned_to_id', " .
+					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name',  " .
+					"CASE
+						WHEN IsNull(T.closed_by) THEN 'n/a'
+						ELSE (SELECT first_name FROM meta WHERE id = T.closed_by)
+					 END as resolved_by
+					 " .
+					"FROM tickets T, meta M, meta M2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
+					"WHERE T.ticket_id = '$ticket_id' AND T.project_id = '$project_id' " .
+					"AND T.created_by = M.id " .
+					"AND T.assigned_to = M2.id " .
+					"AND T.ticket_status = TS.status_id " .
+					"AND T.ticket_priority = TP.priority_id " .
+					"AND T.ticket_type = TT.type_id " .
+					"AND T.resolution_id = TR.resolution_id ";
+
+		/*$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.latest_note_date, T.title, T.description, " .
+					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
 					"T.resolution_id, M.first_name as 'created_by', M2.first_name as 'assigned_to', M2.id as 'assigned_to_id', " .
 					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
 					"FROM tickets T, meta M, meta M2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
@@ -62,7 +81,7 @@ class Ticket_model extends Model {
 					"AND T.ticket_status = TS.status_id " .
 					"AND T.ticket_priority = TP.priority_id " .
 					"AND T.ticket_type = TT.type_id " .
-					"AND T.resolution_id = TR.resolution_id ";
+					"AND T.resolution_id = TR.resolution_id ";*/
 
 		$query = $this->db->query($sqlQuery);
 		return $query->row();
@@ -170,6 +189,18 @@ class Ticket_model extends Model {
 				$query = $this->db->query("SELECT name FROM ticket_status WHERE status_id = $new_status_to_id");
 				$new_ticket_status_name = $query->row_array();
 				$change_message .= $new_ticket_status_name['name'] . "'</li>";
+
+				// We now check to see if the user has decided to close this ticket
+				// If so then we need to set the 'closed_by' field to the current
+				// user that has closed this ticket.
+				// Note: the '2' referes to the 'closed' ticket status id.
+				if($new_status_to_id == 2) {
+
+					// The current user id that closed this ticket
+					// will be used to update the 'closed_by' field
+					// on the tickets table.
+					$closed_by =  $this->ion_auth->get_user()->id;
+				}
 			}
 
 			// resolution
@@ -246,6 +277,11 @@ class Ticket_model extends Model {
 			// therefore the resolution_date on the tickets table will remain null
 			if(isset($date_resolved)) {
 				$data['date_resolved'] = $date_resolved;
+			}
+
+			// This is where we have to check to see if the
+			if(isset($closed_by)) {
+				$data['closed_by'] = $closed_by;
 			}
 
 			$this->db->where('ticket_id', $ticket_id);
