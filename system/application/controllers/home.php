@@ -19,8 +19,10 @@ class Home extends Controller {
 
 			$this->load->model("projects/ticket_model");
 			$data['my_tickets'] = $this->ticket_model->getAssignedTickets($this->ion_auth->get_user()->id);
+			$this->load->view('home/index', $data);
 		}
-
-		$this->load->view('home/index', $data);
+		else {
+			redirect('login', '');
+		}
 	}
 }
