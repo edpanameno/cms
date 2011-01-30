@@ -266,7 +266,10 @@ class Ticket_model extends Model {
 				$data['date_resolved'] = $date_resolved;
 			}
 
-			// This is where we have to check to see if the
+			// This is where we have to check to see if the user has decided
+			// to close this ticket, if this evaluates to true then we add
+			// the 'closed_by' column with the current user_id to update this
+			// column on the tickets table.
 			if(isset($closed_by)) {
 				$data['closed_by'] = $closed_by;
 			}
