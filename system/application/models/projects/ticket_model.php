@@ -70,19 +70,6 @@ class Ticket_model extends Model {
 					"AND T.ticket_type = TT.type_id " .
 					"AND T.resolution_id = TR.resolution_id ";
 
-		/*$sqlQuery = "SELECT T.ticket_id, T.project_id, T.date_created, T.date_resolved, T.last_updated, T.latest_note_date, T.title, T.description, " .
-					"T.ticket_status as 'status_id', T.ticket_priority as 'priority_id', T.ticket_type as 'type_id', " . // used for drop down lists to change ticket
-					"T.resolution_id, M.first_name as 'created_by', M2.first_name as 'assigned_to', M2.id as 'assigned_to_id', " .
-					"TS.name as 'status', TT.name as 'type', TP.name as 'priority', TR.name as 'resolution_name'  " .
-					"FROM tickets T, meta M, meta M2, ticket_status TS, ticket_types TT, ticket_priority TP, ticket_resolution TR " .
-					"WHERE T.ticket_id = '$ticket_id' AND T.project_id = '$project_id' " .
-					"AND T.created_by = M.id " .
-					"AND T.assigned_to = M2.id " .
-					"AND T.ticket_status = TS.status_id " .
-					"AND T.ticket_priority = TP.priority_id " .
-					"AND T.ticket_type = TT.type_id " .
-					"AND T.resolution_id = TR.resolution_id ";*/
-
 		$query = $this->db->query($sqlQuery);
 		return $query->row();
 	}
