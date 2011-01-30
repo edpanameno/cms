@@ -109,7 +109,7 @@
 			div.note_text div.change_message ul {
 				padding-left: 2%;
 				font-weight: bold;
-				font-size: 9.5pt;
+				font-size: 9.0pt;
 				color: #222222;
 				list-style-type: square;
 			}

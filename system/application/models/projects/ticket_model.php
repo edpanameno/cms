@@ -188,6 +188,12 @@ class Ticket_model extends Model {
 					// on the tickets table.
 					$closed_by =  $this->ion_auth->get_user()->id;
 				}
+
+				// For closed tickets: If a user decides to re-open a ticket
+				// this is handled here.
+				if($new_status_to_id == 6) {
+					$ticket_reopened = TRUE;
+				}
 			}
 
 			// resolution
@@ -272,6 +278,11 @@ class Ticket_model extends Model {
 			// column on the tickets table.
 			if(isset($closed_by)) {
 				$data['closed_by'] = $closed_by;
+			}
+
+			if(isset($ticket_reopened)) {
+				$data['date_resolved'] = NULL;
+				$data['closed_by'] = NULL;
 			}
 
 			$this->db->where('ticket_id', $ticket_id);
