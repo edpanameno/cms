@@ -51,7 +51,7 @@ $DefaultPasswords['admin'] = crypt('Wa4RLoEs');
 
 ##  PmWiki comes with graphical user interface buttons for editing;
 ##  to enable these buttons, set $EnableGUIButtons to 1.  
-# $EnableGUIButtons = 1;
+$EnableGUIButtons = 1;
 
 ##  To enable markup syntax from the Creole common wiki markup language
 ##  (http://www.wikicreole.org/), include it here:
