@@ -42,11 +42,11 @@
 				of the programming projects you are working on.  In addition, each project will also have
 				its own wiki page to help you to record any information about your project.</p>
 
-				<h4><?php echo  $this->ion_auth->get_user()->first_name;  ?>'s Assigned Tickets</h4>
 					
 				<?php if(!$my_tickets): ?>
 					<h5>No tickets currently assigned to you.</h5>
 				<?php else: ?>
+					<h4><?php echo  $this->ion_auth->get_user()->first_name;  ?>'s Assigned Tickets (<?php echo count($my_tickets); ?>)</h4>
 					<table id="tickets_table">
 					<colgroup>
 						<col width="10%" />
