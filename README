@@ -7,5 +7,6 @@ Libraries Used
 The application uses the following pieces of open source software:
 - Codeigniter 1.7.2
 - Ion Auth for basic user authentication and user management
+- PmWiki for a simple file based wiki
 - tinymce for the WYSIWYG
 
