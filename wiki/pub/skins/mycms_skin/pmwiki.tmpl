@@ -11,7 +11,8 @@
   <!--HTMLHeader-->
 
 	<style type="text/css">
-
+		hr {
+		}
 		h3 {
 			font-size: 12pt;
 			margin-bottom: 3px;
@@ -30,6 +31,10 @@
 			display: none;
 		}
 
+		table#wikimid, table#wikimid tr td#wikileft {
+			border-bottom: none;
+		}
+
 		/** So that chrome doesn't resize the text area **/
 		textarea {
 			resize: none;
@@ -40,7 +45,7 @@
 <div id="container">
 
 <div id="top-header">
-<h2>myCMS</h2>
+<h2 style="margin-bottom: 15px; font-size: 16pt; font-weight: bold; color: #4f5155">myCMS</h2>
 <span id="meta-info">
   <form  style="margin-top: -16px;" action='{$ScriptUrl}'>
     <input type='hidden' name='n' value='{$FullName}' />
@@ -78,7 +83,8 @@
   </div> -->
 
 <!--/PageHeaderFmt-->
-  <table id='wikimid' style="table-layout:fixed; width="100%"; " cellspacing='0' cellpadding='0'><tr>
+  <table id='wikimid' style="table-layout:fixed; width="100%"; " cellspacing='0' cellpadding='0'>
+	<tr style="height: 100%">
 <!--PageLeftFmt-->
       <td id='wikileft' valign='top'>
 		<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
