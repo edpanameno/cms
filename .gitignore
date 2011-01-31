@@ -5,8 +5,8 @@
 */system/cache/!index.html
 
 # Wiki 
-*/wiki/wiki.d
-*/wiki/uploads
+wiki/wiki.d/
+wiki/uploads/
 
 # Netbeans Projects folder
 nbproject/

@@ -1,0 +1,14 @@
+RewriteEngine ON
+
+# Define the rewrite base
+RewriteBase /~ed/cms/wiki
+
+# Send Requests without parameters to index.php
+RewriteRule ^$		pmwiki.php [L]
+
+# Send requests for index.php
+RewriteRule ^index\.php$ pmwiki.php [L]
+
+#Send requests to pmwiki.php, appending the query string part
+RewriteRule ^([A-Z0-9\xa0-\xff].*)$ pmwiki.php?n=$1	[QSA,L]
+
