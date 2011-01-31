@@ -54,6 +54,7 @@
 			table.ticket_info, table#note_log {
 				width: 85%;
 				margin: auto;
+				border: 1px solid #9a9b9a;
 			}
 
 			/** don't want the hover effect on these tables **/

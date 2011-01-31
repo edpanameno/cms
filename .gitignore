@@ -4,6 +4,10 @@
 */system/cache/*
 */system/cache/!index.html
 
+# Wiki 
+*/wiki/wiki.d
+*/wiki/uploads
+
 # Netbeans Projects folder
 nbproject/
 
