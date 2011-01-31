@@ -11,6 +11,17 @@
   <!--HTMLHeader-->
 
 	<style type="text/css">
+
+		h3 {
+			font-size: 12pt;
+			margin-bottom: 3px;
+		}
+
+		h2 {
+			color: black;
+			font-size: 13pt;
+		}
+
 		table#wikimid tr td#wikibody {
 			border-bottom: none;
 		}
@@ -29,11 +40,14 @@
 <div id="container">
 
 <div id="top-header">
-<h2>myCMS Wiki</h2>
+<h2>myCMS</h2>
 <span id="meta-info">
-	<!-- <a href="#">Logged In</a> |
-	<a href="http://u9-desktop/~ed/cms/help">Help<a/> |
-	<a href="http://u9-desktop/~ed/cms/about">About<a/> -->
+  <form  style="margin-top: -16px;" action='{$ScriptUrl}'>
+    <input type='hidden' name='n' value='{$FullName}' />
+    <input type='hidden' name='action' value='search' />
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton' value='$[Go]' />
+  </form>
 </span>
 </div> <!-- end top-header -->
 
