@@ -1,0 +1,10 @@
+Below you will find the installation instructions for the cms application.  There are two main components that need to
+be setup before utilizing the application.
+
+Codeigniter
+===========
+
+
+PmWiki
+======
+
