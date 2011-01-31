@@ -53,7 +53,7 @@ h6 { font-size:1.0em; }
 
 /* These are for the left-sidebar. */
 #wikileft { 
-  width:155px; 
+  width:155px;
   padding:6px;
   background-color: #f7f6f6;
   border-right:1px #cccccc dotted;
@@ -92,7 +92,7 @@ h6 { font-size:1.0em; }
 #wikicmds li a.createlink { display:none; }
 #wikicmds li a:hover { text-decoration:underline; color:blue; }
 .pagegroup { margin-top:8px; margin-bottom:2px; }
-.pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+.pagetitle { line-height:1em; margin-top:10px; font-size:1.6em; font-weight:normal; }
 .wikiaction { margin-top:4px; margin-bottom:4px; }
 
 #wikitext { 
