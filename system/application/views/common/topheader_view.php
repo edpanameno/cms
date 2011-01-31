@@ -6,6 +6,9 @@
 	<?php else:  ?>
 		<a href="<?php echo site_url() ?>login">Login</a> |
 	<?php endif; ?>
+	<?php if($this->ion_auth->is_admin()): ?>
+		<a href="<?php echo site_url(); ?>admin">Admin</a> |
+	<?php endif; ?>
 	<a href="<?php echo site_url() ?>help">Help</a> |
 	<a href="<?php echo site_url() ?>about">About</a>
 </span>

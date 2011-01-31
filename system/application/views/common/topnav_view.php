@@ -6,7 +6,4 @@
 	<?php if($this->ion_auth->logged_in()): ?>
 		<li><a <?php if($this->uri->segment(1) == 'wiki') {echo 'id="current_tab"';}?> href="<?php echo site_url(); ?>wiki">Wiki</a></li>
 	<?php endif; ?>
-	<?php if($this->ion_auth->is_admin()): ?>
-		<li><a <?php if($this->uri->segment(1) == 'admin') {echo 'id="current_tab"';} ?> <?php ?>href="<?php echo site_url(); ?>admin">Admin</a></li>
-	<?php endif; ?>
 </ul>
