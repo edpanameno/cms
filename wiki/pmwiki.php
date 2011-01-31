@@ -175,7 +175,7 @@ $HTMLStylesFmt['pmwiki'] = "
   .vspace { margin-top:1.33em; }
   .indent { margin-left:40px; }
   .outdent { margin-left:40px; text-indent:-40px; }
-  a.createlinktext { color: #grey; text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlinktext { color: #8a084b; text-decoration:none; border-bottom:1px dotted gray; }
   a.createlink { text-decoration:none; position:relative; top:-0.5em;
     font-weight:bold; font-size:smaller; border-bottom:none; }
   img { border:0px; }

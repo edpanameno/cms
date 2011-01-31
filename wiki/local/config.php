@@ -38,7 +38,7 @@ $Skin = 'mycms_skin';
 ## the "attr" passwords for the PmWiki and Main groups are locked, so
 ## an admin password is a good way to unlock those.  See PmWiki.Passwords
 ## and PmWiki.PasswordsAdmin.
-# $DefaultPasswords['admin'] = crypt('secret');
+$DefaultPasswords['admin'] = crypt('Wa4RLoEs');
 
 ## Unicode (UTF-8) allows the display of all languages and all alphabets.
 # include_once("scripts/xlpage-utf-8.php");
@@ -55,7 +55,7 @@ $Skin = 'mycms_skin';
 
 ##  To enable markup syntax from the Creole common wiki markup language
 ##  (http://www.wikicreole.org/), include it here:
-# include_once("scripts/creole.php");
+include_once("scripts/creole.php");
 
 ##  Some sites may want leading spaces on markup lines to indicate
 ##  "preformatted text blocks", set $EnableWSPre=1 if you want to do
@@ -69,8 +69,10 @@ $Skin = 'mycms_skin';
 ##  You'll also need to set a default upload password, or else set
 ##  passwords on individual groups and pages.  For more information
 ##  see PmWiki.UploadsAdmin.
-# $EnableUpload = 1;
-# $DefaultPasswords['upload'] = crypt('secret');
+$EnableUpload = 1;
+$DefaultPasswords['upload'] = crypt('upload123');
+$UploadDir = "/home/ed/public_html/cms/wiki/uploads";
+$UploadUrlFmt = "http://u9-desktop/~ed/cms/wiki/uploads";
 
 ##  Setting $EnableDiag turns on the ?action=diag and ?action=phpinfo
 ##  actions, which often helps others to remotely troubleshoot 
