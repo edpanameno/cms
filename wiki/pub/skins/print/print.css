@@ -23,8 +23,8 @@ body {
 
 #printhead { 
   font-family:sans-serif;
-  border-top:3px solid #a0a0a0; 
-  border-bottom:5px solid #a0a0a0; 
+  border-top:1px solid #a0a0a0; 
+  border-bottom:1px solid #a0a0a0; 
   margin-bottom:1em; 
 }
 #printhead h3 { margin-top:0px; } 
@@ -36,7 +36,7 @@ body {
 #printfoot {
   clear:both;
   margin-top:1em; 
-  border-top:5px solid #a0a0a0; 
+  border-top:2px solid #a0a0a0; 
   font-size:smaller; 
 }
 

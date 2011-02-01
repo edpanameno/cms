@@ -39,6 +39,10 @@
 		textarea {
 			resize: none;
 		}
+
+		#main-content {
+			margin: 0px;
+		}
 	</style>
 </head>
 <body>
@@ -54,51 +58,38 @@
     <input type='submit' class='inputbutton searchbutton' value='$[Search]' />
   </form>
 </span>
-</div> <!-- end top-header -->
+</div>
 
 <div id="common-nav">
-<ul>
-<li><a href="http://u9-desktop/~ed/cms">Home</a>
-<li><a href="http://u9-desktop/~ed/cms/projects">Projects</a>
-<li><a id="current_tab" href="http://u9-desktop/~ed/cms/wiki">Wiki</a>
-</ul>
-</div> <!-- end common-nav -->
-
-<!--PageHeaderFmt-->
-
-  <div id='wikilogo'>
-	<!-- <a href='{$ScriptUrl}'><img src='$PageLogoUrl' alt='$WikiTitle' border='0' /></a> -->
-  </div>
-
-<!--/PageHeaderFmt-->
-  <table id='wikimid' style="table-layout:fixed; width="100%"; " cellspacing='0' cellpadding='0'>
+	<ul>
+		<li><a href="http://u9-desktop/~ed/cms">Home</a>
+		<li><a href="http://u9-desktop/~ed/cms/projects">Projects</a>
+		<li><a id="current_tab" href="http://u9-desktop/~ed/cms/wiki">Wiki</a>
+	</ul>
+</div>
+  <table id="wikimid" style="table-layout:fixed; width="100%"; " cellspacing='0' cellpadding='0'>
 	<tr style="height: 100%">
-<!--PageLeftFmt-->
-      <td id='wikileft' valign='top'>
-		<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
-      </td>
-
-<!--/PageLeftFmt-->
-      <td id='wikibody' valign='top'>
-
-<!--PageActionFmt-->
-        <div id='wikicmds'><!--wiki:{$Group}.PageActions {$SiteGroup}.PageActions--></div>
-<!--PageTitleFmt-->
-        <div id='wikititle'>
-          <div class='pagegroup'><a href='{$ScriptUrl}/{$Group}'>{$Group}</a>/</div>
-          <h1 class='pagetitle'>{$Title}</h1></div>
-		  <span style="margin-left: 10px; color: grey; font-size: 0.83em;">Last Modified on {$LastModified}</span>
-<!--PageText-->
+	  <!--PageLeftFmt-->
+      	<td id="wikileft" valign="top">
+			<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
+      	</td>
+	  <!--/PageLeftFmt-->
+      <td id="wikibody" valign="top">
+	    	<!--PageActionFmt-->
+        	<div id="wikicmds">
+				<!--wiki:{$Group}.PageActions {$SiteGroup}.PageActions-->
+			</div>
+ 	    	<!--PageTitleFmt-->
+        	<div id="wikititle">
+          		<div class="pagegroup"><a href="{$ScriptUrl}/{$Group}">{$Group}</a>/</div>
+          		<h1 class="pagetitle">{$Title}</h1>
+			</div>
+		  	<span style="margin-left: 10px; color: grey; font-size: 0.83em;">Last Modified on {$LastModified}</span>
+			<!--PageText-->
       </td>
     </tr>
   </table>
-
-<br />
-<br />
-</div> <!-- end container -->
-<div id="footer">
-	  myCMCS - Copyright 2011
-<!--HTMLFooter-->
-</div> <!-- end footer -->
+</div>
+<div id="footer">myCMCS - Copyright 2011</div>
 </body>
 </html>

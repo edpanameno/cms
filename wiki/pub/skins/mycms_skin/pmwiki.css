@@ -53,11 +53,10 @@ h6 { font-size:1.0em; }
 
 /* These are for the left-sidebar. */
 #wikileft { 
-  width:155px;
   /**width: 15%;**/
   padding:6px;
   background-color: #f7f6f6;
-  border-right:1px #cccccc dotted;
+  border-right: 1px dotted #ccc;
   line-height:1.33em;
   font-size:9.0pt;
   font-family:Georgia, "Times New Roman",serif;
@@ -101,6 +100,7 @@ h6 { font-size:1.0em; }
 
 #wikitext { 
 	margin-top:12px;
+	margin-bottom: 15%;
 	margin-left: 9px;
 	margin-right: 10px;
 	/*line-height:1.30em; */
