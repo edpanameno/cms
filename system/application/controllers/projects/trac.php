@@ -22,9 +22,10 @@ class Trac extends Controller {
 		else {
 
 			$humanized_project_name = humanize($project_name);
+			$data["humanized_project_name"] = $humanized_project_name;
 			$data['title'] = $this->config->item("app_name") . " - $humanized_project_name";
 			$data['project_id' ] = $project_id;
-			$data['project_name'] = $humanized_project_name;
+			$data['project_name'] = $project_name;
 			$this->load->model('projects/ticket_model');
 			$data['tickets'] = $this->ticket_model->getTicketsByProjectId($project_id);
 			$this->load->view('projects/trac_home_view', $data);

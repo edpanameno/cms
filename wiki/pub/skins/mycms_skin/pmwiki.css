@@ -70,7 +70,7 @@ h6 { font-size:1.0em; }
 
 .sidehead {
   margin:0px; padding:4px 2px 2px 2px;
-  font-size:11pt; font-weight:bold; font-style:normal; 
+  font-size:10pt; font-weight:bold; font-style:normal; 
 }
 .sidehead a {
 	color:#505050;
@@ -87,11 +87,11 @@ h6 { font-size:1.0em; }
 }
 #wikicmds { 
   float:right; white-space:nowrap; 
-  font-family:Georgia, "Times New Roman",serif; font-size:80%; 
+  font-family:Georgia, "Times New Roman",serif; font-size:85%;
 }
 #wikicmds ul { list-style:none; margin:0px; padding:0px; }
 #wikicmds li { display:inline; margin:0px 5px; }
-#wikicmds li a { text-decoration:none; color:black; border:none; }
+#wikicmds li a { text-decoration:none; color:grey; border:none; }
 #wikicmds li a.createlink { display:none; }
 #wikicmds li a:hover { text-decoration:underline; color:blue; }
 .pagegroup { margin-top:8px; margin-bottom:2px; }

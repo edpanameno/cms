@@ -143,7 +143,7 @@
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
 					<?php if($ticket): ?>
-						Projects > <?php echo $humanized_project_name; ?> > Trac > Ticket #<?php echo $ticket->ticket_id; ?>
+						Project > <?php echo anchor("projects/$ticket->project_id/$project_name", $humanized_project_name); ?> > <?php echo anchor("projects/$ticket->project_id/$project_name/trac", "Trac"); ?> > #<?php echo $ticket->ticket_id; ?>
 					<?php endif; ?>
 				</span>
 				<ul>

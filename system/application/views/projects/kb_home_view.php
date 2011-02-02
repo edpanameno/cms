@@ -65,17 +65,18 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo $project_name; ?> > KB
+					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > kb
 				</span>
 				<ul>
+					<li><?php echo anchor("projects/$project_id/$project_name/trac", "Trac"); ?></li>
 					<li><a href="#">All Articles</a></li>
 					<li><a href="#">Categories</a></li>
 					<li><a href="#">Create Article</a></li>
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3><?php echo $project_name; ?> - Knowledgebase</h3>
-				<p>Welcome to the knowledgebase for the <u><?php echo $project_name; ?></u>!  This page will allow
+				<h3><?php echo $humanized_project_name; ?> - kb</h3>
+				<p>Welcome to the <b>kb</b> for the <i><?php echo $humanized_project_name; ?></i>. This page will allow
 				you to view and create articles that will allow others to know more about this project.  The type of
 				information you can create for a kb are things like installation documentation, general
 				design principles and any other documentation that is deemed important.

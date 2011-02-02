@@ -21,10 +21,9 @@ class Kb extends Controller {
 		else {
 
 			$humanized_project_name = humanize($project_name);
-
+			$data["humanized_project_name"] = $humanized_project_name;
 			$data["project_id"] = $project_id;
-			$data['url_project_name'] = $project_name;
-			$data['project_name'] = $humanized_project_name;
+			$data['project_name'] = $project_name;
 			$data['title'] = $this->config->item("app_name") . " - $humanized_project_name";
 			$this->load->view('projects/kb_home_view', $data);
 		}

@@ -34,15 +34,15 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					 Project > <?php echo $project_name; ?> > Trac 
+					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > trac
 				</span>
 				<ul>
-					<li><a href="<?php echo site_url() . "projects/" .  $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/kb" ?>">KB</a></li>
-					<li><a href="<?php echo site_url() . "projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/new_ticket" ?>">Create Ticket</a></li>
+					<li><?php echo anchor("projects/$project_id/$project_name/kb", "KB"); ?></li>
+					<li><?php echo anchor("projects/$project_id/$project_name/trac/new_ticket", "Create Ticket"); ?></li>
 				</ul>
 			</div>
 			<div id="main-content">
-				<h3><?php echo $project_name ?> - Trac Page</h3>
+				<h3><?php echo $humanized_project_name; ?> - Trac Page</h3>
 				<p>Below you will find the non-closed tickets for <?php echo $project_name; ?>.</p>
 				<div>
 					<table id="tickets_table">
