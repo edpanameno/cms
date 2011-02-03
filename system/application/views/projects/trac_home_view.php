@@ -18,7 +18,8 @@
 
 		<style type="text/css">
 			table {
-				width: 100%;
+				margin-left: 20px;
+				width: 75%;
 			}
 
 			.center_value {
@@ -34,7 +35,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > trac
+					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > Trac
 				</span>
 				<ul>
 					<li><?php echo anchor("projects/$project_id/$project_name/kb", "KB"); ?></li>
@@ -47,27 +48,21 @@
 				<div>
 					<table id="tickets_table">
 						<colgroup>
-							<col width="6%" />
-							<col width="40%" />
-							<col width="8%" />
-							<col width="8%" />
-							<col width="17%" />
-							<col width="9%" />
+							<col width="10%" />
+							<col width="50%" />
+							<col width="25%" />
+							<col width="15%" />
 						</colgroup>
 						<thead>
-							<th>Ticket #</th>
-							<th>Title</th>
-							<th>Creator</th>
-							<th>Assigned</th>
-							<th>Date Created</th>
-							<th>Status</th>
+							<th>ticket #</th>
+							<th>title</th>
+							<th>date created</th>
+							<th>status</th>
 						</thead>
 						<?php foreach($tickets as $ticket): ?>
 							<tr>
 								<td class="center_value"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
 								<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title); ?></td>
-								<td class="center_value"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->created_by); ?></td>
-								<td class="center_value"><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->assigned_to); ?></td>
 								<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, date("M d Y - h:i a",strtotime($ticket->date_created))); ?></td>
 								<td><?php echo anchor("/projects/" . $project_id . "/" . url_title($project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 							</tr>

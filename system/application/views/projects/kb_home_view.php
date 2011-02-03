@@ -65,7 +65,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > kb
+					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > KB
 				</span>
 				<ul>
 					<li><?php echo anchor("projects/$project_id/$project_name/trac", "Trac"); ?></li>
@@ -76,7 +76,7 @@
 			</div>
 			<div id="main-content">
 				<h3><?php echo $humanized_project_name; ?> - kb</h3>
-				<p>Welcome to the <b>kb</b> for the <i><?php echo $humanized_project_name; ?></i>. This page will allow
+				<p>Welcome to the KB for the <b><?php echo $humanized_project_name; ?></b>. This page will allow
 				you to view and create articles that will allow others to know more about this project.  The type of
 				information you can create for a kb are things like installation documentation, general
 				design principles and any other documentation that is deemed important.
@@ -91,11 +91,11 @@
 						<p>
 							<label for="category">Categories</label>
 							<select>
-								<option>Shogo</option>
-								<option>Carlos</option>
-								<option>Elmer</option>
-								<option>Jerson</option>
-								<option>Jara</option>
+								<option>JD</option>
+								<option>Howard</option>
+								<option>Teddy</option>
+								<option>Gary</option>
+								<option>Benjy</option>
 							</select>
 						</p>
 						<p>

@@ -115,9 +115,13 @@
 				list-style-type: square;
 			}
 
-			tr td {
+			table.ticket_info tr td {
 				padding-left: 6px;
 				padding-right: 6px;
+			}
+
+			.note_text {
+				margin: 0px 10px;
 			}
 
 			.change_ticket_alignment {
@@ -265,7 +269,7 @@
 							<table width="100%" style="border-style: none">
 								<tr style="border-right: none;">
 									<td class="note_date">
-										<?php echo (date("M d Y - h:i a", strtotime($note->date_created))) . "<a name=\"note_$note->note_id\"> | #" . $count++ . "</a>"; ?>
+										<?php echo (date("M d Y - h:i a", strtotime($note->date_created))) . "<a name=\"note$note->note_id\"> | #" . $count++ . "</a>"; ?>
 									</td>
 								</tr>
 								<tr>

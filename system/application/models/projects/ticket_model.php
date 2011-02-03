@@ -31,14 +31,12 @@ class Ticket_model extends Model {
 
 	function getTicketsByProjectId($project_id) {
 
-		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', M.first_name as 'created_by', " .
-					"M2.first_name as 'assigned_to', TT.name as 'ticket_type' " .
-				    "FROM tickets T, meta M, meta M2, ticket_status TS, ticket_types TT " .
+		$sqlQuery = "SELECT T.ticket_id, T.date_created, T.title, TS.name as 'status', " .
+					"TT.name as 'ticket_type' " .
+				    "FROM tickets T, ticket_status TS, ticket_types TT " .
 					"WHERE T.project_id = '$project_id' " .
 					"AND T.ticket_status !=  '2'" . // don't show closed issues
 					"AND T.ticket_status = TS.status_id " .
-					"AND T.created_by = M.id " .
-					"AND T.assigned_to = M2.id " .
 					"AND T.ticket_type = TT.type_id " .
 					"ORDER BY date_created DESC";
 
