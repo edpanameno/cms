@@ -157,7 +157,7 @@
 			</div>
 			<div id="main-content">
 				<?php if($ticket): ?>
-				<h3 class="heading_text"><?php echo $ticket->title . " - (#" . $ticket->ticket_id . ")"; ?></h3> <br />
+				<h3 class="heading_text"><?php echo $ticket->title . " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table border="1" cellpadding="1" class="ticket_info">
 					<colgroup>
 						<col width="25%" />

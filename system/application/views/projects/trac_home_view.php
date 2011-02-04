@@ -44,7 +44,7 @@
 			</div>
 			<div id="main-content">
 				<h3><?php echo $humanized_project_name; ?> - Trac Page</h3>
-				<p>Below you will find the non-closed tickets for <?php echo $project_name; ?>.</p>
+				<p>Below you will find the non-closed tickets for <?php echo $humanized_project_name; ?>.</p>
 				<div>
 					<table id="tickets_table">
 						<colgroup>
