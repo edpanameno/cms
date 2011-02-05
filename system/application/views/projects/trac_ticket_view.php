@@ -48,11 +48,11 @@
 
 		<style type="text/css">
 			#change_ticket_div, .heading_text, #add_note_text {
-				margin-left: 67px;
+				margin-left: 35px;
 			}
 
 			table.ticket_info, table#note_log {
-				width: 85%;
+				width: 90%;
 				margin: auto;
 				border: 1px solid #9a9b9a;
 			}
@@ -121,7 +121,7 @@
 			}
 
 			.note_text {
-				margin: 0px 10px;
+				margin: 0px 5px;
 			}
 
 			.change_ticket_alignment {
@@ -313,11 +313,12 @@
 								</tr>
 								<tr>
 									<td class="change_ticket_alignment">Tile:</td>
-									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="60" value="<?php echo $ticket->title ?>" /></td>
+									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="50" value="<?php echo $ticket->title ?>" /></td>
 								</tr>
 							</table>
 					</div>
-					<h5 id="add_note" class="heading_text note heading_text" ><a name="add_note">Add a Note</a></h5>
+					<br />
+					<a name="add_note"></a>
 					<div id="add_note_text">
 						<textarea cols="80" rows="10" name="text_description" id="text_description"> </textarea>
 						<input id="submit_note" type="submit" name="submit" value="Add Note" />

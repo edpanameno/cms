@@ -16,19 +16,31 @@
 		</script>
 
 		<style type="text/css">
-
 			fieldset {
 				width: 300px;
 				margin: auto;
+				border: 1px solid #9a9b9a;
+				padding: 10px;
 			}
 
-			fieldset div {
+			fieldset label {
 				display: block;
+				float: left;
+				width: 60px;
+				padding: 0;
+				margin: 8px 0 0;
+				text-align: left;
 			}
 
-			div label {
+			input {
+				width: 190px;
+				margin: 5px 0 0 20px;
+			}
+
+			input[type=submit] {
 				float: left;
-				width: 5em;
+				margin-left: 0px;
+				width: 80px;
 			}
 		</style>
     </head>
@@ -41,22 +53,18 @@
 			<div id="page-nav-bar">
 			</div>
 			<div id="main-content">
-				<h3>Login to myCMS</h3>
+				<h3>Login to <?php echo $this->config->item("app_name"); ?></h3>
 				<span style="color: red;"><?php echo $this->session->flashdata('message'); ?></span>
 				<p>Enter your username and password in the fields provided below to log in into <?php echo $this->config->item("app_name"); ?>.</p>
 				<?php echo form_open('login')?>
-
-				<fieldset>
-					<div>
+					<fieldset>
+						<legend>Login Information</legend>
 						<label for="'username">Username</label>
-						<input type="text" id="username" name="username" size="20" />
-					</div>
-					<div>
+						<input type="text" id="username" name="username" /> <br />
 						<label for="password">Password</label>
-						<input type="password" id="password" name="password" size="20" />
-					</div>
-					<div><input type="submit" value="Login" /></div>
-				</fieldset>
+						<input type="password" id="password" name="password" /> <br />
+						<input type="submit" value="Login" />
+					</fieldset>
 				<?php echo form_close(); ?>
 			</div>
 		</div>
