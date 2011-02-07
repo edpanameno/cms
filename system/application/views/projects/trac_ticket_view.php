@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-    <head>
+	<head>
 		<base href="<?php echo site_url(); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
-		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
+		<script language="javascript" type="text/javascript" src="js/basic_editor.js"></script>
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -157,40 +157,34 @@
 			<div id="main-content">
 				<?php if($ticket): ?>
 				<h3 class="heading_text"><?php echo $ticket->title . " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
-				<table border="1" cellpadding="1" class="ticket_info">
+				<table class="ticket_info">
 					<colgroup>
-						<col width="25%" />
-						<col width="75%" />
+						<col width="15%" />
+						<col width="30%" />
+						<col width="20%" />
+						<col width="35%" />
 					</colgroup>
 					<tr>
 						<td>Created By</td>
 						<td><?php echo $ticket->created_by; ?></td>
-					</tr>
-					<tr>
 						<td>Assigned To</td>
 						<td><?php echo $ticket->assigned_to; ?></td>
 					</tr>
 					<tr>
 						<td>Type</td>
 						<td><?php echo $ticket->type; ?></td>
-					</tr>
-					<tr>
 						<td>Priority</td>
 						<td><?php echo $ticket->priority; ?></td>
 					</tr>
 					<tr>
 						<td>Status</td>
 						<td><?php echo $ticket->status; ?></td>
-					</tr>
-					<tr>
 						<td>Resolution </td>
 						<td><?php echo $ticket->resolution_name; ?></td>
 					</tr>
 					<tr>
 						<td>Date Created</td>
 						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
-					</tr>
-					<tr>
 						<td>Date Last Changed</td>
 						<td><?php echo date("M d Y - h:i a", strtotime($ticket->last_updated)) . ' (' . nice_timespan($ticket->last_updated) . ')'; ?></td>
 					</tr>
@@ -206,8 +200,6 @@
 									}
 								?>
 						</td>
-					</tr>
-					<tr>
 						<td>Date Resolved</td>
 						<td>
 								<?php
@@ -222,7 +214,7 @@
 					</tr>
 					<tr>
 						<td>Resolved By</td>
-						<td>
+						<td colspan="3">
 							<?php
 								if(isset($ticket->resolved_by)) {
 									echo $ticket->resolved_by; 
@@ -237,7 +229,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2"><?php echo $ticket->description; ?></td>
+						<td colspan="4"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
 
