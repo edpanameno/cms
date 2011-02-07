@@ -3,11 +3,12 @@
 <html>
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<base href="<?php echo site_url(); ?>" />
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
-		<script language="javascript" type="text/javascript" src="<?php echo site_url(); ?>js/jquery-1.4.4.min.js"></script>
-		<script language="javascript" type="text/javascript" src="<?php echo site_url(); ?>js/jquery.tablesorter.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#tickets_table").tablesorter();
