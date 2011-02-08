@@ -24,6 +24,7 @@ $EnablePathInfo = 1;
 $ScriptUrl = "http://u9-desktop/~ed/cms/wiki";
 
 ## ~~ will be used for creation of item in wiki
+# Got this from the following link: http://www.mail-archive.com/pmwiki-users@pmichaud.com/msg12026.html
 $ROSPatterns['/(?<!~)~~(?!~)/e'] = "FmtPageName('\$CurrentTime', \$pagename)";
 Markup('~~','<links','/(?<!~)~~(?!~)/',"$CurrentTime");
 
