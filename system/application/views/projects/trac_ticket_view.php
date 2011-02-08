@@ -155,6 +155,7 @@
 				</span>
 				<ul>
 					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/kb/", "KB"); ?></li>
+					<li><?php echo anchor("projects/$ticket->project_id/$project_name/trac/new_ticket", "Create Ticket"); ?></li>
 					<li><?php echo anchor("/projects/$ticket->project_id/$project_name/trac/$ticket->ticket_id#add_note", "Add Note", array("id" => "note_focus")); ?></li>
 				</ul>
 			</div>
@@ -240,14 +241,14 @@
 							?>
 						</td>
 					</tr>
-					<tr style="height: 100px;">
+					<tr style="height: 85px;">
 						<td style="vertical-align: top;" colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
 
 				<h4 class="heading_text">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
-					<h4 style="margin-top: 10px; margin-left: 80px; color: grey;">This ticket has no notes</h4>
+					<h4 style="margin-top: 5px; margin-left: 40px; color: grey;">This ticket has no notes</h4>
 				<?php else: ?>
 					<table id ="note_log">
 					<colgroup>

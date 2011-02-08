@@ -30,10 +30,12 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo $project_name; ?> > Trac > New Ticket
+					<?php echo anchor("projects/$project_id/$unhumanized_project_name", "Project") ?> > <?php echo anchor("projects/$project_id/$unhumanized_project_name/", $project_name); ?> > <?php echo anchor("/projects/$project_id/$unhumanized_project_name/trac", "Trac"); ?> > New Ticket
 				</span>
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><?php echo anchor("projects/$project_id/$unhumanized_project_name", "Project Home"); ?></li>
+					<li><?php echo anchor("projects/$project_id/$unhumanized_project_name/kb", "KB"); ?></li>
+					<li><?php echo anchor("projects/$project_id/$unhumanized_project_name/trac", "Trac"); ?></li>
 				</ul>
 			</div>
 			<div id="main-content">

@@ -15,11 +15,12 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo $humanized_project_name; ?>
+					<?php echo anchor("projects/$project->project_id/$project_name", "Project") ?> > <?php echo $humanized_project_name; ?>
 				</span>
 				<ul>
-					<li><a href="<?php echo site_url() . "projects/" .  $project->project_id . "/" . $project_name . "/kb" ?>">KB</a></li>
-					<li><a href="<?php echo site_url() . "projects/" . $project->project_id . "/" .  $project_name . "/trac" ?>">Trac</a></li>
+					<li><?php echo anchor("projects/$project->project_id/$project_name/kb", "KB") ?></li>
+					<li><?php echo anchor("projects/$project->project_id/$project_name/trac/new_ticket", "Create Ticket"); ?></li>
+					<li><?php echo anchor("projects/$project->project_id/$project_name/trac", "Trac") ?></li>
 				</ul>
 			</div>
 			<div id="main-content">

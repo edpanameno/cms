@@ -65,7 +65,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > KB
+					<?php echo anchor("projects/$project_id/$project_name", "Project") ?> > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > KB
 				</span>
 				<ul>
 					<li><?php echo anchor("projects/$project_id/$project_name/trac", "Trac"); ?></li>
