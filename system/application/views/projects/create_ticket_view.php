@@ -66,7 +66,7 @@
 						<p>
 							<label for="text_description">Description*</label>
 							<?php echo form_error('text_description'); ?>
-							<textarea cols="60" rows="15" name="text_description" id="text_description"> <?php echo set_value('text_description'); ?> </textarea>
+							<textarea cols="61" rows="15" name="text_description" id="text_description"> <?php echo set_value('text_description'); ?> </textarea>
 						</p>
 						<span id="button_grid">
 							<input type="submit" value="Create Ticket" />
