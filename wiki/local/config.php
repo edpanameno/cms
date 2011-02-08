@@ -23,6 +23,10 @@ $WikiTitle = 'myCMS - Wiki';
 $EnablePathInfo = 1;
 $ScriptUrl = "http://u9-desktop/~ed/cms/wiki";
 
+## ~~ will be used for creation of item in wiki
+$ROSPatterns['/(?<!~)~~(?!~)/e'] = "FmtPageName('\$CurrentTime', \$pagename)";
+Markup('~~','<links','/(?<!~)~~(?!~)/',"$CurrentTime");
+
 ## $PageLogoUrl is the URL for a logo image -- you can change this
 ## to your own logo if you wish.
 # $PageLogoUrl = "$PubDirUrl/skins/pmwiki/pmwiki-32.gif";

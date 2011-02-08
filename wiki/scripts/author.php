@@ -34,7 +34,7 @@ if (!isset($AuthorPage)) $AuthorPage =
 SDV($AuthorLink,($Author) ? "[[~$Author]]" : '?');
 
 if (IsEnabled($EnableAuthorSignature,1)) {
-  SDVA($ROSPatterns, array(
+	SDVA($ROSPatterns, array(
     '/(?<!~)~~~~(?!~)/e' 
       => "FmtPageName('[[~\$Author]] \$CurrentTime', \$pagename)",
     '/(?<!~)~~~(?!~)/e' 

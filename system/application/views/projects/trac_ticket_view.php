@@ -119,6 +119,10 @@
 				padding-right: 6px;
 			}
 
+			table.ticket_info tr td > p {
+				margin-top: 9px;
+			}
+
 			.note_text {
 				margin: 0px 5px;
 			}
