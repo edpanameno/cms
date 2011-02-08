@@ -159,32 +159,38 @@
 				<h3 class="heading_text"><?php echo $ticket->title . " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
 				<table class="ticket_info">
 					<colgroup>
-						<col width="15%" />
-						<col width="30%" />
-						<col width="20%" />
-						<col width="35%" />
+						<col width="25%" />
+						<col width="75%" />
 					</colgroup>
 					<tr>
 						<td>Created By</td>
 						<td><?php echo $ticket->created_by; ?></td>
+					</tr>
+					<tr>
+						<td>Date Created</td>
+						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
+					</tr>
+					<tr>
 						<td>Assigned To</td>
 						<td><?php echo $ticket->assigned_to; ?></td>
 					</tr>
 					<tr>
 						<td>Type</td>
 						<td><?php echo $ticket->type; ?></td>
+					<tr/>
+					<tr>
 						<td>Priority</td>
 						<td><?php echo $ticket->priority; ?></td>
 					</tr>
 					<tr>
 						<td>Status</td>
 						<td><?php echo $ticket->status; ?></td>
+					</tr>
+					<tr>
 						<td>Resolution </td>
 						<td><?php echo $ticket->resolution_name; ?></td>
 					</tr>
 					<tr>
-						<td>Date Created</td>
-						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
 						<td>Date Last Changed</td>
 						<td><?php echo date("M d Y - h:i a", strtotime($ticket->last_updated)) . ' (' . nice_timespan($ticket->last_updated) . ')'; ?></td>
 					</tr>
@@ -200,6 +206,8 @@
 									}
 								?>
 						</td>
+					</tr>
+					<tr>
 						<td>Date Resolved</td>
 						<td>
 								<?php
@@ -214,7 +222,7 @@
 					</tr>
 					<tr>
 						<td>Resolved By</td>
-						<td colspan="3">
+						<td>
 							<?php
 								if(isset($ticket->resolved_by)) {
 									echo $ticket->resolved_by; 
@@ -229,7 +237,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="4"><?php echo $ticket->description; ?></td>
+						<td colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
 
