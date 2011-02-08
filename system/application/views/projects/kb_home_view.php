@@ -69,9 +69,8 @@
 				</span>
 				<ul>
 					<li><?php echo anchor("projects/$project_id/$project_name/trac", "Trac"); ?></li>
-					<li><a href="#">All Articles</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Create Article</a></li>
+					<li><?php echo anchor("projects/$project_id/$project_name/trac/new_ticket", "Create Ticket") ?></li>
+					<li><?php echo anchor("projects/$project_id/$project_name/kb/new_article", "Create Article") ?></li>
 				</ul>
 			</div>
 			<div id="main-content">

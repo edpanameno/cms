@@ -182,8 +182,11 @@ div#content_input label {
 	width: 80px;
 }
 
-input, select option {
+input, select  {
 	font-family: inherit;
+}
+
+input, select option {
 	font-size: 13px;
 }
 

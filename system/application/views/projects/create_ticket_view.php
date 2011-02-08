@@ -8,7 +8,7 @@
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
-		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
+		<script language="javascript" type="text/javascript" src="js/basic_editor.js"></script>
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -17,8 +17,7 @@
 		</script>
 		<style type="text/css">
 			select {
-				font: inherit;
-				width: 150px;
+				width: 160px;
 			}
 		</style>
     </head>
@@ -56,11 +55,11 @@
 							<?php echo form_dropdown('status_id', $ticket_statuses); ?>
 						</p>
 						<p>
-							<label for="assigned_to_id">Assigned To*</label>
+							<label for="assigned_to_id">Assigned To</label>
 							<?php echo form_dropdown('assigned_to_id', $users, $this->ion_auth->get_user()->id); ?>
 						</p>
 						<p>
-							<label for="ticket_title">Title*</label>
+							<label for="ticket_title">Title</label>
 							<?php echo form_error('ticket_title'); ?>
 							<input type="text" id="ticket_title" name="ticket_title" value="<?php echo set_value('ticket_title') ?>" />
 						</p>

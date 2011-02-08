@@ -32,7 +32,7 @@
 			</div>
 			<div id="page-nav-bar">
 				<span id="page_breadcrum">
-					Project > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > Trac
+					<?php echo anchor("projects/$project_id/$project_name", "Project") ?> > <?php echo anchor("projects/$project_id/$project_name", $humanized_project_name); ?> > Trac
 				</span>
 				<ul>
 					<li><?php echo anchor("projects/$project_id/$project_name/kb", "KB"); ?></li>
