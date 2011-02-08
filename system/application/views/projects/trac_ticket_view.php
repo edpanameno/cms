@@ -236,8 +236,8 @@
 							?>
 						</td>
 					</tr>
-					<tr>
-						<td colspan="2"><?php echo $ticket->description; ?></td>
+					<tr style="height: 100px;">
+						<td style="vertical-align: top;" colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
 
