@@ -241,7 +241,7 @@
 							?>
 						</td>
 					</tr>
-					<tr style="height: 85px;">
+					<tr style="height: 100px;">
 						<td style="vertical-align: top;" colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
@@ -263,7 +263,7 @@
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>
 					<?php static $count = 1; ?>
-					 <tr style="height: 100px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+					 <tr style="height: 130px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column">
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
@@ -273,7 +273,7 @@
 							<table width="100%" style="border-style: none">
 								<tr style="border-right: none;">
 									<td class="note_date">
-										<?php echo (date("M d Y - h:i a", strtotime($note->date_created))) . "<a name=\"note$note->note_id\"> | #" . $count++ . "</a>"; ?>
+										<?php echo (date("M d Y - h:i a", strtotime($note->date_created))) . "<a name=\"note$note->note_id\"> | #" . $count++ . " </a>"; ?>
 									</td>
 								</tr>
 								<tr>

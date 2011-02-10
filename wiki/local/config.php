@@ -78,6 +78,7 @@ $EnableUpload = 1;
 $DefaultPasswords['upload'] = crypt('upload123');
 $UploadDir = "/home/ed/public_html/cms/wiki/uploads";
 $UploadUrlFmt = "http://u9-desktop/~ed/cms/wiki/uploads";
+$UploadMaxSize = 1000000;
 
 ##  Setting $EnableDiag turns on the ?action=diag and ?action=phpinfo
 ##  actions, which often helps others to remotely troubleshoot 
