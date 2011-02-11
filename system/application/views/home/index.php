@@ -40,8 +40,6 @@
 				included to accomplish this are having a tracking system to track issues and feature requests
 				of the programming projects you are working on.  In addition, each project will also have
 				its own wiki page to help you to record any information about your project.</p>
-
-					
 				<?php if(!$my_tickets): ?>
 					<h5>No tickets currently assigned to you.</h5>
 				<?php else: ?>
