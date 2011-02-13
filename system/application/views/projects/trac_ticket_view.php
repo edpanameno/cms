@@ -72,11 +72,6 @@
 				padding-left: 5px;
 			}
 
-			/** spacing between change ticket and add note **/
-			.note.heading_text {
-				margin-bottom: 5px;
-			}
-
 			select {
 				font: inherit;
 				width: 150px;
@@ -87,7 +82,7 @@
 				padding-left: 2%;
 				font-weight: bold;
 				font-size: 9.0pt;
-				color: #222222;
+				color: #222;
 				list-style-type: square;
 			}
 
@@ -191,7 +186,7 @@
 					<tr>
 						<td>Type</td>
 						<td><?php echo $ticket->type; ?></td>
-					<tr/>
+					</tr>
 					<tr>
 						<td>Priority</td>
 						<td><?php echo $ticket->priority; ?></td>
@@ -254,7 +249,6 @@
 						<td style="vertical-align: top;" colspan="2"><?php echo $ticket->description; ?></td>
 					</tr>
 				</table>
-
 				<h4 class="heading_text">Ticket Notes</h4>
 				<?php if(!$ticket_notes): ?>
 					<h4 style="margin-top: 5px; margin-left: 40px; color: grey;">This ticket has no notes</h4>
