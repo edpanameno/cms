@@ -106,7 +106,7 @@
 
 			/** change ticket **/
 			form {
-				margin-left: 30px;
+				margin-left: 10px;
 			}
 
 			fieldset {
@@ -296,7 +296,7 @@
 				<?php endforeach; ?>
 					</table>
 				<?php endif; ?>
-				<br />
+				<h4 class="heading_text">Add Note/Change Ticket</h4>
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 					<div id="change_ticket_div">
 					<fieldset>
