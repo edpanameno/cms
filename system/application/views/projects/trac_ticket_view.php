@@ -12,22 +12,10 @@
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$("#change_ticket_div").hide();
-				$("#change_ticket").click(function() {
-					var $this = $(this);
-					var $change_ticket_div = $("#change_ticket_div");
-
-					if($this.hasClass("collapsed")) {
-						$this.removeClass("collapsed");
-						$this.addClass("expanded");
-						$change_ticket_div.slideToggle("fast");
-					}
-					else {
-						$this.removeClass("expanded");
-						$this.addClass("collapsed");
-						$change_ticket_div.slideToggle("fast");
-					}
-
+				//$("#change_ticket_div").hide();
+				$("fieldset ol").hide();
+				$("fieldset legend").click(function() {
+					$("fieldset ol").slideToggle();
 					var $button = $("#submit_note");
 					if ($button.attr("value") == "Add Note") {
 						$button.attr("value", "Change Ticket");
@@ -35,7 +23,6 @@
 					else {
 						$button.attr("value", "Add Note");
 					}
-
 					return false;
 				});
 
@@ -138,6 +125,51 @@
 			#table_change_ticket td {
 				border-bottom: none;
 				border-right: none;
+			}
+
+			form {
+				margin-left: 22px;
+			}
+
+			/** change ticket fieldset **/
+			fieldset {
+				min-width: 600px;
+				width: 65%;
+				margin: 0 0 0 0;
+				padding: 0 0 5px 0;
+				/*border: 1px groove #ccc;*/
+				border: 1px dotted #ccc;
+				background-color: #f7f6f6;
+			}
+
+			legend {
+				font-weight: bold;
+				font-size: 9pt;
+				color: #222;
+				margin-left: 10px;
+				margin-bottom: 0px;
+				padding-bottom: 0px;
+			}
+
+			fieldset ol {
+				margin: 10px 0 0 0;
+				padding-left: 5px;
+				list-style: none;
+			}
+
+			feildset li {
+				float: left;
+				width: 100%;
+				padding-bottom: 1em;
+			}
+
+			label {
+				text-align: right;
+				vertical-align: middle;
+				float: left;
+				width: 80px;
+				padding-left: 0;
+				margin-right: 10px;
 			}
 		</style>
     </head>
@@ -287,44 +319,44 @@
 				<?php endforeach; ?>
 					</table>
 				<?php endif; ?>
+					<br />
+					<br />
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
-					<h5 id="change_ticket" class="heading_text note heading_text collapsed">Change Ticket</h5>
 					<div id="change_ticket_div">
-							<table id="table_change_ticket"  >
-								<colgroup>
-									<col width="15%"/>
-									<col width="85%" />
-								</colgroup>
-								<tr>
-									<td class="change_ticket_alignment">Type:</td>
-									<td><?php echo form_dropdown('new_type_id', $ticket_types, $ticket->type_id); ?></td>
-								</tr>
-								<tr>
-									<td class="change_ticket_alignment">Priority:</td>
-									<td><?php echo form_dropdown('new_priority_id', $ticket_priorities, $ticket->priority_id); ?></td>
-								</tr>
-								<tr>
-									<td class="change_ticket_alignment">Status:</td>
-									<td><?php echo form_dropdown('new_status_id', $ticket_statuses, $ticket->status_id); ?></td>
-								</tr>
-								<tr>
-									<td class="change_ticket_alignment">Resolution:</td>
-									<td><?php echo form_dropdown('new_resolution_id', $ticket_resolutions, $ticket->resolution_id); ?></td>
-								</tr>
-								<tr>
-									<td class="change_ticket_alignment">Assigned To:</td>
-									<td><?php echo form_dropdown('new_assigned_to_id', $users, $ticket->assigned_to_id); ?></td>
-								</tr>
-								<tr>
-									<td class="change_ticket_alignment">Tile:</td>
-									<td><input type="text" name="new_ticket_title" id="new_ticket_title"  size="50" value="<?php echo $ticket->title ?>" /></td>
-								</tr>
-							</table>
+					<fieldset>
+						<legend id="change_ticket_legend">Change Ticket</legend>
+						<ol>
+							<li>
+								<label for="new_type_id">Type</label>
+								<?php echo form_dropdown('new_type_id', $ticket_types, $ticket->type_id); ?>
+							</li>
+							<li>
+								<label for="new_type_id">Type</label>
+								<?php echo form_dropdown('new_priority_id', $ticket_priorities, $ticket->priority_id); ?>
+							</li>
+							<li>
+								<label for="new_status_id">Status</label>
+								<?php echo form_dropdown('new_status_id', $ticket_statuses, $ticket->status_id); ?>
+							</li>
+							<li>
+								<label for="new_resolution_id">Resolution</label>
+								<?php echo form_dropdown('new_resolution_id', $ticket_resolutions, $ticket->resolution_id); ?>
+							</li>
+							<li>
+								<label for="new_assigned_to_id">Assigned To</label>
+								<?php echo form_dropdown('new_assigned_to_id', $users, $ticket->assigned_to_id); ?>
+							</li>
+							<li>
+								<label for="new_ticket_title">Title</label>
+								<input type="text" name="new_ticket_title" id="new_ticket_title"  size="60" value="<?php echo $ticket->title ?>" />
+							</li>
+						</ol>
+					</fieldset>
 					</div>
 					<br />
 					<a name="add_note"></a>
 					<div id="add_note_text">
-						<textarea cols="80" rows="10" name="text_description" id="text_description"> </textarea>
+						<textarea cols="73" rows="10" name="text_description" id="text_description"> </textarea>
 						<input id="submit_note" type="submit" name="submit" value="Add Note" />
 						<input type="hidden" name="ticket_id" value="<?php echo $ticket->ticket_id; ?>" />
 					</div>
