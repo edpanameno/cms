@@ -72,16 +72,6 @@
 				padding-left: 5px;
 			}
 
-			#change_ticket.note.heading_text.collapsed {
-				background: url("images/collapsed.png") no-repeat 0px 50%;
-				padding-left: 16px;
-			}
-
-			#change_ticket.note.heading_text.expanded, #add_note {
-				background: url("images/expanded.png") no-repeat 0px 50%;
-				padding-left: 16px;
-			}
-
 			/** spacing between change ticket and add note **/
 			.note.heading_text {
 				margin-bottom: 5px;
@@ -114,24 +104,11 @@
 				margin: 0px 5px;
 			}
 
-			.change_ticket_alignment {
-				text-align: right;
-			}
-
-			#table_change_ticket {
-				width: 70%;
-			}
-
-			#table_change_ticket td {
-				border-bottom: none;
-				border-right: none;
-			}
-
+			/** change ticket **/
 			form {
-				margin-left: 22px;
+				margin-left: 30px;
 			}
 
-			/** change ticket fieldset **/
 			fieldset {
 				min-width: 600px;
 				width: 65%;
@@ -139,7 +116,7 @@
 				padding: 0 0 5px 0;
 				/*border: 1px groove #ccc;*/
 				border: 1px dotted #ccc;
-				background-color: #f7f6f6;
+				background-color: #F7F6F6;
 			}
 
 			legend {
@@ -319,8 +296,7 @@
 				<?php endforeach; ?>
 					</table>
 				<?php endif; ?>
-					<br />
-					<br />
+				<br />
 				<form action="projects/<?php echo $ticket->project_id . '/' . $project_name ?>/trac/<?php echo $ticket->ticket_id; ?>/new_note" method="post">
 					<div id="change_ticket_div">
 					<fieldset>

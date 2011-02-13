@@ -187,6 +187,7 @@ input, select  {
 }
 
 input, select option {
+	padding-left: 2px;
 	font-size: 13px;
 }
 
