@@ -110,8 +110,8 @@
 			}
 
 			fieldset {
-				min-width: 600px;
-				width: 65%;
+				min-width: 500px;
+				width: 56%;
 				margin: 0 0 0 0;
 				padding: 0 0 5px 0;
 				/*border: 1px groove #ccc;*/
