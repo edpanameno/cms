@@ -101,6 +101,14 @@ class Ticket_model extends Model {
 		return $query->result();
 	}
 
+	/**
+	 * This function is called when a new note is created for an existing
+	 * ticket.  The user has the option of creating two types of notes.
+	 * The first kind of note is a 'General Note' in which the none of the
+	 * properties of a ticket (i.e. status, title, priority, etc) didn't change.
+	 * The second kind of note is a 'Modified Ticket' note where the user actually
+	 * changed one or more of the ticket properties.
+	 */
 	function newNote() {
 
 		// We first will check to see what kind of a note the user
@@ -117,16 +125,24 @@ class Ticket_model extends Model {
 		// else or mayhem will insue!
 		$ticket_id = $this->input->post("ticket_id");
 
+		// This is going to be used to see if the ticket has been
+		// closed or re-opened.  I have added these two new ticket
+		// note types so that later on I can use it for reporting
+		// purposes of this application. The default is 'Modified Ticket'
+		// which is indicated by the number 2 below.
+		$ticket_note_type = 2;
+
 		if($action == "Change Ticket") {
 
 			$change_message = "<div class=\"change_message\"><ul>";
 
 			// We need to get the current ticket information that
-			// 'could be' changed first
+			// 'could be' changed first. I am going to use this array
+			// to find out 'what has changed', if anything at all.
 			$query = $this->db->query("SELECT assigned_to, ticket_status, resolution_id, ticket_priority, ticket_type, title FROM tickets WHERE ticket_id = $ticket_id");
 			$current_ticket_info = $query->row_array();
 
-			// type
+			// ticket type
 			$new_type_to_id = $this->input->post("new_type_id");
 			if($current_ticket_info['ticket_type'] != $new_type_to_id) {
 				$change_message .= "<li>Type Change from '";
@@ -143,7 +159,7 @@ class Ticket_model extends Model {
 				$change_message .= $new_ticket_type_name['name'] . "'</li>";
 			}
 
-			// priority
+			// ticket priority
 			$new_priority_to_id = $this->input->post("new_priority_id");
 			if($current_ticket_info['ticket_priority'] != $new_priority_to_id) {
 				$change_message .= "<li>Priority Change from '";
@@ -160,7 +176,7 @@ class Ticket_model extends Model {
 				$change_message .= $new_ticket_priority_name['name'] . "'</li>";
 			}
 
-			// status
+			// ticket status
 			$new_status_to_id = $this->input->post("new_status_id");
 			if($current_ticket_info['ticket_status'] != $new_status_to_id) {
 				$change_message .= "<li>Status Change from '";
@@ -185,12 +201,20 @@ class Ticket_model extends Model {
 					// will be used to update the 'closed_by' field
 					// on the tickets table.
 					$closed_by =  $this->ion_auth->get_user()->id;
+
+					// The ticket is being closed and we have to set the
+					// ticket note to reflect this
+					$ticket_note_type = 3;
 				}
 
 				// For closed tickets: If a user decides to re-open a ticket
 				// this is handled here.
 				if($new_status_to_id == 6) {
 					$ticket_reopened = TRUE;
+
+					// Because the ticket has been re-opened we have to set 
+					// the appriate value to show this in the note
+					$ticket_note_type = 4;
 				}
 			}
 
@@ -291,7 +315,7 @@ class Ticket_model extends Model {
 				'ticket_id' => $ticket_id,
 				'created_by' => $this->ion_auth->get_user()->id,
 				'date_created' => date("Y-m-d H:i:s"),
-				'ticket_note_type' => 2,
+				'ticket_note_type' => $ticket_note_type,
 				'description' => $change_message . $this->input->post("text_description")
 			);
 
