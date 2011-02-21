@@ -184,16 +184,16 @@
 						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
 					</tr>
 					<tr>
+						<td>Status</td>
+						<td><?php echo $ticket->status; ?></td>
+					</tr>
+					<tr>
 						<td>Type</td>
 						<td><?php echo $ticket->type; ?></td>
 					</tr>
 					<tr>
 						<td>Priority</td>
 						<td><?php echo $ticket->priority; ?></td>
-					</tr>
-					<tr>
-						<td>Status</td>
-						<td><?php echo $ticket->status; ?></td>
 					</tr>
 					<tr>
 						<td>Resolution </td>
