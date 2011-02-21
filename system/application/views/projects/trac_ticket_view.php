@@ -176,12 +176,12 @@
 						<td><?php echo $ticket->created_by; ?></td>
 					</tr>
 					<tr>
-						<td>Date Created</td>
-						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
-					</tr>
-					<tr>
 						<td>Assigned To</td>
 						<td><?php echo $ticket->assigned_to; ?></td>
+					</tr>
+					<tr>
+						<td>Date Created</td>
+						<td><?php echo  date("M d Y - h:i a", strtotime($ticket->date_created)) . ' (' . nice_timespan($ticket->date_created) . ')'; ?></td>
 					</tr>
 					<tr>
 						<td>Type</td>
@@ -266,7 +266,7 @@
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>
 					<?php static $count = 1; ?>
-					 <tr style="height: 130px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
+					 <tr style="height: 120px;" class="<?php if(($count % 2) == 0){ echo 'even';} else {echo 'odd';}  ?>">
 						<td class="author_column">
 							<span><b><?php echo $note->created_by; ?></b></span><br />
 							<span style="font-style: italic"><?php echo $note->note_type; ?></span><br />
