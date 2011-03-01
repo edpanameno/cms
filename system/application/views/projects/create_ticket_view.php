@@ -7,12 +7,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $title; ?></title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
+		<link rel="stylesheet" href="css/css3buttons.css" media="screen" />
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
 		<script language="javascript" type="text/javascript" src="js/basic_editor.js"></script>
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("select:first").focus();
+
+				$("a#primary_button").click(function() {
+					$(this).parents("form").submit();
+					return false;
+				});
 			});
 		</script>
 		<style type="text/css">
@@ -69,12 +75,15 @@
 							<textarea cols="61" rows="15" name="text_description" id="text_description"> <?php echo set_value('text_description'); ?> </textarea>
 						</p>
 						<span id="button_grid">
-							<input type="submit" value="Create Ticket" />
-							<input type="reset" value="Clear" />
+							<a href="#" id="primary_button" class="primary button">Create Ticket</a>
+							<!-- <a href="#" class="secondary button">Clear</a> -->
+							<!-- <input type="submit" value="Create Ticket" />
+							<input type="reset" value="Clear" /> -->
 						</span>
 						<input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />
 					 </form>
 				</div>
+				<div class="bottom-spacing"></div>
 			</div>
 		</div>
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>

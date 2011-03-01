@@ -53,8 +53,10 @@
 							<textarea cols="61" rows="15" name="text_description" id="text_description"><?php echo set_value('text_description'); ?></textarea>
 						</p>
 						<span id="button_grid">
-							<input type="submit" value="Create Project" />
-							<input type="reset" value="Clear" />
+							<a href="#" class="button">Create Project</a>
+							<a href="#" class="button">Clear</a>
+							<!-- <input type="submit" value="Create Project" />
+							<input type="reset" value="Clear" /> -->
 						</span>
 					</form>
 				</div>
