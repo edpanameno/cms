@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>$WikiTitle | {$Group} / {$Title} $ActionTitle</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=8" />
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel='stylesheet' href='$SkinDirUrl/pmwiki.css' type='text/css' />
+  <link rel='stylesheet' href='http://u9-desktop/~ed/cms/css/style.css' type='text/css' />
+  <!--HTMLHeader-->
+	<style type="text/css">
+		hr {
+		}
+		h3 {
+			font-size: 12pt;
+			margin-bottom: 3px;
+		}
+
+		h2 {
+			color: black;
+			font-size: 13pt;
+		}
+
+		table#wikimid, table#wikimid tr td#wikileft {
+			border: none;
+		}
+
+		tr td#wikileft {
+			border: 1px dotted red;
+		}
+		
+		table#wikimid tr td#wikileft {
+		}
+
+		/** So that chrome doesn't resize the text area **/
+		textarea {
+			resize: none;
+		}
+		
+		#main-content {
+			margin: 0px;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+
+<div id="top-header">
+<h2 style="margin: 0.83em 0px ; font-size: 16pt; font-weight: bold; color: #4f5155">myCMS</h2>
+<span id="meta-info">
+  <form  style="margin-top: -12px;" action='{$ScriptUrl}'>
+    <input type='hidden' name='n' value='{$FullName}' />
+    <input type='hidden' name='action' value='search' />
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton' value='$[Search]' />
+  </form>
+</span>
+</div>
+
+<div id="common-nav">
+	<ul>
+		<li><a href="http://u9-desktop/~ed/cms">Home</a>
+		<li><a href="http://u9-desktop/~ed/cms/projects">Projects</a>
+		<li><a id="current_tab" href="http://u9-desktop/~ed/cms/wiki">Wiki</a>
+	</ul>
+</div>
+
+<div id="main-content">
+	<div id="wiki-content">
+  	  <!--PageHeaderFmt-->
+  	  <!--/PageHeaderFmt-->
+	  <!--PageLeftFmt-->
+	  <!--/PageLeftFmt-->
+      <div id="wikibody" style="border: 1px dashed red;">
+        <div id="wikileft">
+		  <!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
+        </div>
+		<!--PageActionFmt-->
+        <div id="wikicmds">
+		  <!--wiki:{$Group}.PageActions {$SiteGroup}.PageActions-->
+		</div>
+		<!--PageTitleFmt-->
+        <div id="wikititle">
+          <div class="pagegroup"><a href="{$ScriptUrl}/{$Group}">{$Group}</a>/</div>
+          <h1 class='pagetitle">{$Title}</h1>
+		</div>
+	 	<span style="margin-left: 10px; color: grey; font-size: 0.83em;">Last Modified on {$LastModified}</span>
+	  <!--PageText-->
+      </div> 
+	</div>
+</div>
+</div>
+<div id="footer">myCMCS | Copyright 2011</div> 
+</body>
+</html>

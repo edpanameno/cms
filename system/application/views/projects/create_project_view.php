@@ -7,6 +7,7 @@
         <title><?php echo $this->config->item("app_name"); ?> - projects - Create Project</title>
 		<?php $this->load->view("common/style_sheets_view"); ?>
 		<base href="<?php echo site_url(); ?>" />
+		<link rel="stylesheet" href="css/css3buttons.css" media="screen" />
 		<script language="javascript" type="text/javascript" src="js/editor/tiny_mce.js"></script>
 		<script language="javascript" type="text/javascript" src="js/basic_editor.js"> </script>
 		<script language="javascript" type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
@@ -52,7 +53,7 @@
 							<textarea cols="61" rows="15" name="text_description" id="text_description"><?php echo set_value('text_description'); ?></textarea>
 						</p>
 						<span id="button_grid">
-							<input type="submit" value="Create Project" />
+							<input class="button" type="submit" value="Create Project" />
 							<input type="reset" value="Clear" />
 						</span>
 					</form>

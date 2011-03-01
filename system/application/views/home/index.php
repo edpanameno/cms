@@ -68,6 +68,7 @@
 					<?php endif; ?>
 					</table>
 			</div>
+			<div class="bottom-spacing" ></div>
 		</div>
 		<div id="footer"><?php $this->load->view("common/footer_view"); ?></div>
     </body>

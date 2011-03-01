@@ -191,6 +191,10 @@ input, select option {
 	font-size: 13px;
 }
 
+div.bottom-spacing {
+	padding-top: 100px;
+}
+
 /** Fonts **/
 h2 {
 	color: #4F5155;
