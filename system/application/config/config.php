@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://u9-desktop/~ed/cms/";
+$config['base_url']	= "http://u10-desktop/~ed/cms/";
 
 /*
  * Application Name.  This is what will appear in the title bar of the
