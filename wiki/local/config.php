@@ -21,7 +21,7 @@ $WikiTitle = 'myCMS - Wiki';
 ##  want to check http://www.pmwiki.org/wiki/Cookbook/CleanUrls more
 ##  details about this setting and other ways to create nicer-looking urls.
 $EnablePathInfo = 1;
-$ScriptUrl = "http://u9-desktop/~ed/cms/wiki";
+$ScriptUrl = "http://u10-desktop/~ed/cms/wiki";
 
 ## ~~ will be used for creation of item in wiki
 # Got this from the following link: http://www.mail-archive.com/pmwiki-users@pmichaud.com/msg12026.html
@@ -77,7 +77,7 @@ include_once("scripts/creole.php");
 $EnableUpload = 1;
 $DefaultPasswords['upload'] = crypt('upload123');
 $UploadDir = "/home/ed/public_html/cms/wiki/uploads";
-$UploadUrlFmt = "http://u9-desktop/~ed/cms/wiki/uploads";
+$UploadUrlFmt = "http://u10-desktop/~ed/cms/wiki/uploads";
 $UploadMaxSize = 1000000;
 
 ##  Setting $EnableDiag turns on the ?action=diag and ?action=phpinfo
