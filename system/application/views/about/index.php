@@ -31,6 +31,7 @@
 					<li><a target="_blank" href="http://benedmunds.com/ion_auth/">Ion Auth</a> for Basic Authentication</li>
 					<li><a target="_blank" href="http://tinymce.moxiecode.com/">tinymce</a> for the WYSIWYG editor</li>
 					<li><a target="_blank" href="http://jquery.com/">jQuery</a></li>
+					<li><a target="_blank" href="http://pmwiki.org/">pmWiki</a> for a simple, file based Wiki</li>
 					<!-- <li><a target="_blank" href="http://www.zend.com/en/">Zend Lucene Search Library</a></li> -->
 				</ol>
 			</div>
