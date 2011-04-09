@@ -17,7 +17,7 @@
 
 		<style type="text/css">
 			table {
-				width: 70%;
+				width: 80%;
 			}
 		</style>
     </head>

@@ -260,8 +260,8 @@
 					</colgroup>
 					<thead>
 						<tr>
-							<th>Author</th>
-							<th>Note</th>
+							<th>author</th>
+							<th>note</th>
 						</tr>
 					</thead>
 				<?php foreach($ticket_notes as $note): ?>

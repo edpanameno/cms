@@ -15,7 +15,7 @@
 		</script>
 		<style type="text/css">
 			table {
-				width: 75%;
+				width: 80%;
 			}
 		</style>
     </head>
@@ -48,7 +48,7 @@
 					<colgroup>
 						<col width="10%" />
 						<col width="70%" />
-						<col width="20%" />
+						<col width="17%" />
 					</colgroup>
 					<thead>
 						<th>ticket #</th>
