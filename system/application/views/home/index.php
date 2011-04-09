@@ -58,7 +58,7 @@
 					<?php foreach($my_tickets as $ticket): ?>
 						<tr>
 							<td style="text-align: center;"><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
-							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title, "title=\"" . $ticket->project_name . " -> " . strip_tags($ticket->description) . "\""); ?></td>
+							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title, "title=\"" . $ticket->project_name . " - " . strip_tags($ticket->description) . "\""); ?></td>
 							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 						</tr>
 					<?php endforeach; ?>
