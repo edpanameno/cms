@@ -74,7 +74,7 @@ class Ticket_model extends Model {
 
 	function getAssignedTickets($user_id) {
 
-		$sqlQuery = "SELECT T.ticket_id as 'ticket_id', T.title, T.project_id, TS.name as 'status', " .
+		$sqlQuery = "SELECT T.ticket_id as 'ticket_id', T.title, T.project_id, T.description, TS.name as 'status', " .
 					"P.name as 'project_name' " .
 					"FROM tickets T, ticket_status TS, projects P " .
 					"WHERE T.assigned_to = '$user_id' " .
