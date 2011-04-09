@@ -47,21 +47,18 @@
 					<table id="tickets_table">
 					<colgroup>
 						<col width="10%" />
-						<col width="55%" />
-						<col width="20%" />
+						<col width="60%" />
 						<col width="15%" />
 					</colgroup>
 					<thead>
 						<th>ticket #</th>
 						<th>title</th>
-						<th>project</th>
 						<th>status</th>
 					</thead>
 					<?php foreach($my_tickets as $ticket): ?>
 						<tr>
-							<td style="text-align: center;" ><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
+							<td style="text-align: center;"><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->ticket_id); ?></td>
 							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->title, "title=\"" . strip_tags($ticket->description) . "\""); ?></td>
-							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->project_name); ?></td>
 							<td><?php echo anchor("projects/" . $ticket->project_id ."/" . url_title($ticket->project_name, "underscore", TRUE) . "/trac/" . $ticket->ticket_id, $ticket->status); ?></td>
 						</tr>
 					<?php endforeach; ?>
