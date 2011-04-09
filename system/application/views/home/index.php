@@ -48,7 +48,7 @@
 					<colgroup>
 						<col width="10%" />
 						<col width="70%" />
-						<col width="15%" />
+						<col width="20%" />
 					</colgroup>
 					<thead>
 						<th>ticket #</th>
