@@ -47,8 +47,8 @@
 					<table id="tickets_table">
 					<colgroup>
 						<col width="10%" />
-						<col width="70%" />
-						<col width="17%" />
+						<col width="60%" />
+						<col width="15%" />
 					</colgroup>
 					<thead>
 						<th>ticket #</th>

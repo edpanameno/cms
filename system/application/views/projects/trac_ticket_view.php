@@ -165,7 +165,7 @@
 			</div>
 			<div id="main-content">
 				<?php if($ticket): ?>
-				<h3 class="heading_text"><?php echo $ticket->title . " (#" . $ticket->ticket_id . ")"; ?></h3> <br />
+				<h3 class="heading_text"><?php echo "Ticket #" . $ticket->ticket_id . " - " . $ticket->title; ?></h3> <br />
 				<table class="ticket_info">
 					<colgroup>
 						<col width="25%" />
@@ -301,7 +301,7 @@
 								<?php echo form_dropdown('new_type_id', $ticket_types, $ticket->type_id); ?>
 							</li>
 							<li>
-								<label for="new_type_id">Type</label>
+								<label for="new_type_id">Priority</label>
 								<?php echo form_dropdown('new_priority_id', $ticket_priorities, $ticket->priority_id); ?>
 							</li>
 							<li>
